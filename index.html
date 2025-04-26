@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">+
+	<meta name="author" content="GustavoParra">
+	<meta name="keywords" content="html,css,xml,javascript">
+	<meta name="SnapVAs" content="Virtual Asssisnts services">
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, shrink-to-fit=no">
+	<title>SnapVAs virtual assistant agents</title>
+	<link rel="stylesheet" href="CSS/bootstrap/css/bootstrap.min.css">
+	<link href="CSS/Estilos.css" type="text/css" rel="stylesheet">
+	<link href="CSS/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Assistants Pro - Asistentes Virtuales Profesionales</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">
+                <img src="logo.png" alt="Virtual Assistants Pro" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrusel de banners (5 banners) -->
+    <section class="banner-carousel">
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('banner1.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Asistentes Virtuales Profesionales</h2>
+                        <p>Optimiza tu negocio con nuestro equipo de expertos</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('banner2.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Soporte 24/7</h2>
+                        <p>Estamos disponibles cuando nos necesites</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('banner3.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Soluciones Personalizadas</h2>
+                        <p>Servicios adaptados a tus necesidades</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('banner4.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Tecnología de Vanguardia</h2>
+                        <p>Utilizamos las mejores herramientas para tu negocio</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('banner5.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Aumenta tu Productividad</h2>
+                        <p>Deja las tareas repetitivas en nuestras manos</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Sección de servicios -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nuestros Servicios</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <img src="service1.jpg" class="card-img-top" alt="Asistencia Administrativa">
+                        <div class="card-body">
+                            <h5 class="card-title">Asistencia Administrativa</h5>
+                            <p class="card-text">Gestión de correos, agenda, organización de reuniones y más.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <img src="service2.jpg" class="card-img-top" alt="Soporte al Cliente">
+                        <div class="card-body">
+                            <h5 class="card-title">Soporte al Cliente</h5>
+                            <p class="card-text">Atención personalizada a tus clientes via email, chat y teléfono.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <img src="service3.jpg" class="card-img-top" alt="Marketing Digital">
+                        <div class="card-body">
+                            <h5 class="card-title">Marketing Digital</h5>
+                            <p class="card-text">Gestión de redes sociales, email marketing y campañas publicitarias.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de noticias -->
+    <section id="news" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Últimas Noticias</h2>
+            <div class="row" id="newsContainer">
+                <!-- Las noticias se cargarán dinámicamente desde JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de contacto -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Contáctanos</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="subject" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mailchimp Signup Form -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h3>Suscríbete a nuestro boletín</h3>
+                    <p>Recibe las últimas noticias y promociones directamente en tu correo.</p>
+                </div>
+                <div class="col-md-6">
+                    <!-- Begin Mailchimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <form action="MAILCHIMP_FORM_ACTION_URL" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll" class="input-group">
+                                <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Tu correo electrónico" required>
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                    <input type="text" name="b_MAILCHIMP_USERNAME_MAILCHIMP_LIST_ID" tabindex="-1" value="">
+                                </div>
+                                <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-light">Suscribirse</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End Mailchimp Signup Form -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Virtual Assistants Pro</h5>
+                    <p>Soluciones profesionales de asistencia virtual para tu negocio.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> info@virtualassistantspro.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <div class="social-links">
+                        <a href="FACEBOOK_URL" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="INSTAGRAM_URL" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="TWITTER_URL" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="LINKEDIN_URL" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Virtual Assistants Pro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/3108809817?text=Hola,%20estoy%20interesado%20en%20sus%20servicios" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <!-- Botón de llamada -->
+    <a href="tel:+573132031426" class="call-btn">
+        <i class="fas fa-phone fa-2x"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Scripts personalizados -->
+    <script>
+        // Google Analytics (reemplaza con tu ID)
+        const GA_MEASUREMENT_ID = 'UA-XXXXX-Y';
+        
+        // Noticias dinámicas
+        const newsData = [
+            {
+                title: "Nuevo servicio de asistencia para eCommerce",
+                date: "15 Oct, 2023",
+                content: "Hemos lanzado un nuevo paquete especializado para tiendas en línea que incluye gestión de pedidos y atención al cliente 24/7.",
+                image: "news1.jpg"
+            },
+            {
+                title: "Cómo los asistentes virtuales aumentan la productividad",
+                date: "5 Oct, 2023",
+                content: "Estudios muestran que las empresas que contratan asistentes virtuales aumentan su productividad en un 40%.",
+                image: "news2.jpg"
+            },
+            {
+                title: "Actualización de nuestras herramientas tecnológicas",
+                date: "28 Sep, 2023",
+                content: "Hemos implementado nuevas herramientas de automatización para ofrecer un servicio más eficiente.",
+                image: "news3.jpg"
+            }
+        ];
+        
+        // Cargar noticias
+        function loadNews() {
+            const newsContainer = $('#newsContainer');
+            newsData.forEach(news => {
+                newsContainer.append(`
+                    <div class="col-md-4 mb-4">
+                        <div class="card news-card h-100">
+                            <img src="${news.image}" class="card-img-top" alt="${news.title}">
+                            <div class="card-body">
+                                <h5 class="card-title">${news.title}</h5>
+                                <p class="text-muted"><small>${news.date}</small></p>
+                                <p class="card-text">${news.content}</p>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            });
+        }
+        
+        // Manejar formulario de contacto
+        $('#contactForm').submit(function(e) {
+            e.preventDefault();
+            
+            const name = $('#name').val();
+            const email = $('#email').val();
+            const subject = $('#subject').val();
+            const message = $('#message').val();
+            
+            // Aquí iría el código para enviar el formulario a tu backend
+            // Ejemplo con EmailJS o AJAX a un script PHP
+            
+            // Simulación de envío exitoso
+            alert(`Gracias ${name}, tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.`);
+            $('#contactForm')[0].reset();
+            
+            // Envío a Google Analytics
+            gtag('event', 'contact_form_submit', {
+                'event_category': 'engagement',
+                'event_label': 'Contact Form'
+            });
+        });
+        
+        // Inicialización
+        $(document).ready(function() {
+            loadNews();
+            
+            // Inicializar carrusel
+            $('.carousel').carousel({
+                interval: 5000
+            });
+        });
+    </script>
+</body>
+</html>
