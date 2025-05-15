@@ -98,3 +98,29 @@ footer {
 .navbar-custom {
     background-color: #564797 !important;
 }
+ #topheader {
+	background-color: #a796f2;
+	border-bottom: 2px solid #ddd;
+	padding: 0.5rem 0;
+  }
+  
+  #topheader a {
+	color: var(--text);
+	font-weight: 600;
+	font-size: 0.89rem;
+	transition: var(--transition);
+	float: right;
+  }
+  
+  #topheader a:hover {
+	color: var(--primary);
+  }
+  
+  #titulo {
+	font-size: 1.8rem;
+	color: var(--white);
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  #topheader a {
+	color: white;
+  }

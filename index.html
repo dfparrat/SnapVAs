@@ -2,37 +2,48 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Diana Pardo"> <!-- Añadí espacio entre nombre y apellido -->
-    <meta name="keywords" content="html, css, xml, javascript, asistentes virtuales, virtual assistants"> <!-- Mejoré las keywords -->
-    <meta name="description" content="SnapVAs - Servicios profesionales de asistentes virtuales"> <!-- Añadí meta description importante para SEO -->
+    <meta name="author" content="Diana Pardo">
+    <meta name="keywords" content="html, css, xml, javascript, asistentes virtuales, virtual assistants">
+    <meta name="description" content="SnapVAs - Servicios profesionales de asistentes virtuales">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Eliminé user-scalable=yes (es el valor por defecto) y shrink-to-fit=no (obsoleto) -->
-    
-    <title>SnapVAs - Asistentes Virtuales Profesionales</title> <!-- Título más consistente con el nombre de la marca -->
-    
-    <!-- Google Analytics - Debes reemplazar GA_MEASUREMENT_ID con tu ID real -->
+    <title>SnapVAs - Asistentes Virtuales Profesionales</title> 
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID'); // También reemplazar aquí
+      gtag('config', 'GA_MEASUREMENT_ID');
     </script>
-    
-    <!-- Google Search Console - Reemplazar con tu código real -->
     <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE">
-    
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <!-- Añadí integrity y crossorigin para seguridad -->
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Añadí atributos de seguridad -->
-    
-    <link href="CSS/SVEstilos.css" rel="stylesheet"> <!-- Eliminé type="text/css" (obsoleto en HTML5) -->
+    <link href="CSS/SVEstilos.css" rel="stylesheet">
 </head>
 <body>
+    <header>
+    <div class="p-1" id="topheader">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 text-right">
+						<a class="whatsapp-link" target="_blank" title="Contact Us On WhatsApp" 
+						   href="https://wa.me/573014079592?text=¡Hola!%20Quisiera%20saber%20más%20del%20servicio%20de%20Virtual Assistants." 
+						   id="whatsapplink">
+							<i class="bi bi-whatsapp"></i>
+							3014079592
+						</a>
+						
+						<a class="p-1" href="mailto:gp042792@gmail.com" target="_blank">
+							<i class="bi bi-envelope"></i>marketing@snapvas.com
+						</a>
+						
+						<a class="p-1" target="_blank" title="Call Us" href="tel:+573132031426">
+							<i class="bi bi-telephone-outbound-fill"></i>
+							+57 3014079592
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
@@ -60,7 +71,7 @@
             </div>
         </div>
     </nav>
-
+    </header>
     <!-- Carrusel de banners (5 banners) -->
     <section class="banner-carousel">
         <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -252,7 +263,7 @@
     </footer>
 
     <!-- Botón de WhatsApp -->
-    <a href="https://wa.me/3108809817?text=Hola,%20estoy%20interesado%20en%20sus%20servicios" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/+573014079592?text=Hola,%20estoy%20interesado%20en%20sus%20servicios" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
 
