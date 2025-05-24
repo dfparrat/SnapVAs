@@ -73,56 +73,72 @@
     </nav>
     </header>
     <!-- Carrusel de banners (5 banners) -->
-    <section class="banner-carousel">
-        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4"></button>
+     <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+        <div id="mainCarousel" class="carousel-inner" data-bs-ride="carousel">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="IMG/City_BG_1.png" class="d-block w-100" alt="Servicio 24/7" style="height: 30vh; min-height: 250px; object-fit: cover;">
+                    <div class="carousel-caption">
+                    <h5>¡Atención 24/7!</h5>
+                    <p>Best LATAM Professionals</p>
+                    <a href="https://wa.me/573014079592?text=Hi!%20We%20would%20like%20to%20hire%20a%20SNAPVAS!" target="_blank" class="btn btn-success mt-2">
+                        Hire your SNAPVAS Assistant
+                    </a>
+                    </div>
+                </div>
+                  <!-- Slide 2 -->
+                <div class="carousel-item active">
+                    <img src="IMG/City_BG_2.png" class="d-block w-100" alt="Servicio 24/7" style="height: 30vh; min-height: 250px; object-fit: cover;">
+                    <div class="carousel-caption">
+                    <h5>We work 24/7!</h5>
+                    <p>Profesionales listos para ayudarte en cualquier momento</p>
+                    <a href="https://wa.me/573014079592?text=Hi!%20We%20would%20like%20to%20hire%20a%20SNAPVAS!" target="_blank" class="btn btn-success mt-2">
+                        Get your own Assistant!
+                    </a>
+                    </div>
+                </div>
+                 <!-- Slide 3 -->
+                <div class="carousel-item active">
+                    <img src="IMG/City_BG_3.png" class="d-block w-100" alt="Servicio 24/7" style="height: 30vh; min-height: 250px; object-fit: cover;">
+                    <div class="carousel-caption">
+                    <h5>Get your assistant from the best LATAM Tech-Hubs</h5>
+                    <p>Profesionales listos para ayudarte en cualquier momento</p>
+                    <a href="https://wa.me/573014079592?text=Hi!%20We%20would%20like%20to%20hire%20a%20SNAPVAS!" target="_blank" class="btn btn-success mt-2">
+                        Get the best Assistant now!
+                    </a>
+                    </div>
+                </div>
+                 <!-- Slide 4 -->
+                <div class="carousel-item active">
+                    <img src="IMG/City_Med_BG_1.jpg" class="d-block w-100" alt="Servicio 24/7" style="height: 30vh; min-height: 250px; object-fit: cover;">
+                    <div class="carousel-caption">
+                    <h5>Get your assistant from the best LATAM Tech-Hubs</h5>
+                    <p>Profesionales listos para ayudarte en cualquier momento</p>
+                    <a href="https://wa.me/573014079592?text=Hi!%20We%20would%20like%20to%20hire%20a%20SNAPVAS!" target="_blank" class="btn btn-success mt-2">
+                        Get the best Assistant now!
+                    </a>
+                    </div>
+                </div>
+                 <div class="carousel-item active">
+                    <img src="IMG/City_Med_BG_2.jpg" class="d-block w-100" alt="Servicio 24/7" style="height: 30vh; min-height: 250px; object-fit: cover;">
+                    <div class="carousel-caption">
+                    <h5>Get your assistant from the best LATAM Tech-Hubs</h5>
+                    <p>Profesionales listos para ayudarte en cualquier momento</p>
+                    <a href="https://wa.me/573014079592?text=Hi!%20We%20would%20like%20to%20hire%20a%20SNAPVAS!" target="_blank" class="btn btn-success mt-2">
+                        Get the best Assistant now!
+                    </a>
+                    </div>
+                </div>
+                
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('banner1.jpg');">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Asistentes Virtuales Profesionales</h2>
-                        <p>Optimiza tu negocio con nuestro equipo de expertos</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('banner2.jpg');">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Soporte 24/7</h2>
-                        <p>Estamos disponibles cuando nos necesites</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('banner3.jpg');">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Soluciones Personalizadas</h2>
-                        <p>Servicios adaptados a tus necesidades</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('banner4.jpg');">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Tecnología de Vanguardia</h2>
-                        <p>Utilizamos las mejores herramientas para tu negocio</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('banner5.jpg');">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Aumenta tu Productividad</h2>
-                        <p>Deja las tareas repetitivas en nuestras manos</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Controles del slider -->
             <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
-        </div>
-    </section>
-
+        </div>    
     <!-- Sección de servicios -->
     <section id="services" class="py-5">
         <div class="container">

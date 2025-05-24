@@ -124,3 +124,79 @@ footer {
   #topheader a {
 	color: white;
   }
+   /* ===== slider styles ===== */
+#heroCarousel {
+	height: 50vh;
+	min-height: 300px;
+	position: relative;
+  }
+  #heroCarousel .carousel-inner,
+  #heroCarousel .carousel-item,
+  #heroCarousel .carousel-item img {
+	height: 100% !important; 
+	width: 100%;
+  }
+    #heroCarousel .carousel-item img {
+	object-fit: cover;       
+	object-position: center; 
+	display: block;
+  }
+    .carousel-item {
+	transition: transform 0.6s ease-in-out !important;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+	height: 100%;
+  }
+  .carousel-caption {
+	background: rgba(0, 0, 0, 0.7);
+	padding: 20px 30px;
+	border-radius: 15px;
+	animation: fadeInUp 1s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+	from {
+	  opacity: 0;
+	  transform: translateY(30px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+
+  .carousel-caption h5 {
+	font-size: 2rem;
+	font-weight: bold;
+  }
+
+  .carousel-caption p {
+	font-size: 1.1rem;
+  }
+  @media (max-width: 768px) {
+	.carousel-inner img {
+	  height: 300px;
+	}
+  }
+  .carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+.carousel-control-prev::before,
+.carousel-control-next::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: black;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev::before {
+    content: "\f053";
+}
+
+.carousel-control-next::before {
+    content: "\f054";
+}
