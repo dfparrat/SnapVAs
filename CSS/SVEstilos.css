@@ -96,10 +96,10 @@ footer {
 
 /*NAV BAR STYLES*/
 .navbar-custom {
-    background-color: #564797 !important;
+    background-color: black !important;
 }
  #topheader {
-	background-color: #a796f2;
+	background-color: #564797;
 	border-bottom: 2px solid #ddd;
 	padding: 0.5rem 0;
   }
@@ -149,7 +149,7 @@ footer {
 	height: 100%;
   }
   .carousel-caption {
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(86, 71, 151, 0.7);
 	padding: 20px 30px;
 	border-radius: 15px;
 	animation: fadeInUp 1s ease-out;
