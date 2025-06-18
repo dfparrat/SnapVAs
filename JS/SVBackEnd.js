@@ -102,7 +102,7 @@ gtag('config', 'GA_MEASUREMENT_ID');
                     // Actualizar el popup con la información del elemento clickeado
                     popupTitle.textContent = `Contacto - ${title}`;
                     messageLabel.textContent = `Mensaje sobre ${title}:`;
-                    document.getElementById('message').value = `Hola, estoy interesado en ${title}.\n${description}\n\nPor favor contáctenme.`;
+                    document.getElementById('message').value = `Hi, We are looking for ${title}.\n${description}\n\nPlease reach out to us at:`;
                     
                     // Mostrar el popup
                     popup.classList.add('active');
