@@ -25,6 +25,183 @@ body {
 .service-card:hover {
 	transform: translateY(-10px);
 }
+/* Service Card Styles */
+#hireGallery{
+			background-color: rgb(86,71,151,0.7);
+            max-width: 95%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+			padding: 20px;
+        }
+
+   .gallery-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 150px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+        }
+        
+        .gallery-item h3 {
+            margin-top: 10px;
+            color: white;
+            font-size: 16px;
+			transition: all 0.3s ease;
+        }
+/* Estilos para móviles - Carrusel Services */
+        @media (max-width: 768px) {
+            #hireGallery {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch; 
+                scrollbar-width: none;
+                gap: 15px;
+                padding: 40px 5% 60px;
+				scroll-behavior: smooth; 
+            }
+            
+            #hireGallery::-webkit-scrollbar {
+                display: none;
+			}
+            .gallery-item {
+				scroll-snap-align: center;
+                flex: 0 0 auto;
+                width: 90%; 
+                margin-right: 15px;
+				transition: all 0.3s ease;
+            }
+            
+			.gallery-item.active {
+                transform: scale(1.05);
+                z-index: 10;
+				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+            
+            .gallery-item.active img {
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                border: 3px solid black;;
+            }
+            
+            .gallery-item.active h3 {
+                font-size: 18px;
+                color: white;
+                font-weight: bold;
+            }
+            .gallery-item:last-child {
+                margin-right: 0;
+            }
+        }
+
+  /* Estilos para el popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .popup-content h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
 .news-card {
 	border-left: 5px solid var(--primary-color);
