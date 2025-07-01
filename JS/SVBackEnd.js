@@ -3,133 +3,148 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'GA_MEASUREMENT_ID');
 
-    document.addEventListener('DOMContentLoaded', function() {
-            // Seleccionar todos los elementos de la galería
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const popup = document.getElementById('contactPopup');
-            const popupTitle = document.getElementById('popupTitle');
-            const messageLabel = document.getElementById('messageLabel');
-            const closePopup = document.querySelector('.close-popup');
-            const contactForm = document.getElementById('contactForm');
-            const carousel = document.getElementById('hireGallery');
+document.addEventListener('DOMContentLoaded', function() {
+    // ===== SERVICE POPUP WITH EXPLANATIONS =====
+    const serviceExplanations = {
+        "legal": {
+            "basic": "Basic legal assistance includes consultation and document review.",
+            "premium": "Premium legal assistance includes full case representation.",
+            "corporate": "Corporate legal assistance covers business contracts."
+        },
+        "logistics": {
+            "domestic": "Domestic logistics covers all transportation within your country.",
+            "international": "Handles cross-border shipping and customs.",
+            "warehousing": "Storage and inventory management solutions."
+        },
+        "staffing": {  // Changed from "staffingrecruiting" to match your data-title
+            "temporary": "Temporary staffing for short-term project needs.",
+            "permanent": "Permanent placement for long-term positions.",
+            "executive": "Executive search for C-level roles."
+        },
+        "customer": {  // Changed from "customerservice" to match your data-title
+            "support": "Basic customer support for inquiries.",
+            "success": "Customer onboarding and retention.",
+            "experience": "Customer experience strategy."
+        },
+        "devops": {  // Changed from "devopssecops" to match your data-title
+            "implementation": "CI/CD pipeline implementation.",
+            "security": "Security operations management.",
+            "cloud": "Cloud infrastructure setup."
+        }
+    };
 
-            // Variables para el carrusel automático
-            let currentIndex = 0;
-            let autoScrollInterval;
-            const itemWidth = window.innerWidth * 0.7 + 15; // Ancho del item + margen
-            const isMobile = window.innerWidth <= 768;
+    // Get DOM elements
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const contactPopup = document.getElementById('contactPopup');
+    const serviceTypeSelect = document.getElementById('serviceType');
+    const serviceExplanationPopup = document.getElementById('serviceExplanationPopup');
+    const explanationContent = document.getElementById('explanationContent');
+    
+    let currentService = '';
+    let explanationTimeout;
 
-            // Función para resaltar el item activo
-            function updateActiveItem(index) {
-                galleryItems.forEach((item, i) => {
-                    if (i === index) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            }
+    // Unified gallery item click handler
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const title = this.getAttribute('data-title');
+            const description = this.getAttribute('data-description');
             
-            // Función para desplazar el carrusel
-            function scrollToIndex(index) {
-                if (!isMobile) return;
-                
-                currentIndex = index;
-                if (currentIndex >= galleryItems.length) {
-                    currentIndex = 0;
-                } else if (currentIndex < 0) {
-                    currentIndex = galleryItems.length - 1;
+            // Map service names consistently with your HTML data-titles
+            const serviceMap = {
+                'Legal Assistance': 'legal',
+                'Logistics': 'logistics',
+                'Staffing & Recruiting': 'staffing',
+                'Customer Service': 'customer',
+                'Devops & Secops': 'devops',
+                'Cx Service': 'customer'
+            };
+            
+            currentService = serviceMap[title];
+            
+            // Debugging - check if service is mapped correctly
+            console.log('Service:', title, 'Mapped to:', currentService);
+            
+            // Update main popup
+            document.getElementById('popupTitle').textContent = `Hire ${title}`;
+            document.getElementById('messageLabel').textContent = description;
+            
+            // Populate service types
+            serviceTypeSelect.innerHTML = '';
+            
+            // Add blank/default option first
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = '-- Select service type --';
+            defaultOption.selected = true;
+            defaultOption.disabled = true;
+            serviceTypeSelect.appendChild(defaultOption);
+            
+            // Add service-specific options
+            if (serviceExplanations[currentService]) {
+                for (const [key, text] of Object.entries(serviceExplanations[currentService])) {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = key.charAt(0).toUpperCase() + key.slice(1) + " Service";
+                    serviceTypeSelect.appendChild(option);
                 }
-                
-                carousel.scrollTo({
-                    left: currentIndex * itemWidth,
-                    behavior: 'smooth'
-                });
-                updateActiveItem(currentIndex);
+            } else {
+                console.warn('No explanations found for service:', currentService);
             }
             
-             // Detectar cuando el scroll se detiene para actualizar el item activo
-            let isScrolling;
-            carousel.addEventListener('scroll', () => {
-                window.clearTimeout(isScrolling);
-                isScrolling = setTimeout(() => {
-                    const scrollPosition = carousel.scrollLeft;
-                    const newIndex = Math.round(scrollPosition / itemWidth);
-                    if (newIndex !== currentIndex) {
-                        currentIndex = newIndex;
-                        updateActiveItem(currentIndex);
-                    }
-                }, 100);
-            }, false);
-
-            // Iniciar auto-scroll solo en móviles
-            function startAutoScroll() {
-                if (!isMobile) return;
-                
-                autoScrollInterval = setInterval(() => {
-                    scrollToIndex(currentIndex + 1);
-                }, 3000); //3 segundos
-            }
-            
-            // Detener auto-scroll cuando el usuario interactúa
-            function pauseAutoScroll() {
-                clearInterval(autoScrollInterval);
-            }
-            
-            // Reanudar auto-scroll después de la interacción
-            function resumeAutoScroll() {
-                startAutoScroll();
-            }
-            
-            // Evento para detectar interacción del usuario
-            carousel.addEventListener('touchstart', pauseAutoScroll);
-            carousel.addEventListener('touchend', () => {
-                setTimeout(resumeAutoScroll, 10000); // Reanudar después de 10 segundos
-            });
-            
-             // Marcar el primer item como activo al inicio
-            if (isMobile) {
-                updateActiveItem(0);
-                startAutoScroll();
-            }
-            
-            // Agregar evento click a cada elemento de la galería
-            galleryItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const title = this.getAttribute('data-title');
-                    const description = this.getAttribute('data-description');
-                    
-                    // Actualizar el popup con la información del elemento clickeado
-                    popupTitle.textContent = `Contact - ${title}`;
-                    messageLabel.textContent = `Message ${title}:`;
-                    document.getElementById('message').value = `Hi, We are looking for ${title}.\n${description}\n\nPlease reach out to us at:`;
-                    
-                    // Mostrar el popup
-                    popup.classList.add('active');
-                });
-            });
-            
-            // Cerrar popup al hacer clic en la X
-            closePopup.addEventListener('click', function() {
-                popup.classList.remove('active');
-            });
-            
-            // Cerrar popup al hacer clic fuera del contenido
-            popup.addEventListener('click', function(e) {
-                if (e.target === popup) {
-                    popup.classList.remove('active');
-                }
-            });
-            
-            // Manejar el envío del formulario
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Aquí puedes agregar el código para enviar el formulario
-                // Por ejemplo, con fetch o XMLHttpRequest
-                
-                alert('Formulario enviado con éxito. Nos pondremos en contacto pronto.');
-                popup.classList.remove('active');
-                contactForm.reset();
-            });
+            // Show popup
+            contactPopup.classList.add('active');
         });
+    });
+
+    // Service type selection handler
+    serviceTypeSelect.addEventListener('change', function() {
+        const selectedType = this.value;
+        
+        // Don't show popup if blank/default option is selected
+        if (!selectedType) return;
+        
+        // Debugging - check current service and selected type
+        console.log('Selected service type:', currentService, selectedType);
+        
+        if (!currentService || !serviceExplanations[currentService]) {
+            console.warn('Invalid service or no explanations available');
+            return;
+        }
+        
+        // Update explanation popup
+        document.getElementById('explanationTitle').textContent = 
+            this.options[this.selectedIndex].text + " Details";
+            
+        explanationContent.textContent = serviceExplanations[currentService][selectedType];
+        serviceExplanationPopup.classList.add('active');
+        
+        // Auto-close after 30 seconds
+        clearTimeout(explanationTimeout);
+        explanationTimeout = setTimeout(() => {
+            serviceExplanationPopup.classList.remove('active');
+        }, 30000);
+    });
+    // Close buttons
+    document.querySelectorAll('.close-popup').forEach(btn => {
+        btn.addEventListener('click', () => contactPopup.classList.remove('active'));
+    });
+    
+    document.querySelectorAll('.close-explanation-popup').forEach(btn => {
+        btn.addEventListener('click', () => {
+            clearTimeout(explanationTimeout);
+            serviceExplanationPopup.classList.remove('active');
+        });
+    });
+
+    // Close when clicking outside
+    [contactPopup, serviceExplanationPopup].forEach(popup => {
+        popup.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                if (this === serviceExplanationPopup) {
+                    clearTimeout(explanationTimeout);
+                }
+            }
+        });
+    });
+});

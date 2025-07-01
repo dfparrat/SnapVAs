@@ -143,7 +143,7 @@
             </button>
         </div>    
     <!-- Section services description -->
-<section id="services" class="py-5">
+<!--<section id="services" class="py-5">
     <div class="container">
         <h2 class="text-center mb-5">Our services</h2>
         <div class="row g-4">
@@ -216,7 +216,64 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
+
+<section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card service-card h-100" data-video="videos/service1.mp4">
+                        <img src="IMG/logistics_exp_1.jpg" class="card-img-top" alt="Administrative Assistance">
+                        <div class="card-body">
+                            <h5 class="card-title">Administrative Assistance</h5>
+                            <p class="card-text">
+                                Streamline your day-to-day operations with reliable, detail-oriented support. I offer comprehensive administrative assistance tailored to the needs of busy professionals and growing businesses.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100" data-video="videos/service2.mp4">
+                        <img src="IMG/CX_exp_1.jpg" class="card-img-top" alt="Customer Support">
+                        <div class="card-body">
+                            <h5 class="card-title">Customer Support</h5>
+                            <p class="card-text">
+                                Delivering responsive, human-centered service across every touchpoint. I provide personalized customer support to help strengthen your client relationships via email, chat, and phone.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100" data-video="videos/service3.mp4">
+                        <img src="IMG/staffing_exp_1.jpg" class="card-img-top" alt="Digital Marketing">
+                        <div class="card-body">
+                            <h5 class="card-title">Digital Marketing</h5>
+                            <p class="card-text">
+                                Grow your online presence with strategic, data-driven marketing support. I provide tailored services to help your brand connect, engage, and convert.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Popup -->
+    <div class="video-popup" id="videoPopup">
+    <div class="video-wrapper">
+        <iframe id="popupVideoIframe"
+            width="560" height="315"
+            src=""
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <button id="closeVideo" class="close-video">Close</button>
+</div>
 
     <!-- Section Hire Us -->
     <section id="hire" class="py-5">
@@ -260,8 +317,9 @@
     </div>
     </div>
     </section>
+    <!-- Popup de contacto -->
     <section>
-        <div class="popup-overlay container" id="contactPopup">
+    <div class="popup-overlay container" id="contactPopup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
             <h2 id="popupTitle">Hire Request</h2>
@@ -279,6 +337,12 @@
                     <input type="tel" id="phone" name="phone">
                 </div>
                 <div class="form-group">
+                    <label for="serviceType">Service Type:</label>
+                    <select id="serviceType" name="serviceType" required>
+                        <!-- Options will be added dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="message" id="messageLabel">Message:</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
@@ -286,7 +350,17 @@
             </form>
         </div>
     </div>
+    
+    <!-- New popup for service explanation -->
+    <div class="popup-overlay container" id="serviceExplanationPopup">
+        <div class="popup-content">
+            <span class="close-explanation-popup">&times;</span>
+            <h2 id="explanationTitle">Service Explanation</h2>
+            <div id="explanationContent"></div>
+        </div>
+    </div>
     </section>
+
     <!-- Sección de noticias -->
     <section id="news" class="py-5 bg-light">
         <div class="container">
@@ -455,23 +529,23 @@
         
         // Noticias dinámicas
         const newsData = [
-            {
-                title: "Nuevo servicio de asistencia para eCommerce",
-                date: "15 Oct, 2023",
-                content: "Hemos lanzado un nuevo paquete especializado para tiendas en línea que incluye gestión de pedidos y atención al cliente 24/7.",
-                image: "news1.jpg"
+           {
+                title: "New eCommerce Support Service",
+                date: "October 15, 2025",
+                content: "We’ve launched a powerful new support package designed for growing online businesses. It includes 24/7 customer service and full order management to help you scale efficiently and focus on growth.",
+                image: "IMG/News_1.jpg"
             },
             {
-                title: "Cómo los asistentes virtuales aumentan la productividad",
-                date: "5 Oct, 2023",
-                content: "Estudios muestran que las empresas que contratan asistentes virtuales aumentan su productividad en un 40%.",
-                image: "news2.jpg"
+                title: "How Virtual Assistants Boost Business Productivity",
+                date: "5 Oct, 2025",
+                content: "Recent studies reveal that companies leveraging virtual assistants see up to a 40% increase in productivity. From streamlining administrative tasks to enhancing customer support, virtual assistants empower growing businesses to focus on what matters most — scaling and delivering value.",
+                image: "IMG/News_2.jpg"
             },
             {
-                title: "Actualización de nuestras herramientas tecnológicas",
-                date: "28 Sep, 2023",
-                content: "Hemos implementado nuevas herramientas de automatización para ofrecer un servicio más eficiente.",
-                image: "news3.jpg"
+                title: "Upgraded Tech Stack to Enhance Service Efficiency",
+                date: "28 Sep, 2025",
+                content: "We’ve implemented a suite of new automation tools to deliver faster, smarter, and more efficient service to our clients. These upgrades are part of our ongoing commitment to innovation, scalability, and operational excellence for growing businesses.",
+                image: "IMG/News_3.jpg"
             }
         ];
         
