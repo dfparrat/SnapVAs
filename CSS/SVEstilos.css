@@ -835,3 +835,20 @@ body {
 #serviceExplanationPopup .service-icon {
     color: inherit !important;
 }
+/* Estilos para la imagen del servicio */
+.service-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+}
+
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

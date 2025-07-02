@@ -333,13 +333,34 @@
         </div>
     </div>    
     <!-- New popup for service explanation -->
-    <div class="popup-overlay container" id="serviceExplanationPopup">
-        <div class="popup-content">
-            <span class="close-explanation-popup">&times;</span>
-            <h2 id="explanationTitle">Service Explanation</h2>
-            <div id="explanationContent"></div>
+    <div class="popup-overlay" id="serviceExplanationPopup">
+    <div class="popup-content">
+        <button class="close-popup">&times;</button>
+        
+        <div class="popup-header">
+            <div class="service-icon" id="explanationIcon">ℹ️</div>
+            <h2 class="popup-title" id="explanationTitle">Service Explanation</h2>
+            <div class="service-countdown" id="serviceCountdown">Auto-close in 30s</div>
         </div>
-    </div>
+        
+        <div class="popup-body">
+            <!-- Añade este contenedor para la imagen -->
+            <div class="service-image-container" id="serviceImageContainer">
+                <img id="serviceImage" src="" alt="Service Image" class="service-image">
+            </div>
+            
+            <div class="explanation-content" id="explanationContent"></div>
+            
+            <h3 style="margin: 20px 0 10px; color: #00d4ff;">Key Features:</h3>
+            <ul class="service-features" id="serviceFeatures">
+                <li>Feature 1: Advanced functionality</li>
+                <li>Feature 2: Lightning fast delivery</li>
+                <li>Feature 3: Secure and reliable</li>
+            </ul>
+        </div>
+        <div class="progress-bar" id="explanationProgressBar"></div>
+        </div>
+        </div>
     </section>
 
     <!-- Sección de noticias -->
