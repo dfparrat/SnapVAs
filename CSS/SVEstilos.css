@@ -29,16 +29,24 @@ body {
 .main-container {
             max-width: 100%;
             margin: 0 auto;
-			background-color: black;
+			background-color: #f6f2f9;
 			padding: 20px;
         }
         
         /* Estilos para el título */
         .carousel-title {
             text-align: center;
-            margin-bottom: 30px;
-            color: white;
+            /*margin-bottom: 30px;*/
+            color: rgb(86,71,151);
             font-size: 28px;
+            position: relative;
+            /*padding-bottom: 10px;*/
+        }
+         .carousel-title2 {
+            text-align: center;
+            /*margin-bottom: 30px;*/
+            color: black;
+            font-size: 18px;
             position: relative;
             padding-bottom: 10px;
         }
@@ -54,7 +62,7 @@ body {
             background-color: #4CAF50;
         }
 #hireGallery{
-			background-color: rgb(86,71,151,0.7);
+			background-color: white;
             max-width: 95%;
             margin: 0 auto;
             display: grid;
@@ -70,6 +78,8 @@ body {
             min-width: 150px;
             position: relative;
             z-index: 1;
+            border-radius: 60%;
+            background-color: rgb(86,71,151);
         }
         
         .gallery-item:hover {
@@ -128,7 +138,7 @@ body {
             
             .gallery-item.active h3 {
                 font-size: 18px;
-                color: white;
+                color: rgb(86,71,151);
                 font-weight: bold;
             }
             .gallery-item:last-child {
@@ -300,42 +310,76 @@ footer {
 
 /*NAV BAR STYLES*/
 .navbar-custom {
-    background-color: black !important;
+    background-color: white !important;
+}
+.navbar-custom a {
+    color: black !important;
 }
 .navbar img {
     height: 60px;
-    border-radius: 50%;
   }
- #topheader {
-	background-color: #564797;
-	border-bottom: 2px solid #ddd;
-	padding: 0.5rem 0;
-  }
-  
-  #topheader a {
-	color: var(--text);
-	font-weight: 600;
-	font-size: 0.89rem;
-	transition: var(--transition);
-	float: right;
-  }
-  
-  #topheader a:hover {
-	color: var(--primary);
-  }
-  
-  #titulo {
-	font-size: 1.8rem;
-	color: var(--white);
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-  #topheader a {
-	color: white;
-  }
+  /* ===== Main Introduction ===== */  
 
-  #bottom-header a {
-	color: white;
+  /* Estilos generales para la sección */
+
+/* Contenedor principal */
+#Mainintro {
+  position: relative;
+  height: 525px;
+  display: flex;
+  align-items: stretch;
+  margin: 0 -15px; /* Compensa el padding del container */
+}
+
+/* Columnas */
+#Mainintro-s1 {
+  z-index: 2;
+  padding: 2rem;
+}
+
+#Mainintro-s2 {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}
+
+/* Imagen */
+#Mainintro-s2 img {
+  height: 100%;
+  width: auto;
+  max-width: none; /* Permite que la imagen sobresalga */
+  object-fit: cover;
+  object-position: right;
+  margin-right: -15px; /* Empuja la imagen al borde derecho */
+}
+
+
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  #Mainintro {
+    flex-direction: column;
+    height: auto;
+    min-height: 600px;
   }
+  
+  #Mainintro-s2 {
+    height: 300px;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  #Mainintro-s2 img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
    /* ===== slider styles ===== */
 #heroCarousel {
 	height: 50vh;
@@ -423,11 +467,7 @@ body {
     color: #333;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+
 
 .text-center {
     text-align: center;
@@ -487,84 +527,30 @@ body {
     line-height: 1.5;
     margin-bottom: 1rem;
 }
+/* Mobile-first adjustments */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .row {
+        margin: 0;
+    }
+    .py-5, .mb-5 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
 
-/*serviceExplanationPopup*/
-        /* Gallery Styles */
-        .main-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .carousel-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, #00d4ff, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .gallery-item {
-            background: linear-gradient(135deg, rgba(15, 32, 56, 0.95) 0%, rgba(32, 42, 68, 0.95) 100%);
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(255, 0, 150, 0.1) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: rotate(0deg) translate(0, 0); }
-            50% { transform: rotate(180deg) translate(-10px, -10px); }
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0, 212, 255, 0.5);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-        }
-
-        .gallery-item h3 {
-            padding: 15px;
-            text-align: center;
-            font-size: 1.2rem;
-            background: linear-gradient(90deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 122, 255, 0.2) 100%);
-        }
-
-        /* Futuristic Popup Styles */
+/* Optional: Better image handling */
+.card-img-top {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Maintains a consistent ratio */
+    object-fit: cover;
+}
+/* Futuristic Popup Styles */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -852,3 +838,39 @@ body {
     object-fit: cover;
     object-position: center;
 }
+
+/*Styles for the Snap sectio SVGn*/
+  .snap-section {
+    background-color: #f6f2f9;
+    position: relative;
+    padding: 80px 0; /* Aumenté el padding para mejor visualización */
+    overflow: hidden;
+  }
+
+  .wave-top, .wave-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wave-top {
+    top: 0;
+  }
+
+  .wave-bottom {
+    bottom: 0;
+    transform: rotate(180deg);
+  }
+
+  .wave-top svg, .wave-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(300% + 1.3px); /* Más ancho para ondulaciones más amplias */
+    height: 80px; /* Altura aumentada para más pronunciación */
+  }
+
+  .shape-fill {
+    fill: #FFFFFF;
+  }
