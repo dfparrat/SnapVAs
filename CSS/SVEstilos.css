@@ -5,103 +5,202 @@
 }
 
 body {
-	font-family: 'Nunito', sans-serif;
-	background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-.hero-section {
-	background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-	color: white;
-	padding: 100px 0;
+/*NAV BAR STYLES*/
+.navbar-custom {
+    background-color: white !important;
+}
+.navbar-custom a {
+    color: black !important;
+}
+.navbar img {
+    height: 60px;
+  }
+/* ===== Main Introduction ===== */
+#Mainintro {
+  position: relative;
+  height: 525px;
+  display: flex;
+  align-items: stretch;
+  margin: 0 -15px;
 }
 
-.service-card {
-	transition: transform 0.3s;
-	border-radius: 10px;
-	overflow: hidden;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+#Mainintro-s1 {
+  z-index: 2;
+  padding: 2rem;
 }
 
-.service-card:hover {
-	transform: translateY(-10px);
+#Mainintro-s2 {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
 }
-/* Service Card Styles */
-.main-container {
+#Mainintro-s2 img {
+  height: 100%;
+  width: auto;
+  max-width: none; 
+  object-fit: cover;
+  object-position: right;
+  margin-right: -15px; 
+}
+
+/* Ajustes para móviles MainIntro*/
+@media (max-width: 768px) {
+  #Mainintro {
+    flex-direction: column;
+    height: auto;
+    min-height: 600px;
+  }
+  
+  #Mainintro-s2 {
+    height: 300px;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  #Mainintro-s2 img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+
+/* Service Card Styles - Hire Section */
+.HireMain {
             max-width: 100%;
             margin: 0 auto;
 			background-color: #f6f2f9;
 			padding: 20px;
         }
-        
-        /* Estilos para el título */
-        .carousel-title {
-            text-align: center;
-            /*margin-bottom: 30px;*/
-            color: rgb(86,71,151);
-            font-size: 28px;
-            position: relative;
-            /*padding-bottom: 10px;*/
-        }
-         .carousel-title2 {
-            text-align: center;
-            /*margin-bottom: 30px;*/
-            color: black;
-            font-size: 18px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .carousel-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: #4CAF50;
-        }
-#hireGallery{
-			background-color: white;
-            max-width: 95%;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-			padding: 20px;
-        }
+/* Estilos generales (se mantienen igual) */
+.services-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 700;
+}
 
-   .gallery-item {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            min-width: 150px;
-            position: relative;
-            z-index: 1;
-            border-radius: 60%;
-            background-color: rgb(86,71,151);
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			transition: all 0.3s ease;
-        }
-        
-        .gallery-item h3 {
-            margin-top: 10px;
-            color: white;
-            font-size: 16px;
-			transition: all 0.3s ease;
-        }
-/* Estilos para móviles - Carrusel Services */
+.services-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contenedor principal para el scroll horizontal */
+.horizontal-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem 0;
+    -webkit-overflow-scrolling: touch; /* Para scroll suave en iOS */
+}
+
+/* Esconde la barra de scroll en algunos navegadores */
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Fila de servicios */
+.services-row {
+    display: inline-flex;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+    white-space: nowrap;
+}
+
+/* Estilos de cada servicio (se mantienen igual con pequeños ajustes) */
+.services-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(12.5% - 1rem); /* 8 elementos (100%/8) con gap de 1rem */
+    min-width: 100px; /* Ancho mínimo para móviles */
+    flex-shrink: 0;
+}
+
+.round-card {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border: 3px solid #fff;
+    background-color: rgb(86,71,151);
+}
+
+.round-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.round-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-container h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    max-width: 150px;
+    white-space: normal; /* Permite múltiples líneas si es necesario */
+}
+
+/* Estilos de las olas (se mantienen igual) */
+.wave-top, .wave-bottom {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-top svg, .wave-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.wave-bottom {
+    transform: rotate(180deg);
+}
+
+.shape-fill {
+    fill: #f8f9fa;
+}
+
+/* Estilos para móviles - Hire Section*/
         @media (max-width: 768px) {
             #hireGallery {
                 display: flex;
@@ -145,6 +244,26 @@ body {
                 margin-right: 0;
             }
         }
+
+
+
+.hero-section {
+	background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+	color: white;
+	padding: 100px 0;
+}
+
+.service-card {
+	transition: transform 0.3s;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+	transform: translateY(-10px);
+}
+
 
   /* Estilos para el popup */
         .popup-overlay {
@@ -308,77 +427,11 @@ footer {
 	}
 }
 
-/*NAV BAR STYLES*/
-.navbar-custom {
-    background-color: white !important;
-}
-.navbar-custom a {
-    color: black !important;
-}
-.navbar img {
-    height: 60px;
-  }
-  /* ===== Main Introduction ===== */  
+
 
   /* Estilos generales para la sección */
 
-/* Contenedor principal */
-#Mainintro {
-  position: relative;
-  height: 525px;
-  display: flex;
-  align-items: stretch;
-  margin: 0 -15px; /* Compensa el padding del container */
-}
 
-/* Columnas */
-#Mainintro-s1 {
-  z-index: 2;
-  padding: 2rem;
-}
-
-#Mainintro-s2 {
-  position: relative;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0;
-  margin: 0;
-}
-
-/* Imagen */
-#Mainintro-s2 img {
-  height: 100%;
-  width: auto;
-  max-width: none; /* Permite que la imagen sobresalga */
-  object-fit: cover;
-  object-position: right;
-  margin-right: -15px; /* Empuja la imagen al borde derecho */
-}
-
-
-
-/* Ajustes para móviles */
-@media (max-width: 768px) {
-  #Mainintro {
-    flex-direction: column;
-    height: auto;
-    min-height: 600px;
-  }
-  
-  #Mainintro-s2 {
-    height: 300px;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  #Mainintro-s2 img {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    margin-right: 0;
-  }
-}
 
    /* ===== slider styles ===== */
 #heroCarousel {
@@ -460,12 +513,7 @@ footer {
 
 /*SERVICES SECTION SAMPLE*/
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
+
 
 
 
