@@ -12,15 +12,49 @@ body {
 }
 
 /*NAV BAR STYLES*/
-.navbar-custom {
-    background-color: white !important;
+.navbar-custom { 
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0.75rem 1rem;
 }
-.navbar-custom a {
-    color: black !important;
+
+.navbar-custom .nav-link {
+  color: #000000;
+  font-weight: 400;
+  font-size: 1rem;
 }
-.navbar img {
-    height: 60px;
-  }
+
+.navbar-custom .nav-link:hover {
+  color: #5b57a4;
+}
+
+.hire-now-btn {
+  background-color: #5b57a4;
+  color: white;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hire-now-btn:hover {
+  background-color: #49449a;
+  color: #ffffff;
+}
+
+/* Estilo para que el logo se ajuste correctamente */
+.navbar-brand img {
+  height: 40px; /* ajusta la altura según necesites */
+  width: auto;
+  object-fit: contain;
+  max-height: 100%;
+  display: block;
+}
+
+
 /* ===== Main Introduction ===== */
 #Mainintro {
   position: relative;
@@ -73,6 +107,209 @@ body {
     margin-right: 0;
   }
 }
+
+/*moresnap section styles*/
+#moresnap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .image-section {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image-wrapper .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .image-wrapper .foreground {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+    }
+
+    .text-section {
+      flex: 1;
+      padding: 0 40px;
+    }
+
+    .text-section h2 {
+      color: #3b3b3b;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .text-section h3 {
+      color: #7c38ff;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .feature {
+      margin-bottom: 25px;
+    }
+
+    .feature b {
+      display: block;
+      color: #000;
+      margin-bottom: 5px;
+    }
+
+    .feature:before {
+      content: '\26A1';
+      color: #7c38ff;
+      margin-right: 10px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #7c38ff;
+      color: white;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #5e2ac7;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .text-section {
+        padding: 0;
+      }
+    }
+
+
+/*SNAP SECTION STYLES*/
+
+.snaps-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.snaps-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: #333;
+}
+
+.highlight-black {
+  color: #000;
+  font-weight: 700;
+}
+
+.bold-purple {
+  color: #5b57a4;
+  font-weight: 700;
+}
+
+.snaps-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.snap-card {
+  flex: 1 1 200px;
+  max-width: 230px;
+  text-align: center;
+}
+
+.snap-card p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.snap-card img {
+  width: 200px;
+  margin-bottom: 8px;
+}
+
+.snap-card h3 {
+  font-size: 1.2rem;
+  color: #5b57a4;
+  font-weight: 700;
+}
+
+.divider {
+  width: 2px;
+  height: 180px;
+  background-color: #5b57a4;
+  margin: 0 10px;
+}
+
+.cta-container {
+  background-color: #f3f1fa;
+  padding: 40px 20px;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+}
+
+.cta-container h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.cta-container p {
+  font-size: 0.95rem;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #5b57a4;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #49449a;
+}
+
+
 
 
 /* Service Card Styles - Hire Section */
@@ -168,13 +405,14 @@ body {
 }
 
 .service-container h3 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: #333;
     margin-top: 0.5rem;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     max-width: 150px;
     white-space: normal; /* Permite múltiples líneas si es necesario */
+    line-height: 1.2;
 }
 
 /* Estilos de las olas (se mantienen igual) */
