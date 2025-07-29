@@ -70,41 +70,52 @@ body {
 }
 
 #Mainintro-s2 {
-  position: relative;
-  height: 100%;
+  height: auto;
+  min-height: 200px; /* ajusta según necesidad */
   display: flex;
-  justify-content: flex-end;
-  padding: 0;
-  margin: 0;
+  justify-content: center;
+  align-items: center;
 }
+
 #Mainintro-s2 img {
-  height: 100%;
-  width: auto;
-  max-width: none; 
-  object-fit: cover;
-  object-position: right;
-  margin-right: -15px; 
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin-right: 0;
+    object-fit: contain;
+
 }
 
 /* Ajustes para móviles MainIntro*/
-@media (max-width: 768px) {
-  #Mainintro {
-    flex-direction: column;
-    height: auto;
-    min-height: 600px;
-  }
-  
+@media (max-width: 576px) {
   #Mainintro-s2 {
-    height: 300px;
-    justify-content: center;
+    height: auto;
+    padding: 1rem;
+    min-height: 200px;  /* o 300px según prefieras */
     margin-top: 2rem;
   }
-  
+
   #Mainintro-s2 img {
+     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     max-width: 100%;
-    margin-right: 0;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
+  }
+
+  #Mainintro-s1 {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  #Mainintro .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
 
