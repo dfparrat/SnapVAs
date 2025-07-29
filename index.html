@@ -20,32 +20,29 @@
     <link href="CSS/SVEstilos.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-    
-<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="IMG/Logo_snapVA_black.png" alt="SnapVAs Logo" class="logo-img">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center gap-4">
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
-        <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-        <li class="nav-item">
-          <a href="#hire" class="btn hire-now-btn">Hire Now</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
+    <header>   
+        <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="IMG/Logo_snapVA_black.png" alt="SnapVAs Logo" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center gap-4">
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                <li class="nav-item">
+                <a href="#hire" class="btn hire-now-btn">Hire Now</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
     </header>
     <!-- Carrusel de banners (5 banners) -->
     <div class="container" id="subintro">
@@ -328,36 +325,60 @@
   </section>
 
     <!-- Footer -->
-    <footer class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5>Virtual Assistants Pro</h5>
-                    <p>Professional virtual assistance solutions for your business.</p>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5>Contact us</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope me-2"></i> info@virtualassistantspro.com</li>
-                        <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Follow us</h5>
-                    <div class="social-links">
-                        <a href="FACEBOOK_URL" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="INSTAGRAM_URL" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="TWITTER_URL" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="LINKEDIN_URL" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4 bg-light">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2023 Virtual Assistants Pro. All copy rights reserved.</p>
+<footer class="footer-custom py-5">
+  <div class="container">
+    <div class="row justify-content-between">
+      <!-- Logo + Contact Info + Social Icons -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="d-flex align-items-center mb-3">
+            <img src="IMG/Logo_snapVA_black.png" alt="SnapVAs Logo" style="max-height: 30px;">
+            <div class="ms-3 d-flex gap-2">
+                <a href="FACEBOOK_URL" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="INSTAGRAM_URL" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="TWITTER_URL" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="LINKEDIN_URL" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
-    </footer>
+
+        <p class="mb-2">1309 Coffeen Avenue Suite 1200 Sheridan Wyoming 82801</p>
+        <p class="mb-2">service@snapvas.com</p>
+        <p>USA +1 000-000-0000</p>
+      </div>
+
+      <!-- Services -->
+      <div class="col-6 col-md-2">
+        <h6>Services</h6>
+        <ul class="list-unstyled">
+          <li>Our Solutions</li>
+          <li>Dedicated VAs</li>
+          <li>Pricing</li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="col-6 col-md-2">
+        <h6>About us</h6>
+        <ul class="list-unstyled">
+          <li>About Valatam</li>
+          <li>How It Works</li>
+          <li>Terms of Services</li>
+          <li>Privacy Policy</li>
+        </ul>
+      </div>
+
+      <!-- Resources + Button -->
+      <div class="col-12 col-md-3 mt-3 mt-md-0 d-flex flex-column align-items-md-start align-items-center">
+        <h6>Resources</h6>
+        <ul class="list-unstyled">
+          <li>Blog</li>
+          <li>Success Stories</li>
+        </ul>
+        <a href="#" class="btn-get-hired mt-2">Get Hired</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
     <!-- Botón de WhatsApp -->
     <a href="https://wa.me/+573014079592?text=Hola,%20estoy%20interesado%20en%20sus%20servicios" class="whatsapp-btn" target="_blank">
