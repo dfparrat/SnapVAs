@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Snapvas</title>
+    <title>Careers | SnapVAS</title>
     <meta charset="UTF-8">
     <meta name="author" content="Diana Pardo">
     <meta name="keywords" content="html, css, xml, javascript, asistentes virtuales, virtual assistants">
@@ -20,10 +20,10 @@
     <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="CSS/CONTACTSVEstilos.css" rel="stylesheet">
+    <link href="CSS/CAREERSVEstilos.css" rel="stylesheet">
 </head>
-<body> 
-    <header>   
+<body>
+  <header>   
         <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
@@ -47,32 +47,55 @@
         </div>
         </nav>
     </header>
-    <!-- Sección de Contacto -->
-    <section class="contact-section">
-  <h1>Contáctanos</h1>
-  <p>¿Tienes preguntas? Escríbenos y te responderemos pronto.</p>
-  
-  <form id="contact-form" action="https://formspree.io/f/{TU_EMAIL}" method="POST">
-    <div class="form-group">
-      <input type="text" name="name" placeholder="Nombre" required>
+  <section class="careers-section">
+    <div class="careers-header">
+      <h1>Join Our Global Team</h1>
+      <p>At SnapVAS, we empower remote professionals to grow and thrive. We’re always looking for talented individuals to join our mission of delivering top-tier virtual assistance worldwide.</p>
+      <a href="#open-positions" class="careers-btn">See Open Positions</a>
     </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="Correo electrónico" required>
+
+    <div class="careers-content">
+      <div class="careers-block">
+        <h2>Why Work With Us?</h2>
+        <p>Be part of a remote-first culture that values flexibility, growth, and global collaboration. Our team members enjoy opportunities to build long-term careers while supporting dynamic clients.</p>
+      </div>
+
+      <div class="careers-grid">
+        <div class="careers-card">
+          <h3>Remote Culture</h3>
+          <p>Work from anywhere with a team that’s truly global. Your talent is what matters, not your location.</p>
+        </div>
+        <div class="careers-card">
+          <h3>Continuous Growth</h3>
+          <p>Access learning tools, mentorship, and opportunities to expand your skills and advance your career.</p>
+        </div>
+        <div class="careers-card">
+          <h3>Supportive Environment</h3>
+          <p>We foster a collaborative culture with clear communication and shared success goals.</p>
+        </div>
+      </div>
+
+      <div id="open-positions" class="careers-block">
+        <h2>Current Openings</h2>
+        <ul class="careers-list">
+          <li>
+            <strong>Virtual Executive Assistant</strong> — Full Time, Remote  
+            <a href="mailto:hr@snapvas.com?subject=Application%20-%20Virtual%20Executive%20Assistant" class="apply-link">Apply Now</a>
+          </li>
+          <li>
+            <strong>Project Coordinator</strong> — Part Time, Remote  
+            <a href="mailto:hr@snapvas.com?subject=Application%20-%20Project%20Coordinator" class="apply-link">Apply Now</a>
+          </li>
+          <li>
+            <strong>Customer Success Specialist</strong> — Full Time, Remote  
+            <a href="mailto:hr@snapvas.com?subject=Application%20-%20Customer%20Success%20Specialist" class="apply-link">Apply Now</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="form-group">
-      <textarea name="message" placeholder="Tu mensaje" required></textarea>
-    </div>
-    <button type="submit">Enviar mensaje</button>
-  </form>
+  </section>
 
-  <div class="contact-info">
-    <p><a href="mailto:hola@snapvas.com">service@snapvas.com</a></p>
-    <p>1309 Coffeen Avenue Suite 1200 Sheridan Wyoming 82801</p>
-  </div>
-</section>
-
-
-    <!-- Footer (igual que en index.html) -->
+<!-- Footer (igual que en index.html) -->
 <footer class="footer-custom py-5">
   <div class="container">
     <div class="row justify-content-between">
@@ -127,7 +150,5 @@
   </div>
 </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
 </body>
 </html>
