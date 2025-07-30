@@ -57,59 +57,68 @@ body {
 
 /* ===== Main Introduction ===== */
 #Mainintro {
-  position: relative;
-  height: 525px;
   display: flex;
-  align-items: stretch;
-  margin: 0 -15px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 2rem 0;
 }
 
 #Mainintro-s1 {
   z-index: 2;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #Mainintro-s2 {
-  height: auto;
-  min-height: 200px; /* ajusta según necesidad */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 #Mainintro-s2 img {
-  width: 100%;
-  height: auto;
   max-width: 100%;
+  height: auto;
   object-fit: contain;
   object-position: center;
-  margin-right: 0;
-    object-fit: contain;
-
 }
 
-/* Ajustes para móviles MainIntro*/
-@media (max-width: 576px) {
-  #Mainintro-s2 {
-    height: auto;
-    padding: 1rem;
-    min-height: 200px;  /* o 300px según prefieras */
-    margin-top: 2rem;
+/* ✅ Estilos responsivos */
+@media (max-width: 768px) {
+   #Mainintro-s1 h2 {
+    font-size: 1.4rem;
   }
 
-  #Mainintro-s2 img {
-     display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-    object-position: center;
-    margin: 0 auto;
+  #Mainintro-s1 h3 {
+    font-size: 1.1rem;
+  }
+
+  #Mainintro-s1 h4 {
+    font-size: 1rem;
+  }
+  #Mainintro {
+    flex-direction: column;
+    padding: 1rem 0;
   }
 
   #Mainintro-s1 {
+    order: 2;
     padding: 1rem;
     text-align: center;
+  }
+
+  #Mainintro-s2 {
+    order: 1;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  #Mainintro-s2 img {
+    width: 100%;
+    height: auto;
   }
 
   #Mainintro .btn {
@@ -118,6 +127,7 @@ body {
     margin-bottom: 1rem;
   }
 }
+
 
 /*moresnap section styles*/
 #moresnap {
