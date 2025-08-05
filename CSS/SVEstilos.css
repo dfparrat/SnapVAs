@@ -128,6 +128,53 @@ body {
   }
 }
 
+/*PopUp Services section styles*/
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(86,71,151,0.6);
+}
+
+.popup-content {
+  background-color: rgb(86,71,151); /* Your new color */
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+  position: relative;
+  color: white;
+  text-align: center;
+  white-space: normal;          /* Allows text to wrap */
+  overflow-wrap: break-word;    /* Breaks long words if needed */
+  word-wrap: break-word;        /* Fallback for older browsers */
+  word-break: break-word;       /* Additional support */
+}
+
+.popup-content h2 {
+  color: white;
+}
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /*moresnap section styles*/
 #moresnap {
@@ -600,99 +647,7 @@ body {
 }
 
 
-  /* Estilos para el popup */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .popup-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .close-popup {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-        }
-        
-        .popup-content h2 {
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
-        
-        @media (max-width: 768px) {
-            .gallery-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+ 
 
 .news-card {
 	border-left: 5px solid var(--primary-color);
@@ -912,277 +867,9 @@ body {
     aspect-ratio: 16/9; /* Maintains a consistent ratio */
     object-fit: cover;
 }
-/* Futuristic Popup Styles */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1001;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
 
-        .popup-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
 
-        .popup-content {
-            background: linear-gradient(135deg, rgba(15, 32, 56, 0.95) 0%, rgba(32, 42, 68, 0.95) 100%);
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            border-radius: 20px;
-            padding: 0;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 20px 60px rgba(0, 212, 255, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: scale(0.7) translateY(50px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
 
-        .popup-overlay.active .popup-content {
-            transform: scale(1) translateY(0);
-        }
-
-        .popup-content::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(255, 0, 150, 0.1) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .popup-header {
-            background: linear-gradient(90deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 122, 255, 0.2) 100%);
-            padding: 25px;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .popup-header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #00d4ff, #007aff);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-            animation: pulse 2s ease-in-out infinite;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-                transform: scale(1);
-            }
-            50% { 
-                box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
-                transform: scale(1.05);
-            }
-        }
-
-        .popup-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            background: linear-gradient(45deg, #00d4ff, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .popup-body {
-            padding: 30px;
-            text-align: left;
-            position: relative;
-            z-index: 2;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 8px;
-            color:white !important;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #00d4ff;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #00d4ff, #007aff);
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 25px;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.6);
-        }
-
-        .close-popup {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 24px;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .close-popup:hover {
-            background: rgba(255, 0, 0, 0.2);
-            color: #ff4444;
-            transform: rotate(90deg);
-        }
-
-        /* Service Explanation Popup Specific Styles */
-        #serviceExplanationPopup {
-            z-index: 1002;
-        }
-
-        #serviceExplanationPopup .popup-content {
-            max-width: 500px;
-        }
-
-        .explanation-content {
-            font-size: 16px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 20px;
-        }
-
-        .service-features {
-            list-style: none;
-            padding: 0;
-        }
-
-        .service-features li {
-            padding: 8px 0;
-            border-left: 3px solid #00d4ff;
-            padding-left: 15px;
-            margin-bottom: 8px;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 0 8px 8px 0;
-            transition: all 0.3s ease;
-        }
-
-        .service-features li:hover {
-            background: rgba(0, 212, 255, 0.2);
-            transform: translateX(5px);
-        }
-
-        .progress-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #00d4ff, #007aff);
-            transition: width 0.1s linear;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
-        }
-
-        /* Service type specific icons and colors */
-        .service-basic { background: linear-gradient(45deg, #4facfe, #00f2fe); }
-        .service-premium { background: linear-gradient(45deg, #ffd89b, #19547b); }
-        .service-corporate { background: linear-gradient(45deg, #667eea, #764ba2); }
-        .service-domestic { background: linear-gradient(45deg, #f093fb, #f5576c); }
-        .service-international { background: linear-gradient(45deg, #4facfe, #00f2fe); }
-        .service-warehousing { background: linear-gradient(45deg, #43e97b, #38f9d7); }
-        .service-temporary { background: linear-gradient(45deg, #a18cd1, #fbc2eb); }
-        .service-permanent { background: linear-gradient(45deg, #84fab0, #8fd3f4); }
-        .service-executive { background: linear-gradient(45deg, #a6c1ee, #fbc2eb); }
-        .service-support { background: linear-gradient(45deg, #ff9a9e, #fad0c4); }
-        .service-success { background: linear-gradient(45deg, #a1c4fd, #c2e9fb); }
-        .service-experience { background: linear-gradient(45deg, #ffc3a0, #ffafbd); }
-        .service-implementation { background: linear-gradient(45deg, #d4fc79, #96e6a1); }
-        .service-security { background: linear-gradient(45deg, #a6c0fe, #f68084); }
-        .service-cloud { background: linear-gradient(45deg, #5ee7df, #b490ca); }
-#serviceExplanationPopup,
-#serviceExplanationPopup * {
-    color: white !important;
-}
-#serviceExplanationPopup .service-icon {
-    color: inherit !important;
-}
 /* Estilos para la imagen del servicio */
 .service-image-container {
     width: 100%;
