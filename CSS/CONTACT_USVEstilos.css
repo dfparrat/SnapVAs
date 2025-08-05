@@ -1,0 +1,114 @@
+ <style>
+    :root {
+      --primary-color: blueviolet;
+      --light-bg: whitesmoke;
+      --dark-text: #1a1a1a;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--dark-text);
+    }
+    /*NAV BAR STYLES*/
+.navbar-custom { 
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0.75rem 1rem;
+}
+
+.navbar-custom .nav-link {
+  color: #000000;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #5b57a4;
+}
+
+.hire-now-btn {
+  background-color: #5b57a4;
+  color: white;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hire-now-btn:hover {
+  background-color: #49449a;
+  color: #ffffff;
+}
+
+/* Estilo para que el logo se ajuste correctamente */
+.navbar-brand img {
+  height: 40px; /* ajusta la altura según necesites */
+  width: auto;
+  object-fit: contain;
+  max-height: 100%;
+  display: block;
+}
+
+    .hero-section {
+      background-color: var(--light-bg);
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .about-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .value-card {
+      background: var(--light-bg);
+      border: none;
+      border-radius: 15px;
+      padding: 1.5rem;
+      height: 100%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .value-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
