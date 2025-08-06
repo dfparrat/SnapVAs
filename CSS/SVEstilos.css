@@ -12,48 +12,87 @@ body {
 }
 
 /*NAV BAR STYLES*/
-.navbar-custom { 
+.navbar-custom {
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 0.75rem 1rem;
 }
 
-.navbar-custom .nav-link {
-  color: #000000;
-  font-weight: 400;
-  font-size: 1rem;
+/* Logo container */
+.logo-container {
+  min-width: 120px;
+  max-width: 150px;
+  z-index: 10;
+  position: relative;
+  flex-shrink: 0;
 }
 
-.navbar-custom .nav-link:hover {
-  color: #5b57a4;
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Hire Now button container */
+.mobile-hire-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* Allows clicking through to logo */
+  z-index: 1;
+}
+
+.mobile-hire-container .hire-now-btn {
+  pointer-events: auto; /* Re-enable clicks for button */
 }
 
 .hire-now-btn {
   background-color: #5b57a4;
   color: white;
   font-weight: 500;
-  padding: 6px 18px;
+  padding: 8px 24px;
   border-radius: 12px;
   text-decoration: none;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-.hire-now-btn:hover {
-  background-color: #49449a;
-  color: #ffffff;
+/* Menu toggle */
+.navbar-toggler {
+  margin-left: auto;
+  z-index: 10;
 }
 
-/* Estilo para que el logo se ajuste correctamente */
-.navbar-brand img {
-  height: 40px; /* ajusta la altura según necesites */
-  width: auto;
-  object-fit: contain;
-  max-height: 100%;
-  display: block;
+/* Mobile styles */
+@media (max-width: 991.98px) {
+  .mobile-hire-container {
+    padding-left: 140px; /* Match logo width */
+    padding-right: 60px; /* Match toggle width */
+  }
+  
+  .navbar-collapse {
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
 }
 
+/* Desktop styles */
+@media (min-width: 992px) {
+  .mobile-hire-container {
+    display: none;
+  }
+  
+  .navbar-collapse {
+    margin-top: 0 !important;
+  }
+}
 
 /* ===== Main Introduction ===== */
 #Mainintro {
