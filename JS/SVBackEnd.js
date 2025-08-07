@@ -40,10 +40,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Close when clicking outside
   document.addEventListener('click', function(e) {
-    const clickedInsideNavbar = e.target.closest('.navbar');
+    const clickedInsideMenu = e.target.closest('#navbarNav');
     const clickedToggler = e.target.closest('.navbar-toggler');
     
-    if (!clickedInsideNavbar && !clickedToggler && navbar.classList.contains('show')) {
+    if (!clickedInsideMenu && !clickedToggler && navbar.classList.contains('show')) {
+      bsCollapse.hide();
+    }
+  });
+
+  // Special handling for backdrop clicks
+  navbar.addEventListener('click', function(e) {
+    // Check if click is directly on the navbar-collapse element (backdrop area)
+    if (e.target === this && !e.target.closest('.navbar-nav')) {
       bsCollapse.hide();
     }
   });

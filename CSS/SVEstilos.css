@@ -111,7 +111,7 @@ body {
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: white;
-    z-index: 1000;
+    z-index: 1001;
     box-shadow: -2px 0 15px rgba(0,0,0,0.1);
     will-change: transform;
   }
@@ -153,24 +153,22 @@ body {
 
   /* 7. Backdrop - Fixed click behavior */
   .navbar-collapse::before {
-    content: '';
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-    z-index: 999 !important;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none !important;
-    display: none; 
+      content: '';
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1000; /* Below menu (1000) */
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none; /* Disable clicks when hidden */
   }
   
   .navbar-collapse.show::before {
-    opacity: 1;
-    pointer-events: auto !important;
-    display: block;
+      opacity: 1;
+      pointer-events: auto; /* Enable clicks when visible */
   }
 
   /* 8. Accessibility Improvements */
