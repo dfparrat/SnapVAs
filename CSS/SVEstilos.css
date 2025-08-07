@@ -17,6 +17,8 @@ body {
   border-bottom: 1px solid #e0e0e0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 0.75rem 1rem;
+  position: relative;
+  z-index: 1030; /* Higher than menu */
 }
 
 /* Logo container */
@@ -43,6 +45,7 @@ body {
   justify-content: center;
   pointer-events: none; /* Allows clicking through to logo */
   z-index: 1;
+  margin: 50px;
 }
 
 .mobile-hire-container .hire-now-btn {
@@ -70,30 +73,22 @@ body {
 /* Mobile styles */
 @media (max-width: 991.98px) {
   .mobile-hire-container {
-    padding-left: 220px; /* Match logo width */
-    padding-right: 60px; /* Match toggle width */
     position: absolute;
-    left: 0;
-    right: 60px; /* Space for toggle */
-    display: flex;
-    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
   }
   
     .navbar-collapse {
-    position: fixed;
+   position: fixed;
     left: 0;
     right: 0;
-    top: 60px; /* Adjust based on your navbar height */
-    background-color: #ffffff;
+    top: 60px;
+    background: white;
     padding: 1rem;
-    margin: 0;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    width: 100% !important;
-    max-width: 100vw !important;
-    z-index: 1000;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    z-index: 1020; /* Below navbar */
   }
     .navbar-collapse::before {
     content: '';
@@ -111,6 +106,21 @@ body {
   .navbar-collapse.show::before {
     opacity: 1;
   }
+  .navbar-collapse::after {
+    content: '';
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.1);
+    z-index: 1010;
+    display: none;
+  }
+
+  .navbar-collapse.show::after {
+    display: block;
+  }
    .logo-container {
     min-width: 120px;
     max-width: 150px;
@@ -118,8 +128,8 @@ body {
     flex-shrink: 0;
   }  
   .navbar-toggler {
-    position: relative;
-    z-index: 1100;
+
+    z-index: 1031;
   }
   .navbar-nav {
     display: flex !important;
