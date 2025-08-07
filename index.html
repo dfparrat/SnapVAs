@@ -27,24 +27,29 @@
       <!-- Flex container with proper spacing -->
     <div class="d-flex w-100 align-items-center position-relative">
       <!-- Logo with minimum width protection -->
-      <a class="navbar-brand me-auto pe-3" href="index.html" style="min-width: 120px;">
+      <a class="navbar-brand" href="index.html" style="min-width: 120px;">
         <img src="IMG/Logo_snapVA_black.png" alt="SnapVAS Logo" class="logo-img">
       </a>
       
       <!-- Hire Now Button with safe margins -->
       <div class="mobile-hire-container">
-        <a href="contact.html" target="_blank" class="btn hire-now-btn">Hire Now</a>
+        <a href="contact.html" class="btn hire-now-btn">Hire Now</a>
       </div>
       
       <!-- Menu Toggle with minimum spacing -->
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <button class="navbar-toggler collapsed" type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" 
+              aria-expanded="false" 
+              aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
     
     <!-- Collapsible Menu -->
-    <div class="collapse navbar-collapse mt-2" id="navbarNav">
-      <ul class="navbar-nav d-flex flex-row flex-wrap gap-3">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="index.html">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="About_Us.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
@@ -432,5 +437,6 @@
             });
         });
     </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

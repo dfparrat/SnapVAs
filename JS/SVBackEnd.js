@@ -24,3 +24,18 @@ gtag('config', 'GA_MEASUREMENT_ID');
       e.target.style.display = 'none';
     }
   });
+
+  //MENU TOGGLER FOR MOBILE DEVICES 
+  document.addEventListener('DOMContentLoaded', function() {
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    const navbar = document.querySelector('.navbar-collapse');
+    const toggler = document.querySelector('.navbar-toggler');
+    
+    if (navbar.classList.contains('show') && 
+        !e.target.closest('.navbar-collapse') && 
+        !e.target.closest('.navbar-toggler')) {
+      bootstrap.Collapse.getInstance(navbar).hide();
+    }
+  });
+});
