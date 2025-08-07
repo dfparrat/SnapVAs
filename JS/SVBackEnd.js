@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
     toggle: false
   });
 
-  // Toggle menu with animation
+  // Toggle menu when clicking toggler
   toggler.addEventListener('click', function() {
     bsCollapse.toggle();
   });
 
-  // Close when clicking outside (with safety checks)
+  // Close when clicking outside
   document.addEventListener('click', function(e) {
     const clickedInsideNavbar = e.target.closest('.navbar');
     const clickedToggler = e.target.closest('.navbar-toggler');
