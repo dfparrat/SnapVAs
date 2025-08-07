@@ -22,14 +22,17 @@ body {
 
 /* Logo */
 .navbar-brand {
-  width: 120px;
-  z-index: 10;
-  flex-shrink: 0; /* Prevents logo squishing */
+    width: 130px !important; /* Fixed width for logo */
+    min-width: 130px !important;
+    max-width: 130px !important;
+    overflow: hidden;
+    z-index: 20; /* Higher than button */
 }
 .logo-img {
-  height: 40px;
-  width: auto;
-  display: block; /* Fixes spacing issues */
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 /* Hire Button */
@@ -51,16 +54,17 @@ body {
   
   .hire-btn-container {
     position: absolute;
-    left: 50%;
+    left: calc(50% + 65px); /* Half of logo width */
     transform: translateX(-50%);
-    width: fit-content;
-    z-index: 5;
+    z-index: 10;
+    white-space: nowrap;
+
   }
   
   .navbar-toggler {
     margin-left: auto;
-    z-index: 10;
-    width: 44px; /* Fixed width for consistency */
+    min-width: 44px;
+    z-index: 20;
   }
   
   /* Menu Collapse Fixes */
