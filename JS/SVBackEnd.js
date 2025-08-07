@@ -27,21 +27,24 @@ gtag('config', 'GA_MEASUREMENT_ID');
 
   //MENU TOGGLER FOR MOBILE DEVICES 
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize Bootstrap collapse
-  var navbarCollapse = new bootstrap.Collapse(
-    document.getElementById('navbarNav'), 
-    { toggle: false }
-  );
+  const navbar = document.getElementById('navbarNav');
+  const toggler = document.querySelector('.navbar-toggler');
+  const bsCollapse = new bootstrap.Collapse(navbar, {
+    toggle: false
+  });
 
-  // Close when clicking outside
+  // Toggle menu with animation
+  toggler.addEventListener('click', function() {
+    bsCollapse.toggle();
+  });
+
+  // Close when clicking outside (with safety checks)
   document.addEventListener('click', function(e) {
-    var navbar = document.querySelector('.navbar-collapse');
-    var toggler = document.querySelector('.navbar-toggler');
+    const clickedInsideNavbar = e.target.closest('.navbar');
+    const clickedToggler = e.target.closest('.navbar-toggler');
     
-    if (navbar.classList.contains('show') && 
-        !e.target.closest('.navbar-collapse') && 
-        !e.target.closest('.navbar-toggler')) {
-      navbarCollapse.hide();
+    if (!clickedInsideNavbar && !clickedToggler && navbar.classList.contains('show')) {
+      bsCollapse.hide();
     }
   });
 });

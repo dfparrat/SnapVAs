@@ -12,164 +12,98 @@ body {
 }
 
 /*NAV BAR STYLES*/
+/* === Core Styles === */
 .navbar-custom {
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 0.75rem 1rem;
-  position: relative;
-  z-index: 1030; /* Higher than menu */
+  min-height: 60px;
 }
 
-/* Logo container */
-.logo-container {
-  min-width: 120px;
-  max-width: 150px;
+/* Logo */
+.navbar-brand {
+  width: 120px;
   z-index: 10;
-  position: relative;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevents logo squishing */
 }
-
-.navbar-brand img {
+.logo-img {
   height: 40px;
   width: auto;
-  object-fit: contain;
+  display: block; /* Fixes spacing issues */
 }
 
-/* Hire Now button container */
-.mobile-hire-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  pointer-events: none; /* Allows clicking through to logo */
-  z-index: 1;
-  margin: 50px;
-}
-
-.mobile-hire-container .hire-now-btn {
-  pointer-events: auto; /* Re-enable clicks for button */
-}
-
+/* Hire Button */
 .hire-now-btn {
   background-color: #5b57a4;
   color: white;
-  font-weight: 500;
   padding: 8px 24px;
   border-radius: 12px;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 500;
   white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
-/* Menu toggle */
-.navbar-toggler {
-  margin-left: auto;
-  z-index: 10;
-}
-
-/* Mobile styles */
+/* === Mobile Layout (Under 992px) === */
 @media (max-width: 991.98px) {
-  .mobile-hire-container {
+  .navbar > .container-fluid {
+    position: relative; /* Needed for absolute positioning */
+  }
+  
+  .hire-btn-container {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    width: fit-content;
+    z-index: 5;
   }
   
-    .navbar-collapse {
-   position: fixed;
+  .navbar-toggler {
+    margin-left: auto;
+    z-index: 10;
+    width: 44px; /* Fixed width for consistency */
+  }
+  
+  /* Menu Collapse Fixes */
+  .navbar-collapse {
+    position: fixed;
+    top: 60px;
     left: 0;
     right: 0;
-    top: 60px;
     background: white;
-    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     max-height: calc(100vh - 60px);
     overflow-y: auto;
-    z-index: 1020; /* Below navbar */
-  }
-    .navbar-collapse::before {
-    content: '';
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.1);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s;
   }
   
-  .navbar-collapse.show::before {
-    opacity: 1;
-  }
-  .navbar-collapse::after {
+  /* Click Outside Detection */
+  .navbar-collapse::before {
     content: '';
     position: fixed;
     top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.1);
-    z-index: 1010;
-    display: none;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
   }
-
-  .navbar-collapse.show::after {
-    display: block;
-  }
-   .logo-container {
-    min-width: 120px;
-    max-width: 150px;
-    margin-right: 20px; /* Creates space after logo */
-    flex-shrink: 0;
-  }  
-  .navbar-toggler {
-
-    z-index: 1031;
-  }
-  .navbar-nav {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    width: max-content;
-    min-width: 100%;
-    padding: 0 1rem;
-    margin: 0 -1rem; /* Counteract padding */
-  }
-   .navbar-nav::-webkit-scrollbar {
-    height: 4px; /* Thin scrollbar */
-  }
-
-  .navbar-nav::-webkit-scrollbar-thumb {
-    background: #5b57a4; 
-    border-radius: 2px;
-  }
-
-  .nav-item {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    padding: 0 0.5rem;
+  .show.navbar-collapse::before {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
-/* Desktop styles */
+/* === Desktop Layout (992px+) === */
 @media (min-width: 992px) {
-  .mobile-hire-container {
+  .hire-btn-container {
     display: none;
   }
   
   .navbar-collapse {
-    margin-top: 0 !important;
     position: static;
-    overflow: visible;
-  }
-  
-  .navbar-nav {
-    flex-wrap: wrap;
-    width: auto;
+    box-shadow: none;
   }
 }
 
