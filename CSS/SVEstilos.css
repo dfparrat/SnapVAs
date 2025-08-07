@@ -70,8 +70,13 @@ body {
 /* Mobile styles */
 @media (max-width: 991.98px) {
   .mobile-hire-container {
-    padding-left: 140px; /* Match logo width */
+    padding-left: 220px; /* Match logo width */
     padding-right: 60px; /* Match toggle width */
+    position: absolute;
+    left: 0;
+    right: 60px; /* Space for toggle */
+    display: flex;
+    justify-content: center;
   }
   
   .navbar-collapse {
@@ -80,6 +85,16 @@ body {
     margin-top: 0.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+   .logo-container {
+    min-width: 120px;
+    max-width: 150px;
+    margin-right: 20px; /* Creates space after logo */
+    flex-shrink: 0;
+  }  
+  .navbar-toggler {
+    width: 44px;
+    margin-left: auto;
   }
 }
 
