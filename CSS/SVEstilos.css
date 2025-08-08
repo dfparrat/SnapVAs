@@ -9,6 +9,10 @@
     height: 100%;
     background-color: rgba(86, 71, 151, 0.8);
     backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 .popup-text {
     word-break: normal;
@@ -30,6 +34,15 @@
     animation: fadeIn 0.3s ease;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; /* allow wrapping */
+    overflow-y: auto; /* add scroll if content exceeds height */
+    max-height: 100%; /* stay inside popup */
+    box-sizing: border-box;
+    word-wrap: break-word; /* force long words to break */
+    white-space: normal; /* ensure text wraps */
+    padding: 20px; /* adjust for spacing */
 }
 .popup-container {
     max-width: 90vw; /* 90% of viewport width */
