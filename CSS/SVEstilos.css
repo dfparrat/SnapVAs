@@ -342,7 +342,9 @@ body {
   }
 }
 
-/*===== PopUp Services section styles =====*/
+
+/* ===== FINAL POPUP STYLES (No Scrollbars + Perfect Wrapping) ===== */
+
 .popup {
   display: none;
   position: fixed;
@@ -351,120 +353,71 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(86, 71, 151, 0.8);
   backdrop-filter: blur(3px);
-  -webkit-overflow-scrolling: touch;
 }
 
 .popup-content {
   background-color: rgb(86, 71, 151);
-  margin: 10% auto;
+  margin: 10vh auto;
   padding: 2rem;
   border-radius: 15px;
   width: 90%;
-  max-width: 600px;
+  max-width: 500px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.3s ease;
   position: relative;
   color: white;
-  text-align: center;
-  line-height: 1.6;
-  word-break: break-word;
-  hyphens: auto;
-  overflow-y: auto;
-  max-height: 80vh;
-  overflow-x: hidden;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+  
+  /* NUCLEAR OPTION - guaranteed wrapping */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* Critical for containment */
 }
-.popup::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
+.popup-content h2,
+.popup-content p {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  text-align: center;
 }
 
 .popup-content h2 {
-  color: white;
+  font-size: 1.6rem;
+  line-height: 1.3;
   margin-bottom: 1.5rem;
-  font-size: 1.8rem;
 }
 
 .popup-content p {
   font-size: 1rem;
   line-height: 1.5;
-  margin: 0 auto;
-  max-width: 90%;
 }
 
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.close-btn:hover {
-  transform: scale(1.2);
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .popup-content {
+    padding: 1.5rem;
+    margin: 5vh auto;
+    max-width: 90%;
+  }
+  
+  .popup-content h2 {
+    font-size: 1.4rem;
+  }
+  
+  .popup-content p {
+    font-size: 0.95rem;
+  }
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .popup-content {
-    padding: 1.8rem;
-    margin: 20% auto;
-  }
-  
-  .popup-content h2 {
-    font-size: 1.5rem;
-  }
-  
-  .popup-content p {
-    font-size: 1rem;
-  }
-}
-@supports (-webkit-touch-callout: none) {
-  .popup {
-    position: absolute;
-    height: var(--window-inner-height);
-  }
-  .popup-content {
-    margin: 5vh auto;
-  }
-}
-/*DESKTOP SERVICES CONTAINER*/
-@media (min-width: 992px) {
-  .horizontal-scroll-container {
-    width: 100%;
-    max-width: 1200px; /* Optional: Set max width for ultra-wide screens */
-    margin: 0 auto; /* Center the container */
-    padding: 0 2rem; /* Add side padding */
-  }
-
-  .services-row {
-    display: flex;
-    justify-content: center; /* Center service items */
-    flex-wrap: wrap; /* Allow wrapping if needed */
-    gap: 2rem; /* Space between items */
-    width: 100%;
-  }
-
-  .service-container {
-    flex: 0 0 calc(20% - 2rem); /* 5 items per row (adjust as needed) */
-    max-width: 200px; /* Optional: Control max item width */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text */
-  }
 }
 
 /*===== moresnap section styles =====*/

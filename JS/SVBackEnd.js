@@ -3,51 +3,46 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'GA_MEASUREMENT_ID');
 
-// =============================================
-// POPUP FIXES (iPhone 15 + Text Overflow)
-// =============================================
-
-// 1. iOS Viewport Height Fix (For iPhones)
-function handleIOSViewport() {
-  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
-}
-
-// Initialize on load/resize
-window.addEventListener('load', handleIOSViewport);
-window.addEventListener('resize', handleIOSViewport);
-
-// 2. Popup Logic (All Devices)
+// Initialize on load
 document.addEventListener('DOMContentLoaded', function() {
-  // ----- Open Popups -----
-  document.querySelectorAll('.popup-trigger').forEach(btn => {
-    btn.addEventListener('click', function() {
+  // Set iOS viewport height variable
+  const setVH = () => {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      document.documentElement.style.setProperty(
+        '--window-inner-height', 
+        `${window.innerHeight}px`
+      );
+    }
+  };
+  setVH();
+  window.addEventListener('resize', setVH);
+
+  // Popup handlers
+  document.querySelectorAll('.popup-trigger').forEach(trigger => {
+    trigger.addEventListener('click', function() {
       const popupId = this.getAttribute('data-popup');
       const popup = document.getElementById(popupId);
+      
+      // Force reflow for iOS
+      void popup.offsetHeight;
+      
+      // Show popup
       popup.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-
-      // iOS Redraw Hack (Forces popup to appear)
-      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        void popup.offsetHeight; // Trigger reflow
-      }
+      document.body.style.overflow = 'hidden';
     });
   });
 
-  // ----- Close Popups -----
-  // Click [X] or backdrop
-  document.querySelectorAll('[data-close], .popup').forEach(el => {
+  // Close handlers
+  document.querySelectorAll('.popup, [data-close]').forEach(el => {
     el.addEventListener('click', function(e) {
       if (e.target === this || e.target.hasAttribute('data-close')) {
         this.closest('.popup').style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        document.body.style.overflow = 'auto';
       }
     });
   });
 
-  // Close with ESC key
+  // ESC key close
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       document.querySelectorAll('.popup').forEach(popup => {
