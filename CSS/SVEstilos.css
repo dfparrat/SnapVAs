@@ -440,7 +440,32 @@ body {
     margin: 5vh auto;
   }
 }
+/*DESKTOP SERVICES CONTAINER*/
+@media (min-width: 992px) {
+  .horizontal-scroll-container {
+    width: 100%;
+    max-width: 1200px; /* Optional: Set max width for ultra-wide screens */
+    margin: 0 auto; /* Center the container */
+    padding: 0 2rem; /* Add side padding */
+  }
 
+  .services-row {
+    display: flex;
+    justify-content: center; /* Center service items */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 2rem; /* Space between items */
+    width: 100%;
+  }
+
+  .service-container {
+    flex: 0 0 calc(20% - 2rem); /* 5 items per row (adjust as needed) */
+    max-width: 200px; /* Optional: Control max item width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+  }
+}
 
 /*===== moresnap section styles =====*/
 #moresnap {
