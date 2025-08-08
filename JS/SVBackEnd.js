@@ -56,27 +56,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //===CONTACT FORM EMAIL JS
+// In your SVBackEnd.js file:
 emailjs.init("RW305hYZ62V-A18nB");
 document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent page reload
+    event.preventDefault();
 
-    // Replace these with your EmailJS IDs
     const SERVICE_ID = "service_hbw2k4z";
     const TEMPLATE_ID = "template_cgtcodq";
-    const USER_ID = "RW305hYZ62V-A18nB";
 
-    // Get form data
+    // Get form data - fixed to use name attributes instead of IDs
     const formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value
+        name: this.elements["name"].value,
+        email: this.elements["email"].value,
+        message: this.elements["message"].value
     };
 
-    // Send email via EmailJS
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID)
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData)
         .then(function(response) {
             alert("Message sent successfully! We'll contact you soon.");
-            document.getElementById("contactForm").reset(); // Clear form
+            event.target.reset(); // Fixed to reset the submitted form
         }, function(error) {
             alert("Failed to send message. Please try again later.");
             console.error("EmailJS Error:", error);
