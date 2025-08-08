@@ -10,6 +10,11 @@
     background-color: rgba(86, 71, 151, 0.8);
     backdrop-filter: blur(3px);
 }
+.popup-text {
+    word-break: normal;
+    hyphens: auto;
+    overflow-x: hidden;
+}
 
 .popup-content {
     background-color: rgb(86, 71, 151);
@@ -23,8 +28,15 @@
     color: white;
     box-sizing: border-box;
     animation: fadeIn 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
-
+.popup-container {
+    max-width: 90vw; /* 90% of viewport width */
+    width: 500px; /* or your preferred width */
+    padding: 20px;
+    box-sizing: border-box;
+}
 .popup-content-inner {
     width: 100%;
     max-width: 100%;
