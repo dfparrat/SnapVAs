@@ -9,7 +9,7 @@
     height: 100%;
     background-color: rgba(86, 71, 151, 0.8);
     backdrop-filter: blur(3px);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -357,6 +357,7 @@
         padding: 0.5rem 1rem;
     }
 }
+
 
 /*===== moresnap section styles =====*/
 #moresnap {
