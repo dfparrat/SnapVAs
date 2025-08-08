@@ -3,27 +3,60 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'GA_MEASUREMENT_ID');
 
-  // Open popup
+// =============================================
+// POPUP FIXES (iPhone 15 + Text Overflow)
+// =============================================
+
+// 1. iOS Viewport Height Fix (For iPhones)
+function handleIOSViewport() {
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+}
+
+// Initialize on load/resize
+window.addEventListener('load', handleIOSViewport);
+window.addEventListener('resize', handleIOSViewport);
+
+// 2. Popup Logic (All Devices)
+document.addEventListener('DOMContentLoaded', function() {
+  // ----- Open Popups -----
   document.querySelectorAll('.popup-trigger').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const popupId = btn.getAttribute('data-popup');
-      document.getElementById(popupId).style.display = 'block';
+    btn.addEventListener('click', function() {
+      const popupId = this.getAttribute('data-popup');
+      const popup = document.getElementById(popupId);
+      popup.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+
+      // iOS Redraw Hack (Forces popup to appear)
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        void popup.offsetHeight; // Trigger reflow
+      }
     });
   });
 
-  // Close popup
-  document.querySelectorAll('[data-close]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.popup').style.display = 'none';
+  // ----- Close Popups -----
+  // Click [X] or backdrop
+  document.querySelectorAll('[data-close], .popup').forEach(el => {
+    el.addEventListener('click', function(e) {
+      if (e.target === this || e.target.hasAttribute('data-close')) {
+        this.closest('.popup').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+      }
     });
   });
 
-  // Close popup on outside click
-  window.addEventListener('click', e => {
-    if (e.target.classList.contains('popup')) {
-      e.target.style.display = 'none';
+  // Close with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.popup').forEach(popup => {
+        popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
     }
   });
+});
 
   //MENU TOGGLER FOR MOBILE DEVICES 
 document.addEventListener('DOMContentLoaded', function() {
