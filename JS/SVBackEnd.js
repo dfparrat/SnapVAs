@@ -53,3 +53,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+//===CONTACT FORM EMAIL JS 
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    // Replace these with your EmailJS IDs
+    const SERVICE_ID = "your_service_id";
+    const TEMPLATE_ID = "your_template_id";
+    const USER_ID = "your_user_id";
+
+    // Get form data
+    const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
+
+    // Send email via EmailJS
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID)
+        .then(function(response) {
+            alert("Message sent successfully! We'll contact you soon.");
+            document.getElementById("contactForm").reset(); // Clear form
+        }, function(error) {
+            alert("Failed to send message. Please try again later.");
+            console.error("EmailJS Error:", error);
+        });
+});
