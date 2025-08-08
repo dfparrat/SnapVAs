@@ -55,20 +55,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//===CONTACT FORM EMAIL JS 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+//===CONTACT FORM EMAIL JS
+emailjs.init("RW305hYZ62V-A18nB");
+document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent page reload
 
     // Replace these with your EmailJS IDs
-    const SERVICE_ID = "your_service_id";
-    const TEMPLATE_ID = "your_template_id";
-    const USER_ID = "your_user_id";
+    const SERVICE_ID = "service_hbw2k4z";
+    const TEMPLATE_ID = "template_cgtcodq";
+    const USER_ID = "RW305hYZ62V-A18nB";
 
     // Get form data
     const formData = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
         message: document.getElementById("message").value
     };
 
