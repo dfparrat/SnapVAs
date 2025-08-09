@@ -84,8 +84,7 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 //===CAREERS FORM EMAIL JS
 // In your SVBackEnd.js file for the second form:
 emailjs.init("RW305hYZ62V-A18nB");
-.then(() => console.log("EmailJS initialized successfully"))
-.catch(err => console.error("EmailJS init error:", err));
+
 document.getElementById("contact-form-2").addEventListener("submit", function(event) {
     event.preventDefault();
 
