@@ -84,28 +84,32 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 //===CAREERS FORM EMAIL JS
 // In your SVBackEnd.js file for the second form:
 emailjs.init("RW305hYZ62V-A18nB");
-
+.then(() => console.log("EmailJS initialized successfully"))
+.catch(err => console.error("EmailJS init error:", err));
 document.getElementById("contact-form-2").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const SERVICE_ID = "service_hbw2k4z";
     const TEMPLATE_ID = "template_n019kcj";
 
-    // Get all form data including the job selection
+    // Corrected to use the actual field names from your HTML
     const formData = {
-        from_name: this.elements["name"].value,
-        from_email: this.elements["email"].value,
-        from_job: this.elements["job"].value,
-        from_message: this.elements["message"].value
+        from_name: this.elements["from_name"].value,
+        from_email: this.elements["from_email"].value,
+        from_job: this.elements["from_job"].value,
+        from_message: this.elements["from_message"].value
     };
+
+    console.log("Form data being sent:", formData); // Debugging line
 
     // Send email via EmailJS
     emailjs.send(SERVICE_ID, TEMPLATE_ID, formData)
         .then(function(response) {
+            console.log("EmailJS response:", response);
             alert("Message sent successfully! We'll contact you soon.");
-            event.target.reset(); // Reset the form
+            event.target.reset();
         }, function(error) {
+            console.error("Full EmailJS error:", error);
             alert("Failed to send message. Please try again later.");
-            console.error("EmailJS Error:", error);
         });
 });
