@@ -432,7 +432,7 @@
           <li>Blog</li>
           <li>Success Stories</li>
         </ul>
-        <a href="careers.html" target="_blank" class="btn-get-hired mt-2">Get Hired</a>
+        <a href="applicant_form.html" target="_blank" class="btn-get-hired mt-2">Get Hired</a>
       </div>
     </div>
   </div>
@@ -453,86 +453,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="JS/SVBackEnd.js"></script>
-    
-    <!-- Scripts personalizados -->
-    <script>
-        // Google Analytics (reemplaza con tu ID)
-        const GA_MEASUREMENT_ID = 'UA-XXXXX-Y';
-        
-        // Noticias dinámicas
-        const newsData = [
-           {
-                title: "New eCommerce Support Service",
-                date: "October 15, 2025",
-                content: "We’ve launched a powerful new support package designed for growing online businesses. It includes 24/7 customer service and full order management to help you scale efficiently and focus on growth.",
-                image: "IMG/News_1.jpg"
-            },
-            {
-                title: "How Virtual Assistants Boost Business Productivity",
-                date: "5 Oct, 2025",
-                content: "Recent studies reveal that companies leveraging virtual assistants see up to a 40% increase in productivity. From streamlining administrative tasks to enhancing customer support, virtual assistants empower growing businesses to focus on what matters most — scaling and delivering value.",
-                image: "IMG/News_2.jpg"
-            },
-            {
-                title: "Upgraded Tech Stack to Enhance Service Efficiency",
-                date: "28 Sep, 2025",
-                content: "We’ve implemented a suite of new automation tools to deliver faster, smarter, and more efficient service to our clients. These upgrades are part of our ongoing commitment to innovation, scalability, and operational excellence for growing businesses.",
-                image: "IMG/News_3.jpg"
-            }
-        ];
-        
-        // Cargar noticias
-        function loadNews() {
-            const newsContainer = $('#newsContainer');
-            newsData.forEach(news => {
-                newsContainer.append(`
-                    <div class="col-md-4 mb-4">
-                        <div class="card news-card h-100">
-                            <img src="${news.image}" class="card-img-top" alt="${news.title}">
-                            <div class="card-body">
-                                <h5 class="card-title">${news.title}</h5>
-                                <p class="text-muted"><small>${news.date}</small></p>
-                                <p class="card-text">${news.content}</p>
-                            </div>
-                        </div>
-                    </div>
-                `);
-            });
-        }
-        
-        // Manejar formulario de contacto
-        $('#contactForm').submit(function(e) {
-            e.preventDefault();
-            
-            const name = $('#name').val();
-            const email = $('#email').val();
-            const subject = $('#subject').val();
-            const message = $('#message').val();
-            
-            // Aquí iría el código para enviar el formulario a tu backend
-            // Ejemplo con EmailJS o AJAX a un script PHP
-            
-            // Simulación de envío exitoso
-            alert(`Gracias ${name}, tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.`);
-            $('#contactForm')[0].reset();
-            
-            // Envío a Google Analytics
-            gtag('event', 'contact_form_submit', {
-                'event_category': 'engagement',
-                'event_label': 'Contact Form'
-            });
-        });
-        
-        // Inicialización
-        $(document).ready(function() {
-            loadNews();
-            
-            // Inicializar carrusel
-            $('.carousel').carousel({
-                interval: 5000
-            });
-        });
-    </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -80,3 +80,32 @@ document.getElementById("contact-form").addEventListener("submit", function(even
             console.error("EmailJS Error:", error);
         });
 });
+
+//===CAREERS FORM EMAIL JS
+// In your SVBackEnd.js file for the second form:
+emailjs.init("RW305hYZ62V-A18nB");
+
+document.getElementById("contact-form-2").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const SERVICE_ID = "service_hbw2k4z";
+    const TEMPLATE_ID = "template_n019kcj";
+
+    // Get all form data including the job selection
+    const formData = {
+        name: this.elements["name"].value,
+        email: this.elements["email"].value,
+        job: this.elements["job"].value,
+        message: this.elements["message"].value
+    };
+
+    // Send email via EmailJS
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData)
+        .then(function(response) {
+            alert("Message sent successfully! We'll contact you soon.");
+            event.target.reset(); // Reset the form
+        }, function(error) {
+            alert("Failed to send message. Please try again later.");
+            console.error("EmailJS Error:", error);
+        });
+});
