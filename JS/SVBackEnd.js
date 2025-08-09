@@ -93,10 +93,10 @@ document.getElementById("contact-form-2").addEventListener("submit", function(ev
 
     // Get all form data including the job selection
     const formData = {
-        name: this.elements["name"].value,
-        email: this.elements["email"].value,
-        job: this.elements["job"].value,
-        message: this.elements["message"].value
+        from_name: this.elements["name"].value,
+        from_email: this.elements["email"].value,
+        from_job: this.elements["job"].value,
+        from_message: this.elements["message"].value
     };
 
     // Send email via EmailJS
