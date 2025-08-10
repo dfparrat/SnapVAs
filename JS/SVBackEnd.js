@@ -1,4 +1,3 @@
-// Final mobile-optimized JS
 document.addEventListener('DOMContentLoaded', function() {
     // Universal popup handler
     function showPopup(popupId) {
@@ -7,38 +6,35 @@ document.addEventListener('DOMContentLoaded', function() {
         
         popup.style.display = 'flex';
         document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.width = '100%';
+        // Removed position: fixed as it was causing issues
     }
 
     // Universal close handler
     function closePopup(popup) {
         popup.style.display = 'none';
         document.body.style.overflow = '';
-        document.body.style.position = '';
     }
 
-    // Event delegation for better mobile handling
-    document.body.addEventListener('click', function(e) {
-        const trigger = e.target.closest('.popup-trigger');
-        if (trigger) {
-            e.preventDefault();
-            showPopup(trigger.getAttribute('data-popup'));
-        }
+    // Better event handling for triggers
+    document.querySelectorAll('.popup-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            showPopup(this.getAttribute('data-popup'));
+        });
         
-        if (e.target.closest('[data-close]')) {
-            closePopup(e.target.closest('.popup'));
-        }
+        // Add touch support
+        trigger.addEventListener('touchstart', function(e) {
+            showPopup(this.getAttribute('data-popup'));
+        }, {passive: true});
     });
 
-    // Touch support
-    document.body.addEventListener('touchstart', function(e) {
-        const trigger = e.target.closest('.popup-trigger');
-        if (trigger) {
-            e.preventDefault();
-            showPopup(trigger.getAttribute('data-popup'));
-        }
-    }, {passive: false});
+    // Close handlers
+    document.querySelectorAll('.popup').forEach(popup => {
+        popup.addEventListener('click', function(e) {
+            if (e.target === this || e.target.closest('[data-close]')) {
+                closePopup(this);
+            }
+        });
+    });
 
     // ESC key close
     document.addEventListener('keydown', function(e) {
