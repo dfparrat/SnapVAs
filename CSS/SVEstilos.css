@@ -109,6 +109,38 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+                /* Your existing styles for horizontal scroll and services */
+        .horizontal-scroll-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 0;
+        }
+        
+        .services-row {
+            display: inline-flex;
+            gap: 20px;
+        }
+        
+        .service-container {
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+        
+        .round-card {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        
+        .round-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
 /* ===== NAVBAR STYLES ===== */
 .navbar-custom {
