@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('EmailJS initialized successfully');
             
             // Get the form element
-            const form = document.getElementById("contact-form-2");
+            const form = document.getElementById("applicant-form");
             
             if (!form) {
                 console.error('Form not found - check element ID');

@@ -9,7 +9,7 @@
     <meta name="keywords" content="html, css, xml, javascript, asistentes virtuales, virtual assistants">
     <meta name="description" content="SnapVAs - Servicios profesionales de asistentes virtuales">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnapVAs - Asistentes Virtuales Profesionales</title> 
+    <title>SnapVAs - Professional Virtual assistants</title> 
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
     <script>
@@ -21,7 +21,7 @@
     <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="CSS/CONTACTSVEstilos.css" rel="stylesheet">
+    <link href="CSS/applicant_Estilos.css" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body> 
@@ -92,7 +92,7 @@
   <h1>Work with us</h1>
   <p>Be part of the best team.</p>
   
-<form id="contact-form-2">
+<form id="applicant-form" enctype="multipart/form-data">
     <div class="form-group">
         <input type="text" name="from_name" placeholder="Name" required>
     </div>
@@ -101,7 +101,7 @@
     </div>
     <div class="form-group">
         <select name="from_job" required>
-            <option value="" disabled selected>Select Job Title</Title></option>
+            <option value="" disabled selected>Select Job Title</option>
             <option value="Administrative Assistance">Administrative Assistance</option>
             <option value="Customer Support">Customer Support</option>
             <option value="Digital Marketing">Digital Marketing</option>
@@ -114,6 +114,14 @@
     </div>
     <div class="form-group">
         <textarea name="from_message" placeholder="Message" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="from_resume">Attach Resume/CV (PDF, DOC/DOCX, max 5MB):</label>
+        <input type="file" id="from_resume" name="from_resume" accept=".pdf,.doc,.docx" required>
+    </div>
+    <div class="form-group">
+        <label for="from_cover">Attach Cover Letter (Optional, PDF, DOC/DOCX, max 5MB):</label>
+        <input type="file" id="from_cover" name="from_cover" accept=".pdf,.doc,.docx">
     </div>
     <button type="submit">Send</button>
 </form>
