@@ -1,69 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
-            // Track active popup
-            let activePopup = null;
-            
-            // Show popup function
-            function showPopup(popupId, event) {
-                event.preventDefault();
-                event.stopPropagation();
-                
-                if (activePopup) return;
-                
-                const popup = document.getElementById(popupId);
-                if (!popup) return;
-                
-                activePopup = popup;
-                popup.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                document.body.style.touchAction = 'none';
-            }
-
-            // Close popup function
-            function closePopup(event) {
-                if (!activePopup) return;
-                
-                event.preventDefault();
-                event.stopPropagation();
-                
-                activePopup.style.display = 'none';
-                document.body.style.overflow = '';
-                document.body.style.touchAction = '';
-                activePopup = null;
-            }
-
-            // Click/touch handler for popup triggers
-            function handleTriggerClick(event) {
-                const trigger = event.target.closest('.popup-trigger');
-                if (trigger) {
-                    showPopup(trigger.getAttribute('data-popup'), event);
-                }
-            }
-
-            // Close when clicking on overlay or close button
-            function handlePopupClose(event) {
-                if (!activePopup) return;
-                
-                if (event.target === activePopup || event.target.closest('[data-close]')) {
-                    closePopup(event);
-                }
-            }
-
-            // Event listeners
-            document.addEventListener('click', handleTriggerClick);
-            document.addEventListener('touchstart', handleTriggerClick, {passive: false});
-            document.addEventListener('click', handlePopupClose);
-            document.addEventListener('touchend', handlePopupClose, {passive: false});
-
-            // ESC key close
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && activePopup) {
-                    activePopup.style.display = 'none';
-                    document.body.style.overflow = '';
-                    document.body.style.touchAction = '';
-                    activePopup = null;
-                }
-            });
+    // Simple show/hide functions
+    function showPopup(id) {
+        const popup = document.getElementById(id);
+        if (popup) {
+            popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    function hidePopups() {
+        document.querySelectorAll('.popup').forEach(popup => {
+            popup.style.display = 'none';
         });
+        document.body.style.overflow = '';
+    }
+
+    // Click handlers for triggers
+    document.querySelectorAll('.popup-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPopup(this.getAttribute('data-popup'));
+        });
+    });
+
+    // Close handlers
+    document.querySelectorAll('.popup').forEach(popup => {
+        popup.addEventListener('click', function(e) {
+            if (e.target === this || e.target.closest('[data-close]')) {
+                hidePopups();
+            }
+        });
+    });
+
+    // Also close with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') hidePopups();
+    });
+});
 
 
     // Menu toggler for mobile
@@ -83,8 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             bsCollapse.hide();
         }
     });
-});
-
 
 //===CONTACT FORM EMAIL JS
 // In your SVBackEnd.js file:
