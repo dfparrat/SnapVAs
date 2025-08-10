@@ -269,7 +269,7 @@
     }
 
     .hero-section h1 {
-      color: var(--primary-color);
+      color: rgb(86, 71, 151);
       font-size: 2.5rem;
       font-weight: bold;
     }
