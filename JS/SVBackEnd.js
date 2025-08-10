@@ -1,31 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Simple show/hide functions
+document.addEventListener('DOMContentLoaded', function () {
+    // Show a specific popup by ID
     function showPopup(id) {
         const popup = document.getElementById(id);
         if (popup) {
             popup.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            popup.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // lock background scroll
         }
     }
-    
+
+    // Hide all popups
     function hidePopups() {
         document.querySelectorAll('.popup').forEach(popup => {
             popup.style.display = 'none';
+            popup.setAttribute('aria-hidden', 'true');
         });
-        document.body.style.overflow = '';
+        document.body.style.overflow = ''; // restore background scroll
     }
 
-    // Click handlers for triggers
-    document.querySelectorAll('.popup-trigger').forEach(trigger => {
-        trigger.addEventListener('click', function(e) {
+    // Attach click handlers for popup triggers
+    document.querySelectorAll('[data-popup-target]').forEach(trigger => {
+        trigger.addEventListener('click', function (e) {
             e.preventDefault();
-            showPopup(this.getAttribute('data-popup'));
+            const targetId = this.getAttribute('data-popup-target').replace('#', '');
+            hidePopups(); // ensure no other popup is open
+            showPopup(targetId);
         });
     });
 
-    // Close handlers
+    // Close popups when clicking outside or on close button
     document.querySelectorAll('.popup').forEach(popup => {
-        popup.addEventListener('click', function(e) {
+        popup.addEventListener('click', function (e) {
             if (e.target === this || e.target.closest('[data-close]')) {
                 hidePopups();
             }
@@ -33,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Also close with ESC key
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') hidePopups();
     });
 });
 
-
-    // Menu toggler for mobile
+//===NAVBAR TOGGLER FOR MOBILE
+//     // Menu toggler for mobile
     const navbar = document.getElementById('navbarNav');
     const toggler = document.querySelector('.navbar-toggler');
     const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });

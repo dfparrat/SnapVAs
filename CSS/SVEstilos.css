@@ -7,19 +7,12 @@
     position: relative;
     color: white;
     animation: fadeIn 0.3s ease;
-    
-    /* Text wrapping and overflow control */
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    
-    /* Layout */
+    overflow-wrap: anywhere;  /* Force wrap */
+    word-break: break-word;   /* Break long words */
+    hyphens: auto;            /* Allow hyphenation */
     display: flex;
     flex-direction: column;
-    max-height: 90vh;
-    /* REMOVE overflow: hidden; to allow wrapping */
-    overflow: hidden; /* Keep rounded-corner look */
-
+    text-align: center;
 }
 
 .popup-content-inner {
