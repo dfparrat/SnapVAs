@@ -1,45 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Track if popup is open to prevent multiple instances
+    let isPopupOpen = false;
+
     // Universal popup handler
     function showPopup(popupId) {
+        if (isPopupOpen) return;
+        
         const popup = document.getElementById(popupId);
         if (!popup) return;
         
+        isPopupOpen = true;
         popup.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        // Removed position: fixed as it was causing issues
+        document.body.classList.add('popup-open');
     }
 
     // Universal close handler
     function closePopup(popup) {
+        if (!isPopupOpen) return;
+        
         popup.style.display = 'none';
-        document.body.style.overflow = '';
+        document.body.classList.remove('popup-open');
+        isPopupOpen = false;
     }
 
-    // Better event handling for triggers
-    document.querySelectorAll('.popup-trigger').forEach(trigger => {
-        trigger.addEventListener('click', function(e) {
-            showPopup(this.getAttribute('data-popup'));
-        });
-        
-        // Add touch support
-        trigger.addEventListener('touchstart', function(e) {
-            showPopup(this.getAttribute('data-popup'));
-        }, {passive: true});
+    // Proper event delegation for triggers
+    document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('.popup-trigger');
+        if (trigger) {
+            e.preventDefault();
+            showPopup(trigger.getAttribute('data-popup'));
+        }
     });
 
+    // Touch support (passive: true for performance)
+    document.addEventListener('touchstart', function(e) {
+        const trigger = e.target.closest('.popup-trigger');
+        if (trigger) {
+            e.preventDefault();
+            showPopup(trigger.getAttribute('data-popup'));
+        }
+    }, {passive: true});
+
     // Close handlers
-    document.querySelectorAll('.popup').forEach(popup => {
-        popup.addEventListener('click', function(e) {
-            if (e.target === this || e.target.closest('[data-close]')) {
-                closePopup(this);
-            }
-        });
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('[data-close]') || e.target.classList.contains('popup')) {
+            closePopup(e.target.closest('.popup'));
+        }
     });
 
     // ESC key close
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.popup').forEach(closePopup);
+        if (e.key === 'Escape' && isPopupOpen) {
+            closePopup(document.querySelector('.popup[style*="display: flex"]'));
         }
     });
 });

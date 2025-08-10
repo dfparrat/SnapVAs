@@ -1,4 +1,4 @@
-/* ===== POPUP STYLES ===== */
+/* ===== CORE POPUP STYLES ===== */
 .popup {
     display: none;
     position: fixed;
@@ -6,49 +6,83 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(86, 71, 151, 0.9);
-    z-index: 99999;
+    background-color: rgba(86, 71, 151, 0.95);
+    z-index: 1000;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    /* Flex properties for centering */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Reset padding/margin */
-    padding: 0;
-    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 .popup-content {
     background-color: rgb(86, 71, 151);
-    margin: 20px;
+    margin: auto;
     padding: 2rem;
     border-radius: 15px;
-    width: calc(100% - 40px);
+    width: 100%;
     max-width: 500px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     position: relative;
     color: white;
     animation: fadeIn 0.3s ease;
-    overflow-y: auto;
-    max-height: 80vh;
-    -webkit-overflow-scrolling: touch;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
-/* Rest of your CSS remains good, just ensure this is added: */
+/* TEXT WRAPPING FIXES */
+.popup-content-inner {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.popup-content h2,
+.popup-content p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* MOBILE OPTIMIZATIONS */
 @media (max-width: 768px) {
-    .popup-content {
-        margin: 10px;
-        width: calc(100% - 20px);
-        max-height: 90vh;
-        padding: 1.5rem;
+    .popup {
+        padding: 10px;
     }
     
-    .close-btn {
-        top: 10px;
-        right: 15px;
-        font-size: 24px;
+    .popup-content {
+        padding: 1.5rem;
+        max-height: 90vh;
+        overflow-y: auto;
     }
+    
+    .popup-content h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
