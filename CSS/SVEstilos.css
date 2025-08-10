@@ -1,90 +1,114 @@
-/* ===== CORE POPUP STYLES ===== */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(86, 71, 151, 0.95);
-    z-index: 1000;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 20px;
-    box-sizing: border-box;
-}
+ /* ===== CORE POPUP STYLES ===== */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(86, 71, 151, 0.95);
+            z-index: 10000;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: manipulation;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-.popup-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
+        .popup-content {
+            background-color: rgb(86, 71, 151);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            color: white;
+            animation: fadeIn 0.3s ease;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
 
-.popup-content {
-    background-color: rgb(86, 71, 151);
-    margin: auto;
-    padding: 2rem;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    position: relative;
-    color: white;
-    animation: fadeIn 0.3s ease;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-}
+        .popup-content-inner {
+            width: 100%;
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
 
-/* TEXT WRAPPING FIXES */
-.popup-content-inner {
-    width: 100%;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
+        .popup-content h2 {
+            font-size: 1.6rem;
+            line-height: 1.3;
+            margin: 0 0 1.5rem 0;
+            text-align: center;
+            width: 100%;
+            word-break: break-word;
+        }
 
-.popup-content h2,
-.popup-content p {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
+        .popup-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 1.2rem 0;
+            text-align: left;
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+            word-break: break-word;
+        }
 
-/* CLOSE BUTTON */
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1001;
-}
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 10001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: white;
+        }
 
-/* MOBILE OPTIMIZATIONS */
-@media (max-width: 768px) {
-    .popup {
-        padding: 10px;
-    }
-    
-    .popup-content {
-        padding: 1.5rem;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-    
-    .popup-content h2 {
-        font-size: 1.4rem;
-    }
-}
+        /* MOBILE OPTIMIZATIONS */
+        @media (max-width: 768px) {
+            .popup {
+                padding: 10px;
+            }
+            
+            .popup-content {
+                padding: 20px;
+                max-height: 85vh;
+            }
+            
+            .popup-content h2 {
+                font-size: 1.4rem;
+            }
+            
+            .popup-content p {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+            
+            .close-btn {
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+            }
+        }
 
-/* ANIMATION */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
 /* ===== NAVBAR STYLES ===== */
 .navbar-custom {

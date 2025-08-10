@@ -1,60 +1,69 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Track if popup is open to prevent multiple instances
-    let isPopupOpen = false;
+            // Track active popup
+            let activePopup = null;
+            
+            // Show popup function
+            function showPopup(popupId, event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                if (activePopup) return;
+                
+                const popup = document.getElementById(popupId);
+                if (!popup) return;
+                
+                activePopup = popup;
+                popup.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                document.body.style.touchAction = 'none';
+            }
 
-    // Universal popup handler
-    function showPopup(popupId) {
-        if (isPopupOpen) return;
-        
-        const popup = document.getElementById(popupId);
-        if (!popup) return;
-        
-        isPopupOpen = true;
-        popup.style.display = 'flex';
-        document.body.classList.add('popup-open');
-    }
+            // Close popup function
+            function closePopup(event) {
+                if (!activePopup) return;
+                
+                event.preventDefault();
+                event.stopPropagation();
+                
+                activePopup.style.display = 'none';
+                document.body.style.overflow = '';
+                document.body.style.touchAction = '';
+                activePopup = null;
+            }
 
-    // Universal close handler
-    function closePopup(popup) {
-        if (!isPopupOpen) return;
-        
-        popup.style.display = 'none';
-        document.body.classList.remove('popup-open');
-        isPopupOpen = false;
-    }
+            // Click/touch handler for popup triggers
+            function handleTriggerClick(event) {
+                const trigger = event.target.closest('.popup-trigger');
+                if (trigger) {
+                    showPopup(trigger.getAttribute('data-popup'), event);
+                }
+            }
 
-    // Proper event delegation for triggers
-    document.addEventListener('click', function(e) {
-        const trigger = e.target.closest('.popup-trigger');
-        if (trigger) {
-            e.preventDefault();
-            showPopup(trigger.getAttribute('data-popup'));
-        }
-    });
+            // Close when clicking on overlay or close button
+            function handlePopupClose(event) {
+                if (!activePopup) return;
+                
+                if (event.target === activePopup || event.target.closest('[data-close]')) {
+                    closePopup(event);
+                }
+            }
 
-    // Touch support (passive: true for performance)
-    document.addEventListener('touchstart', function(e) {
-        const trigger = e.target.closest('.popup-trigger');
-        if (trigger) {
-            e.preventDefault();
-            showPopup(trigger.getAttribute('data-popup'));
-        }
-    }, {passive: true});
+            // Event listeners
+            document.addEventListener('click', handleTriggerClick);
+            document.addEventListener('touchstart', handleTriggerClick, {passive: false});
+            document.addEventListener('click', handlePopupClose);
+            document.addEventListener('touchend', handlePopupClose, {passive: false});
 
-    // Close handlers
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('[data-close]') || e.target.classList.contains('popup')) {
-            closePopup(e.target.closest('.popup'));
-        }
-    });
-
-    // ESC key close
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && isPopupOpen) {
-            closePopup(document.querySelector('.popup[style*="display: flex"]'));
-        }
-    });
-});
+            // ESC key close
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && activePopup) {
+                    activePopup.style.display = 'none';
+                    document.body.style.overflow = '';
+                    document.body.style.touchAction = '';
+                    activePopup = null;
+                }
+            });
+        });
 
 
     // Menu toggler for mobile
