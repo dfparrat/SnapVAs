@@ -1,39 +1,74 @@
-// Initialize on load
 document.addEventListener('DOMContentLoaded', function() {
-    // Popup handlers
+    // Detect iOS devices
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    // Popup handlers - now includes touch support
     document.querySelectorAll('.popup-trigger').forEach(trigger => {
-        trigger.addEventListener('click', function() {
-            const popupId = this.getAttribute('data-popup');
-            const popup = document.getElementById(popupId);
-            
-            // Force reflow for iOS
-            void popup.offsetHeight;
-            
-            // Show popup
-            popup.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
+        // Add both click and touchstart events for iOS
+        trigger.addEventListener('click', handlePopupTrigger);
+        if (isIOS) {
+            trigger.addEventListener('touchstart', handlePopupTrigger);
+        }
     });
 
-    // Close handlers
+    function handlePopupTrigger() {
+        const popupId = this.getAttribute('data-popup');
+        const popup = document.getElementById(popupId);
+        
+        // Force reflow for iOS
+        void popup.offsetHeight;
+        
+        // Show popup with proper iOS viewport handling
+        popup.style.display = 'flex'; // Changed from 'block' to 'flex'
+        document.body.style.overflow = 'hidden';
+        
+        // iOS viewport height fix
+        if (isIOS) {
+            document.documentElement.style.height = '100%';
+            document.body.style.height = '100%';
+            popup.style.height = '100%';
+        }
+    }
+
+    // Close handlers - enhanced for touch devices
     document.querySelectorAll('.popup, [data-close]').forEach(el => {
         el.addEventListener('click', function(e) {
             if (e.target === this || e.target.hasAttribute('data-close')) {
-                this.closest('.popup').style.display = 'none';
-                document.body.style.overflow = 'auto';
+                closePopup(this.closest('.popup'));
             }
         });
+        
+        // Add touch support for closing
+        if (isIOS) {
+            el.addEventListener('touchend', function(e) {
+                if (e.target === this || e.target.hasAttribute('data-close')) {
+                    closePopup(this.closest('.popup'));
+                }
+            });
+        }
     });
+
+    function closePopup(popup) {
+        popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Reset iOS viewport fixes
+        if (isIOS) {
+            document.documentElement.style.height = '';
+            document.body.style.height = '';
+        }
+    }
 
     // ESC key close
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             document.querySelectorAll('.popup').forEach(popup => {
-                popup.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                closePopup(popup);
             });
         }
     });
+});
 
     // Menu toggler for mobile
     const navbar = document.getElementById('navbarNav');

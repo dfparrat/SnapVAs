@@ -6,19 +6,15 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Changed from 100% */
+    height: -webkit-fill-available; /* iOS fix */
     background-color: rgba(86, 71, 151, 0.8);
     backdrop-filter: blur(3px);
-    display: none;
+    -webkit-backdrop-filter: blur(3px);
     align-items: center;
     justify-content: center;
-    height: 100%;
-    -webkit-backdrop-filter: blur(3px); /* iOS fix */
-}
-.popup-text {
-    word-break: normal;
-    hyphens: auto;
-    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
 }
 
 .popup-content {
@@ -31,28 +27,26 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     position: relative;
     color: white;
-    box-sizing: border-box;
     animation: fadeIn 0.3s ease;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; /* allow wrapping */
-    overflow-y: auto; /* add scroll if content exceeds height */
-    max-height: 100%; /* stay inside popup */
-    box-sizing: border-box;
-    word-wrap: break-word; /* force long words to break */
-    white-space: normal; /* ensure text wraps */
-    padding: 20px; /* adjust for spacing */
-    -webkit-overflow-scrolling: touch; /* iOS fix */
-
+    overflow-y: auto;
+    max-height: 80vh;
+    -webkit-overflow-scrolling: touch;
 }
+
+/* Rest of your existing CSS remains the same */
+.popup-text {
+    word-break: normal;
+    hyphens: auto;
+    overflow-x: hidden;
+}
+
 .popup-container {
-    max-width: 90vw; /* 90% of viewport width */
-    width: 500px; /* or your preferred width */
+    max-width: 90vw;
+    width: 500px;
     padding: 20px;
     box-sizing: border-box;
 }
+
 .popup-content-inner {
     width: 100%;
     max-width: 100%;
@@ -99,12 +93,12 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
     .popup-content {
         padding: 1.5rem 1rem;
         margin: 5vh auto;
         max-width: 90%;
+        max-height: 85vh;
     }
     
     .popup-content h2 {
@@ -115,7 +109,6 @@
         font-size: 0.95rem;
     }
 }
-
 /* ===== NAVBAR STYLES ===== */
 .navbar-custom {
     background-color: #ffffff;
