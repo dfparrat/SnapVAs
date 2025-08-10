@@ -18,14 +18,17 @@
     flex-direction: column;
     max-height: 90vh;
     /* REMOVE overflow: hidden; to allow wrapping */
+    overflow: hidden; /* Keep rounded-corner look */
+
 }
 
 .popup-content-inner {
     width: 100%;
-    overflow-y: auto;
+    max-height: calc(90vh - 60px); /* leave space for padding and close button */
+    overflow-y: auto; /* Allow vertical scrolling if needed */
     padding-right: 5px;
     word-break: break-word;
-    overflow-wrap: anywhere;
+    overflow-wrap: anywhere; /* Force wrap long strings/URLs */
     hyphens: auto;
 }
 
@@ -37,7 +40,7 @@
     }
 
     .popup-content-inner {
-        max-height: calc(85vh - 40px); /* Prevents overflow on very small screens */
+        max-height: calc(85vh - 40px);
     }
 
     .popup-content h2 {
