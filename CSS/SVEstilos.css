@@ -694,6 +694,7 @@
 }
 
 /* ===== FOOTER STYLES ===== */
+
 .footer-custom {
     background-color: #f6f2f9;
     color: #000;
@@ -754,9 +755,17 @@
 .btn-get-hired:hover {
     background-color: #3a3270;
 }
+.contact-info {
+  margin-top: 1rem; /* Adds space between social icons and contact info */
+}
 
 @media (max-width: 768px) {
-    .footer-custom .col-md-4 {
+    .footer-custom .row > div {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-custom .col-md-4,
+    .footer-custom .col-sm-6 {
         text-align: center;
     }
 
@@ -766,7 +775,37 @@
 
     .btn-get-hired {
         text-align: center;
+        width: 100%;
     }
+}
+
+@media (max-width: 576px) {
+    .footer-custom .col-6 {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-custom .row > div {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .footer-custom .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+      .d-flex.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .d-flex.align-items-center .ms-3 {
+    margin-left: 0 !important;
+    margin-top: 1rem;
+  }
+  
+  .contact-info {
+    margin-top: 1.5rem;
+  }
 }
 
 /* ===== WHATSAPP/CALL BUTTONS ===== */

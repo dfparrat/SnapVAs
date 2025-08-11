@@ -279,78 +279,117 @@ button[type="submit"]:hover {
 }
 
 
-/* Footer Styles */ 
+/* ===== FOOTER STYLES ===== */
+
 .footer-custom {
-  background-color: #f6f2f9;
-  color: #000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+    background-color: #f6f2f9;
+    color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
 }
 
 .footer-custom h6 {
-  font-weight: bold;
-  margin-bottom: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .footer-custom ul {
-  padding-left: 0;
-  list-style: none;
+    padding-left: 0;
+    list-style: none;
 }
 
 .footer-custom ul li {
-  margin-bottom: 0.5rem;
-  cursor: pointer;
-  transition: color 0.3s;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .footer-custom ul li:hover {
-  color: #999;
+    color: #999;
 }
 
 .social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: #4c438c;
-  color: white;
-  border-radius: 50%;
-  font-size: 16px;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #4c438c;
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .social-icon:hover {
-  background-color: #3a3270;
-  transform: scale(1.1);
+    background-color: #3a3270;
+    transform: scale(1.1);
 }
 
 .btn-get-hired {
-  background-color: #4c438c;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  transition: background-color 0.3s;
+    background-color: #4c438c;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
 .btn-get-hired:hover {
-  background-color: #3a3270;
+    background-color: #3a3270;
+}
+.contact-info {
+  margin-top: 1rem; /* Adds space between social icons and contact info */
 }
 
 @media (max-width: 768px) {
-  .footer-custom .col-md-4 {
-    text-align: center;
-  }
+    .footer-custom .row > div {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-custom .col-md-4,
+    .footer-custom .col-sm-6 {
+        text-align: center;
+    }
 
-  .footer-custom .social-icon {
-    margin: 0 4px;
-  }
+    .footer-custom .social-icon {
+        margin: 0 4px;
+    }
 
-  .btn-get-hired {
-    text-align: center;
+    .btn-get-hired {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-custom .col-6 {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-custom .row > div {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .footer-custom .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+      .d-flex.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .d-flex.align-items-center .ms-3 {
+    margin-left: 0 !important;
+    margin-top: 1rem;
+  }
+  
+  .contact-info {
+    margin-top: 1.5rem;
   }
 }
