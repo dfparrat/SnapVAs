@@ -17,9 +17,9 @@
     });
 
 //===APPLICANT FORM SUBMISSION
-// applicant.js - Updated EmailJS Implementation
+// applicant.js - Complete EmailJS Implementation
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize EmailJS with your User ID
+    // Initialize EmailJS
     emailjs.init("RW305hYZ62V-A18nB")
         .then(function() {
             console.log('EmailJS initialized successfully');
@@ -31,58 +31,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            form.addEventListener("submit", function(event) {
-                event.preventDefault();
-                
-                // Validate form before submission
-                if (!validateForm()) {
-                    return;
-                }
-
-                const SERVICE_ID = "service_hbw2k4z";
-                const TEMPLATE_ID = "template_n019kcj";
-
-                // Create form data object
-                const formData = {
-                    from_name: form.elements["from_name"].value,
-                    from_email: form.elements["from_email"].value,
-                    from_job: form.elements["from_job"].value,
-                    from_message: form.elements["from_message"].value,
-                    // Note: Files will be handled separately
-                };
-
-                console.log("Form data:", formData);
-
-                // First send the email with form data
-                emailjs.send(SERVICE_ID, TEMPLATE_ID, formData)
-                    .then(function(response) {
-                        console.log("Email sent:", response);
-                        
-                        // Then handle file uploads if they exist
-                        return handleFileUploads(form);
-                    })
-                    .then(function() {
-                        // Success message
-                        showAlert("success", "Application submitted successfully! We'll contact you soon.");
-                        form.reset();
-                    })
-                    .catch(function(error) {
-                        console.error("Error:", error);
-                        showAlert("error", "Failed to submit application. Please try again or contact us directly.");
-                    });
-            });
+            form.addEventListener("submit", handleFormSubmit);
         })
         .catch(function(error) {
             console.error("EmailJS init failed:", error);
             showAlert("error", "Service initialization failed. Please refresh the page.");
         });
 
-    // Form validation function
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        if (!validateForm()) {
+            return;
+        }
+
+        const SERVICE_ID = "service_hbw2k4z";
+        const TEMPLATE_ID = "template_n019kcj";
+
+        const formData = {
+            from_name: this.elements["from_name"].value,
+            from_email: this.elements["from_email"].value,
+            from_job: this.elements["from_job"].value,
+            from_message: this.elements["from_message"].value,
+            attachments: getFileInfo(this)
+        };
+
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, formData)
+            .then(function(response) {
+                console.log("Email sent:", response);
+                showAlert("success", "Application submitted successfully!");
+                event.target.reset();
+            })
+            .catch(function(error) {
+                console.error("Error:", error);
+                showAlert("error", "Submission failed. Please try again.");
+            });
+    }
+
     function validateForm() {
         const form = document.getElementById("applicant-form");
         const resume = form.elements["from_resume"];
         
-        // Basic validation
         if (!form.elements["from_name"].value.trim()) {
             showAlert("error", "Please enter your name");
             return false;
@@ -90,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!form.elements["from_email"].value.trim() || 
             !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.elements["from_email"].value)) {
-            showAlert("error", "Please enter a valid email address");
+            showAlert("error", "Please enter a valid email");
             return false;
         }
         
@@ -104,45 +93,37 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        // Validate file size (5MB max)
         if (resume.files[0].size > 5 * 1024 * 1024) {
-            showAlert("error", "Resume file size exceeds 5MB limit");
+            showAlert("error", "Resume exceeds 5MB limit");
             return false;
         }
         
         return true;
     }
 
-    // Handle file uploads separately (to your own server)
-    function handleFileUploads(form) {
-        return new Promise((resolve, reject) => {
-            // In a real implementation, you would upload files to your server here
-            // This is just a placeholder since EmailJS doesn't handle file attachments directly
-            
-            // For demo purposes, we'll just resolve immediately
-            console.log("Files would be uploaded here in a real implementation");
-            resolve();
-            
-            /* 
-            // Example of how you might implement actual file upload:
-            const formData = new FormData();
-            formData.append('resume', form.elements["from_resume"].files[0]);
-            if (form.elements["from_cover"].files.length) {
-                formData.append('cover', form.elements["from_cover"].files[0]);
+    function getFileInfo(form) {
+        const files = {
+            resume: {
+                name: form.elements["from_resume"].files[0]?.name || '',
+                size: form.elements["from_resume"].files[0]?.size || 0
+            },
+            cover: {
+                name: form.elements["from_cover"].files[0]?.name || '',
+                size: form.elements["from_cover"].files[0]?.size || 0
             }
-            
-            fetch('/upload-endpoint', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => resolve())
-            .catch(error => reject(error));
-            */
-        });
+        };
+        return `Resume: ${files.resume.name} (${formatFileSize(files.resume.size)}` + 
+               (files.cover.name ? ` | Cover: ${files.cover.name} (${formatFileSize(files.cover.size)})` : '');
     }
 
-    // Show alert message
+function formatFileSize(bytes) {
+    if (!bytes || bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
     function showAlert(type, message) {
         const alertDiv = document.createElement('div');
         alertDiv.className = `alert alert-${type}`;
@@ -150,12 +131,12 @@ document.addEventListener('DOMContentLoaded', function() {
         alertDiv.style.position = 'fixed';
         alertDiv.style.top = '20px';
         alertDiv.style.right = '20px';
-        alertDiv.style.zIndex = '1000';
         alertDiv.style.padding = '15px';
         alertDiv.style.borderRadius = '5px';
         alertDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
         alertDiv.style.color = type === 'success' ? '#155724' : '#721c24';
-        alertDiv.style.border = `1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'`;
+        alertDiv.style.border = `1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'}`;
+        alertDiv.style.zIndex = '1000';
         
         document.body.appendChild(alertDiv);
         
