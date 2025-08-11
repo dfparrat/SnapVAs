@@ -479,6 +479,82 @@
       }
     }
 
+/*=== Pricing Section Styles ===*/
+#pricing {
+  background-color: #f9f9ff;
+}
+
+.pricing-card {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+.popular-badge {
+  position: relative;
+  top: -15px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.price-badge {
+  background-color: rgba(76, 67, 140, 0.1);
+}
+
+.text-primary {
+  color: #4c438c !important;
+}
+
+.bg-primary-light {
+  background-color: rgba(76, 67, 140, 0.1);
+}
+
+.btn-primary {
+  background-color: #4c438c;
+  border-color: #4c438c;
+}
+
+.text-accent {
+  color: #ff6b6b !important;
+}
+
+.bg-accent-light {
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+.btn-accent {
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.text-purple {
+  color: #9c6bff !important;
+}
+
+.bg-purple-light {
+  background-color: rgba(156, 107, 255, 0.1);
+}
+
+.btn-purple {
+  background-color: #9c6bff;
+  border-color: #9c6bff;
+}
+
+.btn-primary:hover,
+.btn-accent:hover,
+.btn-purple:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 767.98px) {
+  .pricing-card {
+    margin-bottom: 30px;
+  }
+}
+
 /*=== SNAP SECTION STYLES=== */
 
 .snaps-section {
