@@ -15,6 +15,8 @@
     /* iOS viewport fix */
     height: 100vh;
     height: -webkit-fill-available;
+    /* Prevent scrolling on background */
+    overflow: hidden;
 }
 
 .popup-content {
@@ -25,25 +27,29 @@
     padding: 30px;
     position: relative;
     color: white;
-    /* Text wrapping */
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
     /* Layout */
     display: flex;
     flex-direction: column;
     max-height: 80vh;
-    /* Hide scrollbar but allow scrolling */
+    /* Text containment */
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .popup-content-inner {
     width: 100%;
     overflow-y: auto;
-    padding-right: 5px;
-    /* Custom scrollbar for webkit */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+    /* Text wrapping enforcement */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* Ensure no horizontal overflow */
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Hide scrollbar for Chrome/Safari */
@@ -57,7 +63,11 @@
     margin: 0 0 1.5rem 0;
     text-align: center;
     width: 100%;
+    /* Text containment */
     word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    padding: 0;
 }
 
 .popup-content p {
@@ -66,8 +76,12 @@
     margin: 0 0 1.2rem 0;
     text-align: center;
     width: 100%;
-    box-sizing: border-box;
+    /* Text containment */
     word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .close-btn {
@@ -99,6 +113,7 @@
     .popup-content {
         padding: 20px;
         max-height: 85vh;
+        width: 95%;
     }
     
     .popup-content h2 {

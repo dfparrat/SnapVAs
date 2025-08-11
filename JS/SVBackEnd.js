@@ -2,6 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track active popup
     let activePopup = null;
     
+    // Function to enforce text containment
+    function enforceTextContainment() {
+        document.querySelectorAll('.popup-content-inner').forEach(content => {
+            content.style.maxWidth = '100%';
+            content.style.overflowX = 'hidden';
+            void content.offsetWidth; // Force reflow
+        });
+    }
+
     // Show popup function
     function showPopup(popupId, event) {
         if (event) {
@@ -17,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
         activePopup = popup;
         popup.style.display = 'flex';
         document.body.style.overflow = 'hidden';
-        // iOS touch prevention
         document.body.style.touchAction = 'none';
+        
+        // Enforce text containment
+        enforceTextContainment();
     }
 
     // Close popup function
@@ -72,6 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
             closePopup();
         }
     });
+
+    // Run on resize
+    window.addEventListener('resize', enforceTextContainment);
 });
 
 
