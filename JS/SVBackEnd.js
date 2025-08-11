@@ -1,47 +1,79 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Show a specific popup by ID
-    function showPopup(id) {
-        const popup = document.getElementById(id);
-        if (popup) {
-            popup.style.display = 'flex';
-            popup.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // lock background scroll
+document.addEventListener('DOMContentLoaded', function() {
+    // Track active popup
+    let activePopup = null;
+    
+    // Show popup function
+    function showPopup(popupId, event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
         }
+        
+        if (activePopup) return;
+        
+        const popup = document.getElementById(popupId);
+        if (!popup) return;
+        
+        activePopup = popup;
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // iOS touch prevention
+        document.body.style.touchAction = 'none';
     }
 
-    // Hide all popups
-    function hidePopups() {
-        document.querySelectorAll('.popup').forEach(popup => {
-            popup.style.display = 'none';
-            popup.setAttribute('aria-hidden', 'true');
-        });
-        document.body.style.overflow = ''; // restore background scroll
+    // Close popup function
+    function closePopup(event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        
+        if (!activePopup) return;
+        
+        activePopup.style.display = 'none';
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+        activePopup = null;
     }
 
-    // Attach click handlers for popup triggers
-    document.querySelectorAll('[data-popup-target]').forEach(trigger => {
-        trigger.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('data-popup-target').replace('#', '');
-            hidePopups(); // ensure no other popup is open
-            showPopup(targetId);
+    // Click handler for popup triggers
+    document.querySelectorAll('.popup-trigger').forEach(trigger => {
+        // Mouse click
+        trigger.addEventListener('click', function(e) {
+            showPopup(this.getAttribute('data-popup'), e);
         });
+        
+        // Touch support
+        trigger.addEventListener('touchstart', function(e) {
+            showPopup(this.getAttribute('data-popup'), e);
+        }, { passive: false });
     });
 
-    // Close popups when clicking outside or on close button
+    // Close handlers
     document.querySelectorAll('.popup').forEach(popup => {
-        popup.addEventListener('click', function (e) {
+        // Mouse click
+        popup.addEventListener('click', function(e) {
             if (e.target === this || e.target.closest('[data-close]')) {
-                hidePopups();
+                closePopup(e);
             }
         });
+        
+        // Touch support
+        popup.addEventListener('touchend', function(e) {
+            if (e.target === this || e.target.closest('[data-close]')) {
+                closePopup(e);
+            }
+        }, { passive: false });
     });
 
-    // Also close with ESC key
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') hidePopups();
+    // ESC key close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && activePopup) {
+            closePopup();
+        }
     });
 });
+
 
 //===NAVBAR TOGGLER FOR MOBILE
 //     // Menu toggler for mobile
