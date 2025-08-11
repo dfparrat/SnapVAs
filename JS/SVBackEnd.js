@@ -1,24 +1,20 @@
+// Popup functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Track active popup
     let activePopup = null;
     
-    // Function to enforce text containment
-    function enforceTextContainment() {
-        document.querySelectorAll('.popup-content-inner').forEach(content => {
-            content.style.maxWidth = '100%';
-            content.style.overflowX = 'hidden';
-            void content.offsetWidth; // Force reflow
-        });
-    }
-
     // Show popup function
     function showPopup(popupId, event) {
         if (event) {
             event.preventDefault();
             event.stopPropagation();
+            event.stopImmediatePropagation();
         }
         
-        if (activePopup) return;
+        // Hide any currently open popup
+        if (activePopup) {
+            activePopup.style.display = 'none';
+        }
         
         const popup = document.getElementById(popupId);
         if (!popup) return;
@@ -26,10 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
         activePopup = popup;
         popup.style.display = 'flex';
         document.body.style.overflow = 'hidden';
-        document.body.style.touchAction = 'none';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
         
-        // Enforce text containment
-        enforceTextContainment();
+        // iOS specific fix
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            document.documentElement.style.overflow = 'hidden';
+            document.documentElement.style.position = 'fixed';
+            document.documentElement.style.width = '100%';
+            document.documentElement.style.height = '100%';
+        }
     }
 
     // Close popup function
@@ -37,14 +39,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event) {
             event.preventDefault();
             event.stopPropagation();
+            event.stopImmediatePropagation();
         }
         
         if (!activePopup) return;
         
         activePopup.style.display = 'none';
         document.body.style.overflow = '';
-        document.body.style.touchAction = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
         activePopup = null;
+        
+        // iOS specific fix
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            document.documentElement.style.overflow = '';
+            document.documentElement.style.position = '';
+            document.documentElement.style.width = '';
+            document.documentElement.style.height = '';
+        }
     }
 
     // Click handler for popup triggers
@@ -52,12 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Mouse click
         trigger.addEventListener('click', function(e) {
             showPopup(this.getAttribute('data-popup'), e);
-        });
+        }, false);
         
         // Touch support
-        trigger.addEventListener('touchstart', function(e) {
+        trigger.addEventListener('touchend', function(e) {
             showPopup(this.getAttribute('data-popup'), e);
-        }, { passive: false });
+        }, { passive: false, capture: false });
     });
 
     // Close handlers
@@ -67,14 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === this || e.target.closest('[data-close]')) {
                 closePopup(e);
             }
-        });
+        }, false);
         
         // Touch support
         popup.addEventListener('touchend', function(e) {
             if (e.target === this || e.target.closest('[data-close]')) {
                 closePopup(e);
             }
-        }, { passive: false });
+        }, { passive: false, capture: false });
     });
 
     // ESC key close
@@ -84,8 +96,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Run on resize
-    window.addEventListener('resize', enforceTextContainment);
+    // Force text wrapping on load
+    function enforceTextWrapping() {
+        document.querySelectorAll('.popup-content, .popup-content-inner, .popup-content p, .popup-content h2').forEach(el => {
+            el.style.wordBreak = 'break-word';
+            el.style.overflowWrap = 'break-word';
+            el.style.maxWidth = '100%';
+        });
+    }
+    
+    // Run on load and resize
+    enforceTextWrapping();
+    window.addEventListener('resize', enforceTextWrapping);
 });
 
 
