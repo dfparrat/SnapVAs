@@ -920,3 +920,79 @@
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
+
+
+
+
+
+
+
+.services-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    padding: 30px;
+    text-align: center;
+}
+
+.service-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.service-card h3 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.service-details {
+    padding: 0 25px 25px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.service-details p {
+    margin-bottom: 15px;
+}
+
+.why-choose, .benefit {
+    background: #f9f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.why-choose strong, .benefit strong {
+    color: #6e8efb;
+    display: block;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .services-showcase {
+        grid-template-columns: 1fr;
+    }
+}
