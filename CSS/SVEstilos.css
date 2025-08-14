@@ -995,6 +995,16 @@
 
 @media (max-width: 768px) {
     .services-showcase {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .service-card {
+        flex: 0 0 auto;
+        min-width: 250px;
+        scroll-snap-align: start;
     }
 }
