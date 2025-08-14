@@ -934,8 +934,9 @@
     padding: 20px;
     max-width: 1400px;
     margin: 0 auto;
+    justify-items: start; /* Aligns cards to the left edge */
+    grid-auto-flow: dense; /* Prevents gaps in the grid */
 }
-
 .service-card {
     background: white;
     border-radius: 15px;
@@ -943,6 +944,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .service-card:hover {
     transform: translateY(-5px);
