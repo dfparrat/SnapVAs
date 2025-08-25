@@ -280,42 +280,32 @@
     }
 
 /* ===== SERVICE CARDS STYLES ===== */
-.services-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #333;
-    text-transform: uppercase;
-    font-weight: 700;
-}
 
-.services-subtitle {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #666;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
 .services-showcase {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 30px;
     padding: 20px;
-    max-width: 1400px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6e8efb #f0f0f0;
+    width: 90%; /* Occupies 90% of viewport width */
+    max-width: 1400px; /* Optional: keeps it from getting too wide on large screens */
     margin: 0 auto;
-    justify-items: start; /* Aligns cards to the left edge */
-    grid-auto-flow: dense; /* Prevents gaps in the grid */
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
 }
+
+/* Rest of your CSS remains the same */
 .service-card {
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 300px;
+    flex-shrink: 0;
 }
-
 
 .service-card:hover {
     transform: translateY(-5px);
@@ -345,6 +335,16 @@
     padding: 0 25px 25px;
     color: #555;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all direct children horizontally */
+}
+
+/* Create a container for the button to override Bootstrap spacing */
+.service-details .btn-container {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
 }
 
 .service-details p {
@@ -366,8 +366,33 @@
 
 @media (max-width: 768px) {
     .services-showcase {
-        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px;
+        width: 95%; /* Slightly wider on mobile for better use of space */
     }
+    
+    .service-card {
+        min-width: 280px;
+    }
+}
+
+.services-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.services-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*=== Pricing Section Styles ===*/
