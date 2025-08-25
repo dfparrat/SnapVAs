@@ -205,3 +205,10 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Failed to initialize email service. Please refresh the page.");
         });
 });
+
+//===CONTACT US FORM EMAIL JS
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });

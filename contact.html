@@ -89,39 +89,71 @@
     </header>
     <!-- Sección de Contacto -->
     <section class="contact-section">
-  <h1>Conact us</h1>
-  <p>Do you have any questions? Write to us and we'll get back to you soon.</p>
-  
-  <form id="contact-form">
-    <div class="form-group">
-      <input type="text" name="name" placeholder="Name" required>
+      <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact us</h1>
+            <p>Do you have any questions? Write to us and we'll get back to you soon.</p>
+        </div>
+        
+        <div class="contact-content">
+            <div class="form-section">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job">Service needed</label>
+                        <select id="job" name="job" required>
+                            <option value="" disabled selected>Select Snapvas you want</option>
+                            <option value="Administrative Assistance">Administrative Assistance</option>
+                            <option value="Customer Support">Customer Support</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="Legal Assistance">Legal Assistance</option>
+                            <option value="Logistics">Logistics</option>
+                            <option value="Training Support">Training Support</option>
+                            <option value="Staffing and Recruiting">Staffing and Recruiting</option>
+                            <option value="Devops & Secops">Devops & Secops</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="info-section">
+                <h2>Get in touch</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <div class="contact-text">
+                            <p><a href="mailto:service@snapvas.com">service@snapvas.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <div class="contact-text">
+                            <p>1309 Coffeen Avenue<br>Suite 1200<br>Sheridan, Wyoming 82801</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="email" required>
-    </div>
-        <div class="form-group">
-        <select name="job" required>
-            <option value="" disabled selected>Select Snapvas you want</option>
-            <option value="Administrative Assistance">Administrative Assistance</option>
-            <option value="Customer Support">Customer Support</option>
-            <option value="Digital Marketing">Digital Marketing</option>
-            <option value="Legal Assistance">Legal Assistance</option>
-            <option value="Logistics">Logistics</option>
-            <option value="Training Support">Training Support</option>
-            <option value="Staffing and Recruiting">Staffing and Recruiting</option>
-            <option value="Devops & Secops">Devops & Secops</option>
-        </select>
-    </div>
-    <div class="form-group">
-      <textarea name="message" placeholder="Message" required></textarea>
-    </div>
-    <button type="submit">Send</button>
-  </form>
 
-  <div class="contact-info">
-    <p><a href="mailto:hola@snapvas.com">service@snapvas.com</a></p>
-    <p>1309 Coffeen Avenue Suite 1200 Sheridan Wyoming 82801</p>
-  </div>
     </section>
 
 
