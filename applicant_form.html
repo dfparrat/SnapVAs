@@ -88,47 +88,108 @@
     </header>
     <!-- Sección de Contacto -->
 <section class="contact-section">
-  <h1>Work with us</h1>
-  <p>Be part of the best team.</p>
-  
-<form id="applicant-form" enctype="multipart/form-data">
-    <div class="form-group">
-        <input type="text" name="from_name" placeholder="Name" required>
+<div class="application-container">
+        <div class="application-header">
+            <h1>Work with us</h1>
+            <p>Join our team of talented professionals and grow your career in a dynamic, supportive environment.</p>
+        </div>
+        
+        <div class="application-content">
+            <div class="form-section">
+                <div class="form-step-indicator">
+                    <div class="form-step step-active">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Personal Info</div>
+                    </div>
+                    <div class="form-step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Experience</div>
+                    </div>
+                    <div class="form-step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Submit</div>
+                    </div>
+                </div>
+                
+                <form id="applicant-form">
+                    <div class="form-group">
+                        <label for="from_name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="from_name" name="from_name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="from_email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="from_email" name="from_email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="from_job"><i class="fas fa-briefcase"></i> Desired Position</label>
+                        <select id="from_job" name="from_job" required>
+                            <option value="" disabled selected>Select your desired position</option>
+                            <option value="Administrative Assistance">Administrative Assistance</option>
+                            <option value="Customer Support">Customer Support</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="Legal Assistance">Legal Assistance</option>
+                            <option value="Logistics">Logistics</option>
+                            <option value="Training Support">Training Support</option>
+                            <option value="Staffing and Recruiting">Staffing and Recruiting</option>
+                            <option value="Devops & Secops">Devops & Secops</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="from_message"><i class="fas fa-comment"></i> Cover Letter</label>
+                        <textarea id="from_message" name="from_message" placeholder="Tell us about yourself and why you'd be a great fit for our team..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-file-upload"></i> Upload Your Resume</label>
+                        <div class="file-upload-container" id="resume-upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop your resume here or click to browse</p>
+                            <div class="file-upload-btn">Select File</div>
+                            <input type="file" id="from_resume" name="from_resume" class="file-input" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div class="selected-file" id="selected-file">
+                            <i class="fas fa-file-pdf"></i>
+                            <span id="file-name">No file selected</span>
+                        </div>
+                    </div>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Submit Application</button>
+                </form>
+                
+                <div class="contact-info">
+                    <p>Questions? Email us at <a href="mailto:service@snapvas.com">service@snapvas.com</a></p>
+                    <p>1309 Coffeen Avenue Suite 1200 Sheridan Wyoming 82801</p>
+                </div>
+            </div>
+            <div class="benefits-section">
+                <h2>Why Join Our Team?</h2>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <i class="fas fa-medal benefit-icon"></i>
+                        <div class="benefit-text">Competitive salary and comprehensive benefits package</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line benefit-icon"></i>
+                        <div class="benefit-text">Clear career progression and professional development opportunities</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-users benefit-icon"></i>
+                        <div class="benefit-text">Collaborative and inclusive work environment</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-lightbulb benefit-icon"></i>
+                        <div class="benefit-text">Opportunity to work on innovative projects with cutting-edge technology</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-balance-scale benefit-icon"></i>
+                        <div class="benefit-text">Work-life balance with flexible scheduling options</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-gift benefit-icon"></i>
+                        <div class="benefit-text">Regular team events and wellness programs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <input type="email" name="from_email" placeholder="Email" required>
-    </div>
-    <div class="form-group">
-        <select name="from_job" required>
-            <option value="" disabled selected>Select Job Title</option>
-            <option value="Administrative Assistance">Administrative Assistance</option>
-            <option value="Customer Support">Customer Support</option>
-            <option value="Digital Marketing">Digital Marketing</option>
-            <option value="Legal Assistance">Legal Assistance</option>
-            <option value="Logistics">Logistics</option>
-            <option value="Training Support">Training Support</option>
-            <option value="Staffing and Recruiting">Staffing and Recruiting</option>
-            <option value="Devops & Secops">Devops & Secops</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <textarea name="from_message" placeholder="Message" required></textarea>
-    </div>
-    <div class="form-group">
-        <label for="from_resume">Attach Resume/CV (PDF, DOC/DOCX, max 5MB):</label>
-        <input type="file" id="from_resume" name="from_resume" accept=".pdf,.doc,.docx" required>
-    </div>
-    <div class="form-group">
-        <label for="from_cover">Attach Cover Letter (Optional, PDF, DOC/DOCX, max 5MB):</label>
-        <input type="file" id="from_cover" name="from_cover" accept=".pdf,.doc,.docx">
-    </div>
-    <button type="submit">Send</button>
-</form>
-
-  <div class="contact-info">
-    <p><a href="mailto:hola@snapvas.com">service@snapvas.com</a></p>
-    <p>1309 Coffeen Avenue Suite 1200 Sheridan Wyoming 82801</p>
-  </div>
 </section>
 
 
