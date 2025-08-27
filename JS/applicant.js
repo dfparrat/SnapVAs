@@ -17,93 +17,83 @@
     });
 
 //===APPLICANT FORM SUBMISSION
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize EmailJS with new format
-    emailjs.init({
-        publicKey: "RW305hYZ62V-A18nB",
-        blockHeadless: true
-    })
-    .then(() => {
-        console.log('EmailJS ready');
-        setupFormHandlers();
-    })
-    .catch(handleInitError);
-
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        
-        if (!validateForm()) return;
-
-        emailjs.send("service_hbw2k4z", "template_n019kcj", {
-            from_name: this.from_name.value,
-            from_email: this.from_email.value,
-            from_job: this.from_job.value,
-            from_message: this.from_message.value,
-            attachments: getFileInfo(this)
-        })
-        .then(() => {
-            showAlert('success', 'Application submitted!');
-            this.reset();
-        })
-        .catch(error => {
-            console.error('Send failed:', error);
-            showAlert('error', 'Submission failed. Please try again.');
-        });
-    }
-
-    function validateForm() {
-        const form = document.getElementById("applicant-form");
-        const validations = [
-            { field: 'from_name', message: 'Please enter your name' },
-            { field: 'from_email', test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), message: 'Please enter a valid email' },
-            { field: 'from_job', message: 'Please select a job title' },
-            { field: 'from_resume', test: f => f.files.length, message: 'Please attach your resume' },
-            { field: 'from_resume', test: f => f.files[0]?.size <= 5*1024*1024, message: 'Resume exceeds 5MB limit' }
-        ];
-
-        for (const {field, test, message} of validations) {
-            const element = form.elements[field];
-            const value = element.files ? element.files[0] : element.value;
-            if (test ? !test(value) : !value) {
-                showAlert('error', message);
-                element.focus();
-                return false;
+ document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('from_resume');
+            const uploadArea = document.getElementById('resume-upload-area');
+            const selectedFile = document.getElementById('selected-file');
+            const fileName = document.getElementById('file-name');
+            
+            // File upload handling
+            uploadArea.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#6e5bb3';
+                this.style.backgroundColor = '#f5f2ff';
+            });
+            
+            uploadArea.addEventListener('dragleave', function() {
+                this.style.borderColor = '#d1d1d1';
+                this.style.backgroundColor = '#fafafa';
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#d1d1d1';
+                this.style.backgroundColor = '#fafafa';
+                
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                    updateFileName();
+                }
+            });
+            
+            fileInput.addEventListener('change', updateFileName);
+            
+            function updateFileName() {
+                if (fileInput.files.length) {
+                    const file = fileInput.files[0];
+                    fileName.textContent = file.name;
+                    selectedFile.style.display = 'flex';
+                    
+                    // Change icon based on file type
+                    const icon = selectedFile.querySelector('i');
+                    if (file.name.endsWith('.pdf')) {
+                        icon.className = 'fas fa-file-pdf';
+                    } else if (file.name.endsWith('.doc') || file.name.endsWith('.docx')) {
+                        icon.className = 'fas fa-file-word';
+                    } else {
+                        icon.className = 'fas fa-file';
+                    }
+                }
             }
-        }
-        return true;
-    }
-
-    function getFileInfo(form) {
-        const files = ['from_resume', 'from_cover']
-            .map(id => form.elements[id].files[0])
-            .filter(Boolean)
-            .map(file => `${file.name} (${formatFileSize(file.size)})`);
-        return files.join(' | ') || 'No files attached';
-    }
-
-    function formatFileSize(bytes) {
-        if (!+bytes) return '0 Bytes';
-        const units = ['Bytes', 'KB', 'MB'];
-        const exp = Math.min(Math.floor(Math.log(bytes)/Math.log(1024)), units.length-1);
-        return `${(bytes/1024**exp).toFixed(2)} ${units[exp]}`;
-    }
-
-    function showAlert(type, message) {
-        const alert = document.createElement('div');
-        alert.className = `alert alert-${type}`;
-        alert.innerHTML = `
-            <div class="alert-content">
-                <span class="alert-message">${message}</span>
-                <button class="alert-close">&times;</button>
-            </div>
-        `;
-        document.body.appendChild(alert);
-        setTimeout(() => alert.remove(), 5000);
-        alert.querySelector('.alert-close').addEventListener('click', () => alert.remove());
-    }
-
-    function handleInitError(error) {
-        console.error('Initialization error:', error);
-        showAlert('error', 'Service error. Please contact support.');
-    }
-});
+            
+            // Form submission
+            document.getElementById('applicant-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                let isValid = true;
+                const inputs = this.querySelectorAll('input, select, textarea');
+                
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.style.borderColor = 'red';
+                        isValid = false;
+                    } else {
+                        input.style.borderColor = '';
+                    }
+                });
+                
+                if (isValid) {
+                    // Show success message (in a real application, you would submit the form here)
+                    alert('Application submitted successfully! We will review your application and get back to you soon.');
+                    this.reset();
+                    selectedFile.style.display = 'none';
+                } else {
+                    alert('Please fill in all required fields.');
+                }
+            });
+        });

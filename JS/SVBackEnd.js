@@ -212,3 +212,101 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
+
+
+//===SERVICE SHOWCASE ANIMATION JS
+
+document.addEventListener('DOMContentLoaded', function() {
+            const showcase = document.querySelector('.services-showcase');
+            const indicators = document.querySelectorAll('.scroll-indicator');
+            const leftArrow = document.querySelector('.nav-arrow.left');
+            const rightArrow = document.querySelector('.nav-arrow.right');
+            
+            // Calculate how many indicators we need based on content width
+            const updateIndicators = function() {
+                const scrollWidth = showcase.scrollWidth;
+                const clientWidth = showcase.clientWidth;
+                const cardWidth = document.querySelector('.service-card').offsetWidth + 30; // width + gap
+                
+                // Show indicators only if there's overflow
+                if (scrollWidth <= clientWidth) {
+                    document.querySelector('.scroll-indicators').style.display = 'none';
+                    return;
+                } else {
+                    document.querySelector('.scroll-indicators').style.display = 'flex';
+                }
+                
+                const cardsPerView = Math.floor(clientWidth / cardWidth);
+                const totalCards = document.querySelectorAll('.service-card').length;
+                const indicatorCount = Math.ceil(totalCards / cardsPerView);
+                
+                // Clear existing indicators
+                const indicatorsContainer = document.querySelector('.scroll-indicators');
+                indicatorsContainer.innerHTML = '';
+                
+                // Create new indicators
+                for (let i = 0; i < indicatorCount; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'scroll-indicator';
+                    indicator.setAttribute('data-index', i);
+                    indicatorsContainer.appendChild(indicator);
+                }
+                
+                // Set first indicator as active
+                if (indicatorsContainer.firstChild) {
+                    indicatorsContainer.firstChild.classList.add('active');
+                }
+            };
+            
+            // Initial indicator setup
+            updateIndicators();
+            window.addEventListener('resize', updateIndicators);
+            
+            // Scroll to position when indicator is clicked
+            document.querySelector('.scroll-indicators').addEventListener('click', function(e) {
+                if (e.target.classList.contains('scroll-indicator')) {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    const cardWidth = document.querySelector('.service-card').offsetWidth + 30;
+                    const clientWidth = showcase.clientWidth;
+                    const cardsPerView = Math.floor(clientWidth / cardWidth);
+                    
+                    showcase.scrollTo({
+                        left: index * cardsPerView * cardWidth,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+            
+            // Update active indicator on scroll
+            showcase.addEventListener('scroll', function() {
+                const cardWidth = document.querySelector('.service-card').offsetWidth + 30;
+                const scrollPos = showcase.scrollLeft;
+                const clientWidth = showcase.clientWidth;
+                const cardsPerView = Math.floor(clientWidth / cardWidth);
+                
+                const activeIndicator = Math.floor(scrollPos / (cardsPerView * cardWidth));
+                
+                document.querySelectorAll('.scroll-indicator').forEach((indicator, index) => {
+                    if (index === activeIndicator) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Navigation arrows functionality
+            leftArrow.addEventListener('click', function() {
+                showcase.scrollBy({
+                    left: -showcase.clientWidth * 0.8,
+                    behavior: 'smooth'
+                });
+            });
+            
+            rightArrow.addEventListener('click', function() {
+                showcase.scrollBy({
+                    left: showcase.clientWidth * 0.8,
+                    behavior: 'smooth'
+                });
+            });
+        });
