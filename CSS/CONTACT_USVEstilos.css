@@ -322,6 +322,265 @@
       }
     }
 
+
+/* Solutions Section */
+.solutions-section { 
+  background: var(--light-bg);
+  padding: 60px 0;
+}
+
+.solution-card {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.solution-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(110, 142, 251, 0.15);
+}
+
+.solution-card i {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.solution-card h4 {
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.solution-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Why Hire in LATAM Section */
+.latam-section {
+  background: var(--white);
+  padding: 60px 0;
+}
+
+.latam-card {
+  padding: 25px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+  text-align: center;
+}
+
+.latam-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(167, 119, 227, 0.15);
+}
+
+.latam-card i {
+  color: var(--secondary);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.latam-card h4 {
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.latam-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* SNAP CODE Section */
+.snap-code-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  padding: 80px 0;
+  color: var(--white);
+}
+
+.snap-code-section h2 {
+  color: var(--white);
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.code-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  color: var(--white);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+}
+
+.code-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.code-card i {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.code-card h4 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.code-card p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Timeline Section */
+.timeline-section {
+  padding: 60px 0;
+  background: var(--light-bg);
+}
+
+.timeline {
+  position: relative;
+  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.timeline-item {
+  position: relative;
+  flex: 1;
+  padding: 20px;
+  min-width: 250px;
+  text-align: center;
+}
+
+.timeline-item h6 {
+  font-weight: 700;
+  margin-top: 15px;
+  color: var(--text-dark);
+}
+
+.timeline-item p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.timeline-item .dot {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item .dot::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(110, 142, 251, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* Number indicators for timeline */
+.timeline-item .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .solutions-section,
+  .latam-section,
+  .snap-code-section,
+  .timeline-section {
+    padding: 40px 0;
+  }
+  
+  .solution-card,
+  .latam-card,
+  .code-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .timeline {
+    gap: 20px;
+  }
+  
+  .timeline-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Additional utility classes */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--text-dark);
+}
+
+.section-title h2 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Button styles using the color scheme */
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #5d7ce0;
+  border-color: #5d7ce0;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background: #9666d8;
+  border-color: #9666d8;
+}
     /* ===== FOOTER STYLES ===== */
 
 .footer-custom {

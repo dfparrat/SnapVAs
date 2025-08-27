@@ -584,7 +584,6 @@
 
 
 /* ===== SERVICE CARDS STYLES ===== */
-
 .services-showcase {
             display: flex;
             flex-direction: row;
@@ -593,8 +592,7 @@
             overflow-x: auto;
             scrollbar-width: thin;
             scrollbar-color: #6e8efb #f0f0f0;
-            width: 90%;
-            max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
             justify-content: flex-start;
             -webkit-overflow-scrolling: touch;
@@ -614,6 +612,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             min-width: 300px;
             flex-shrink: 0;
+            width: 100%;
         }
         
         .service-card:hover {
@@ -657,16 +656,15 @@
         }
         
         .services-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-align: center;
             margin-bottom: 1rem;
             color: #333;
-            text-transform: uppercase;
             font-weight: 700;
         }
         
         .services-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: center;
             margin-bottom: 3rem;
             color: #666;
@@ -675,39 +673,29 @@
             margin-right: auto;
         }
         
-        /* NEW: Scroll Indicator Dots - Like in the image */
-        .scroll-indicator-container {
-            position: relative;
-            width: 100%;
+        /* Scroll Indicator Dots */
+        .scroll-indicators {
             display: flex;
             justify-content: center;
-            margin-top: 25px;
-            height: 12px;
+            margin-top: 20px;
+            gap: 8px;
         }
         
-        .scroll-indicator-track {
-            width: 120px;
-            height: 4px;
-            background-color: rgba(110, 142, 251, 0.3);
-            border-radius: 2px;
-            position: relative;
-            overflow: visible;
-        }
-        
-        .scroll-indicator-thumb {
-            position: absolute;
-            height: 12px;
-            width: 12px;
-            background-color: #6e8efb;
+        .scroll-indicator {
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-            transition: left 0.2s ease;
-            box-shadow: 0 0 0 4px rgba(110, 142, 251, 0.2);
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         
-        /* NEW: Navigation arrows for larger screens */
+        .scroll-indicator.active {
+            background-color: #6e8efb;
+            transform: scale(1.2);
+        }
+        
+        /* Navigation arrows for larger screens */
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -743,37 +731,6 @@
             color: #6e8efb;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .service-details {
-                padding: 0 20px 20px;
-            }
-            
-            .service-card {
-                min-width: 280px;
-            }
-            
-            .services-showcase {
-                gap: 20px;
-                padding: 15px;
-                width: 95%;
-            }
-            
-            .nav-arrow {
-                display: none;
-            }
-            
-            .scroll-indicator-container {
-                display: flex;
-            }
-        }
-        
-        @media (min-width: 769px) {
-            .scroll-indicator-container {
-                display: none;
-            }
-        }
-        
         /* Button styles */
         .hire-now-btn {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
@@ -790,7 +747,66 @@
             box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
             color: white;
         }
-
+        
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .services-showcase {
+                gap: 15px;
+                padding: 10px;
+                width: 100%;
+            }
+            
+            .service-card {
+                min-width: 85%;
+                width: 85%;
+                margin: 0 5px;
+            }
+            
+            .service-details {
+                padding: 0 15px 15px;
+            }
+            
+            .service-icon {
+                padding: 20px;
+            }
+            
+            .service-icon img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+                margin: 15px 0;
+            }
+            
+            .services-title {
+                font-size: 1.8rem;
+            }
+            
+            .services-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .nav-arrow {
+                display: none;
+            }
+            
+            .scroll-indicators {
+                display: flex;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .scroll-indicators {
+                display: none;
+            }
+        }
 
 /* ===== WAVE STYLES ===== */
 .wave-top, .wave-bottom {
