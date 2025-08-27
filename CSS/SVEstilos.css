@@ -791,6 +791,30 @@
             color: white;
         }
 
+
+/* ===== WAVE STYLES ===== */
+.wave-top, .wave-bottom {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-top svg, .wave-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.wave-bottom {
+    transform: rotate(180deg);
+}
+
+.shape-fill {
+    fill: #f8f9fa;
+}
+
 /* ===== FOOTER STYLES ===== */
 
 .footer-custom {
