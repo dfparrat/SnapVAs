@@ -1,0 +1,1013 @@
+/* ===== POPUP FIXES ===== */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(86, 71, 151, 0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    /* iOS specific fixes */
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    height: -webkit-fill-available;
+}
+
+.popup-content {
+    background-color: rgb(86, 71, 151);
+    border-radius: 15px;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    color: white;
+    /* Text containment */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+    overflow: hidden;
+    /* Box model */
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.popup-content-inner {
+    width: 100%;
+    overflow-y: auto;
+    /* Text wrapping enforcement */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* Ensure no horizontal overflow */
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+/* Hide scrollbar for Chrome/Safari */
+.popup-content-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.popup-content h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    width: 100%;
+    /* Text containment */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    padding: 0;
+}
+
+.popup-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 1.2rem 0;
+    text-align: center;
+    width: 100%;
+    /* Text containment */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 10001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: white;
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+    .popup {
+        padding: 10px;
+    }
+    
+    .popup-content {
+        padding: 20px;
+        max-height: 85vh;
+        width: calc(100% - 20px);
+    }
+    
+    .popup-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .popup-content p {
+        font-size: 0.95rem;
+    }
+    
+    .close-btn {
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+    }
+}
+
+
+/* ===== NAVBAR STYLES ===== */
+.navbar-custom {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.75rem 1rem;
+    min-height: 60px;
+}
+
+.navbar-brand {
+    width: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.logo-img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.hire-now-btn {
+    background-color: #5b57a4;
+    color: white;
+    padding: 6px 12px !important;
+    border-radius: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    font-size: 0.9rem !important;
+}
+
+/* Mobile Layout (Under 992px) */
+@media (max-width: 991.98px) {
+    .navbar > .container-fluid {
+        position: relative;
+        min-height: 60px;
+        padding-right: 0;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
+    .navbar-brand {
+        width: 110px !important;
+        min-width: 110px !important;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 20;
+        margin: 0;
+    }
+
+    .logo-img {
+        width: 100%;
+        height: auto;
+        max-height: 40px;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 36px;
+        z-index: 20;
+        padding: 0.25rem;
+    }
+
+    .navbar-collapse {
+        position: fixed !important;
+        right: 0 !important;
+        left: auto !important;
+        top: 60px;
+        width: 80% !important;
+        max-width: 300px !important;
+        height: calc(100vh - 60px);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: white;
+        z-index: 1001;
+        box-shadow: -2px 0 15px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-collapse.show {
+        transform: translateX(0);
+    }
+
+    .navbar-nav {
+        display: block !important;
+        width: 100% !important;
+        padding: 1.5rem 1rem;
+        overflow-y: auto;
+        height: 100%;
+    }
+    
+    .nav-item {
+        display: block;
+        padding: 0 !important;
+        margin: 0.5rem 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .nav-link {
+        color: #333 !important;
+        font-weight: 500 !important;
+        font-size: 1.05rem !important;
+        padding: 0.75rem 1.25rem !important;
+        display: block;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+    }
+    
+    .nav-link:hover,
+    .nav-link:focus {
+        background: #f8f9fa;
+    }
+}
+
+/* Desktop Layout (992px+) */
+@media (min-width: 992px) {
+    .navbar-mobile-container,
+    .navbar-collapse.d-lg-none {
+        display: none !important;
+    }
+    
+    .d-none.d-lg-flex {
+        display: flex !important;
+    }
+
+    .navbar > .container-fluid {
+        flex-wrap: nowrap;
+        padding: 0 1rem;
+        overflow: visible !important;
+    }
+
+    .navbar-brand {
+        width: auto !important;
+        min-width: unset !important;
+        position: static !important;
+        transform: none !important;
+        margin-right: 2rem !important;
+    }
+
+    .navbar-collapse:not(.d-lg-none) {
+        display: flex !important;
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        gap: 1.5rem;
+        width: auto;
+        padding: 0;
+        margin: 0 0 0 auto !important;
+    }
+
+    .hire-now-btn {
+        padding: 8px 24px !important;
+        font-size: 1rem !important;
+        margin-left: 1.5rem !important;
+    }
+}
+
+/* ===== MAIN INTRO STYLES ===== */
+#Mainintro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+#Mainintro-s1 {
+    z-index: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#Mainintro-s2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+#Mainintro-s2 img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    #Mainintro-s1 h2 {
+        font-size: 1.4rem;
+    }
+
+    #Mainintro-s1 h3 {
+        font-size: 1.1rem;
+    }
+
+    #Mainintro-s1 h4 {
+        font-size: 1rem;
+    }
+    #Mainintro {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+    #Mainintro .col-12 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    #Mainintro-s1 {
+        order: 2;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    #Mainintro-s2 {
+        order: 1;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    #Mainintro-s2 img {
+        width: 100%;
+        height: auto;
+    }
+
+    #Mainintro .btn {
+        display: inline-block;
+        width: auto;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+/*===== moresnap section styles =====*/
+#moresnap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .image-section {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image-wrapper .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .image-wrapper .foreground {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+    }
+
+    .text-section {
+      flex: 1;
+      padding: 0 40px;
+    }
+
+    .text-section h2 {
+      color: #3b3b3b;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .text-section h3 {
+      color: #7c38ff;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .feature {
+      margin-bottom: 25px;
+    }
+
+    .feature b {
+      display: block;
+      color: #000;
+      margin-bottom: 5px;
+    }
+
+    .feature:before {
+      content: '\26A1';
+      color: #7c38ff;
+      margin-right: 10px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #7c38ff;
+      color: white;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #5e2ac7;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .text-section {
+        padding: 0;
+      }
+    }
+
+/*=== SNAP SECTION STYLES=== */
+
+.snaps-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.snaps-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: #333;
+}
+
+.highlight-black {
+  color: #000;
+  font-weight: 700;
+}
+
+.bold-purple {
+  color: #5b57a4;
+  font-weight: 700;
+}
+
+.snaps-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.snap-card {
+  flex: 1 1 200px;
+  max-width: 230px;
+  text-align: center;
+}
+
+.snap-card p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.snap-card img {
+  width: 200px;
+  margin-bottom: 8px;
+}
+
+.snap-card h3 {
+  font-size: 1.2rem;
+  color: #5b57a4;
+  font-weight: 700;
+}
+
+.divider {
+  width: 2px;
+  height: 180px;
+  background-color: #5b57a4;
+  margin: 0 10px;
+}
+
+.cta-container {
+  background-color: #f3f1fa;
+  padding: 40px 20px;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+}
+
+.cta-container h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.cta-container p {
+  font-size: 0.95rem;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #5b57a4;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #49449a;
+}
+
+
+/* ===== SERVICE CARDS STYLES ===== */
+
+/* Services Showcase Styles */
+.services-showcase {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6e8efb #f0f0f0;
+    width: 90%; /* Occupies 90% of viewport width */
+    max-width: 1400px; /* Optional: keeps it from getting too wide on large screens */
+    margin: 0 auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.services-showcase::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.service-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    padding: 30px;
+    text-align: center;
+}
+
+.service-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.service-card h3 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.service-details {
+    padding: 0 25px 25px;
+    color: #555;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Ensures padding is included in width calculation */
+    width: 100%; /* Makes it take full width of parent */
+}
+
+/* Create a container for the button to override Bootstrap spacing */
+.service-details .btn-container {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.service-details p {
+    margin-bottom: 15px;
+}
+
+.why-choose, .benefit {
+    background: #f9f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.why-choose strong, .benefit strong {
+    color: #6e8efb;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.services-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.services-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== WAVE STYLES ===== */
+.wave-top, .wave-bottom {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-top svg, .wave-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.wave-bottom {
+    transform: rotate(180deg);
+}
+
+.shape-fill {
+    fill: #f8f9fa;
+}
+
+/* NEW: Scroll Indicator Dots */
+.scroll-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.scroll-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-indicator.active {
+    background-color: #6e8efb;
+    transform: scale(1.2);
+}
+
+/* NEW: Navigation arrows for larger screens */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+}
+
+.nav-arrow.left {
+    left: 0;
+}
+
+.nav-arrow.right {
+    right: 0;
+}
+
+.nav-arrow i {
+    font-size: 20px;
+    color: #6e8efb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-details {
+        padding: 0 20px 20px; /* Slightly reduce padding on mobile */
+        width: 100%; /* Ensure full width */
+        margin: 0; /* Remove any default margins */
+    }
+    
+    .service-card {
+        min-width: 280px;
+        width: 100%; /* Ensure card takes full available width */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .services-showcase {
+        gap: 20px;
+        padding: 15px;
+        width: 100%; /* Changed to 100% to fix mobile width issue */
+        max-width: 100%; /* Added to fix mobile width issue */
+    }
+    
+    /* Ensure all inner elements don't cause overflow */
+    .why-choose, .benefit {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .service-details p {
+        word-wrap: break-word; /* Prevent long words from causing overflow */
+        overflow-wrap: break-word;
+    }
+    
+    .nav-arrow {
+        display: none;
+    }
+    
+    .scroll-indicators {
+        display: flex;
+    }
+}
+
+@media (min-width: 769px) {
+    .scroll-indicators {
+        display: none;
+    }
+}
+
+/* Container for the services showcase */
+.services-showcase-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ===== WAVE STYLES ===== */
+.wave-top, .wave-bottom {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-top svg, .wave-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.wave-bottom {
+    transform: rotate(180deg);
+}
+
+.shape-fill {
+    fill: #f8f9fa;
+}
+
+/* ===== FOOTER STYLES ===== */
+
+.footer-custom {
+    background-color: #f6f2f9;
+    color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+.footer-custom h6 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-custom ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer-custom ul li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-custom ul li:hover {
+    color: #999;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #4c438c;
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+    background-color: #3a3270;
+    transform: scale(1.1);
+}
+
+.btn-get-hired {
+    background-color: #4c438c;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-get-hired:hover {
+    background-color: #3a3270;
+}
+.contact-info {
+  margin-top: 1rem; /* Adds space between social icons and contact info */
+}
+
+@media (max-width: 768px) {
+    .footer-custom .row > div {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-custom .col-md-4,
+    .footer-custom .col-sm-6 {
+        text-align: center;
+    }
+
+    .footer-custom .social-icon {
+        margin: 0 4px;
+    }
+
+    .btn-get-hired {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-custom .col-6 {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-custom .row > div {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .footer-custom .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+      .d-flex.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .d-flex.align-items-center .ms-3 {
+    margin-left: 0 !important;
+    margin-top: 1rem;
+  }
+  
+  .contact-info {
+    margin-top: 1.5rem;
+  }
+}
+
+/* ===== WHATSAPP/CALL BUTTONS ===== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.call-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 99;
+    background-color: #5b57a4;
+    color: white;
+    border-radius: 50px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.call-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
