@@ -468,7 +468,7 @@
 /* Rest of your CSS remains the same */
 .service-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 15px;    
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -521,6 +521,44 @@
   background-color: #6e8efb; /* tu color de branding */
 }
 
+/* ARROWS ATYLES */
+.svc-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+  display: grid; place-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
+.svc-arrow.prev { left: 8px; }
+.svc-arrow.next { right: 8px; }
+.svc-arrow::before { content: '‹'; font-size: 28px; line-height: 1; color: #fff; }
+.svc-arrow.next::before { content: '›'; }
+
+/* Dots circulares */
+.svc-indicators {
+  position: absolute;
+  left: 0; right: 0; bottom: 10px;
+  display: flex; gap: 8px; justify-content: center; align-items: center;
+  z-index: 3;
+}
+.svc-indicators button {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #bbb; border: 0; padding: 0;
+}
+.svc-indicators button.active { background: #6e8efb; }
+/* Ocultar scrollbar visible sin romper scroll táctil */
+.services-showcase {
+  scrollbar-width: none;            /* Firefox */
+  -ms-overflow-style: none;         /* IE/Edge */
+}
+.services-showcase::-webkit-scrollbar { display: none; } /* WebKit */
+
 @media (max-width: 768px) {
     .service-details {
         padding: 0 20px 20px; /* Slightly reduce padding on mobile */
@@ -538,9 +576,11 @@
         display: flex;
         justify-content: center;   /* centra la card en su slide */
         align-items: center;
-        gap: 0;                    /* sin huecos extra */
-        padding: 0;
-        width: 100%;               /* usar todo el ancho del slide */
+        gap: 0 !important;                    /* sin huecos extra */
+        padding: 0 !important;
+        width: 100% !important;
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
     }
     
     /* Ensure all inner elements don't cause overflow */
@@ -588,6 +628,7 @@
     
     .service-card {
         min-width: 280px;
+        scroll-snap-align: start;
     }
 }
 

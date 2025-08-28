@@ -215,62 +215,75 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //===SERVICE SHOWCASE ANIMATION JS
+(function() {
+  const scroller = document.getElementById('servicesShowcase');
+  const indicators = document.getElementById('svcIndicators');
+  const prevBtn = document.querySelector('.svc-arrow.prev');
+  const nextBtn = document.querySelector('.svc-arrow.next');
 
-document.addEventListener('DOMContentLoaded', function() {
-            const showcase = document.querySelector('.services-showcase');
-            const thumb = document.querySelector('.scroll-indicator-thumb');
-            const track = document.querySelector('.scroll-indicator-track');
-            const leftArrow = document.querySelector('.nav-arrow.left');
-            const rightArrow = document.querySelector('.nav-arrow.right');
-            
-            // Update scroll indicator position
-            const updateScrollIndicator = function() {
-                const scrollWidth = showcase.scrollWidth - showcase.clientWidth;
-                const scrollPosition = showcase.scrollLeft;
-                
-                if (scrollWidth <= 0) {
-                    // No scrolling needed
-                    document.querySelector('.scroll-indicator-container').style.display = 'none';
-                    return;
-                } else {
-                    document.querySelector('.scroll-indicator-container').style.display = 'flex';
-                }
-                
-                // Calculate thumb position
-                const thumbPosition = (scrollPosition / scrollWidth) * (track.offsetWidth - thumb.offsetWidth);
-                thumb.style.left = `${thumbPosition}px`;
-            };
-            
-            // Initial setup
-            updateScrollIndicator();
-            
-            // Update on scroll
-            showcase.addEventListener('scroll', updateScrollIndicator);
-            window.addEventListener('resize', updateScrollIndicator);
-            
-            // Navigation arrows functionality
-            leftArrow.addEventListener('click', function() {
-                showcase.scrollBy({
-                    left: -showcase.clientWidth * 0.8,
-                    behavior: 'smooth'
-                });
-            });
-            
-            rightArrow.addEventListener('click', function() {
-                showcase.scrollBy({
-                    left: showcase.clientWidth * 0.8,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Click on track to jump to position
-            track.addEventListener('click', function(e) {
-                const clickX = e.clientX - track.getBoundingClientRect().left;
-                const jumpPosition = (clickX / track.offsetWidth) * (showcase.scrollWidth - showcase.clientWidth);
-                
-                showcase.scrollTo({
-                    left: jumpPosition,
-                    behavior: 'smooth'
-                });
-            });
-        });
+  let pages = 1;
+
+  function calcPages() {
+    // Nº de “pantallas” horizontales del contenedor
+    pages = Math.max(1, Math.ceil(scroller.scrollWidth / scroller.clientWidth));
+    buildIndicators();
+    setActive(currentPage());
+  }
+
+  function buildIndicators() {
+    indicators.innerHTML = '';
+    for (let i = 0; i < pages; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.dataset.index = i;
+      dot.addEventListener('click', () => goToPage(i));
+      indicators.appendChild(dot);
+    }
+  }
+
+  function currentPage() {
+    return Math.round(scroller.scrollLeft / scroller.clientWidth);
+  }
+
+  function setActive(i) {
+    const dots = indicators.querySelectorAll('button');
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+  }
+
+  function goToPage(i) {
+    const clamped = Math.max(0, Math.min(i, pages - 1));
+    scroller.scrollTo({ left: clamped * scroller.clientWidth, behavior: 'smooth' });
+  }
+
+  function next() {
+    const i = currentPage();
+    goToPage((i + 1) % pages); // loop infinito
+  }
+
+  function prev() {
+    const i = currentPage();
+    goToPage((i - 1 + pages) % pages); // loop infinito
+  }
+
+  // Eventos
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+
+  let ticking = false;
+  scroller.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        setActive(currentPage());
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  window.addEventListener('resize', calcPages);
+
+  // Init
+  calcPages();
+})();
+
+
