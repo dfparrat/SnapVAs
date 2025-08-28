@@ -529,15 +529,18 @@
     }
     
     .service-card {
-        min-width: 280px;
-        width: 100%; /* Ensure card takes full available width */
-        box-sizing: border-box; /* Include padding in width calculation */
-        min-width: 100% !important;  /* ocupa todo el ancho */
-        max-width: 100% !important;
+        min-width: 85% !important; /* ocupa 100% del ancho */
+        max-width: 85% !important;
+        flex: 0 0 100%;             /* no se expande más */
+        margin: 0 auto;             /* centrado dentro del slide */
     }
-      .services-showcase {
-        gap: 0; /* elimina espacio lateral entre cards en mobile */
-        padding: 0; 
+    .services-showcase {
+        display: flex;
+        justify-content: center;   /* centra la card en su slide */
+        align-items: center;
+        gap: 0;                    /* sin huecos extra */
+        padding: 0;
+        width: 100%;               /* usar todo el ancho del slide */
     }
     
     /* Ensure all inner elements don't cause overflow */

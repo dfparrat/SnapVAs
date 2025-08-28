@@ -286,14 +286,17 @@
     flex-direction: row;
     gap: 30px;
     padding: 20px;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #6e8efb #f0f0f0;
-    width: 90%; /* Occupies 90% of viewport width */
-    max-width: 1400px; /* Optional: keeps it from getting too wide on large screens */
+    /* overflow-x: auto;  <-- ❌ REMOVE or comment this */
+    scrollbar-width: none; /* hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* hide scrollbar for IE/Edge */
+    width: 90%;
+    max-width: 1400px;
     margin: 0 auto;
     justify-content: flex-start;
     -webkit-overflow-scrolling: touch;
+}
+.services-showcase::-webkit-scrollbar {
+    display: none;
 }
 
 /* Rest of your CSS remains the same */
@@ -341,6 +344,16 @@
     box-sizing: border-box; /* Ensures padding is included in width calculation */
     width: 100%; /* Makes it take full width of parent */
 }
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+}
+
+.carousel-indicators .active {
+  background-color: #6e8efb; /* tu color de branding */
+}
 
 @media (max-width: 768px) {
     .service-details {
@@ -350,9 +363,18 @@
     }
     
     .service-card {
-        min-width: 280px;
-        width: 100%; /* Ensure card takes full available width */
-        box-sizing: border-box; /* Include padding in width calculation */
+        min-width: 85% !important; /* ocupa 100% del ancho */
+        max-width: 85% !important;
+        flex: 0 0 100%;             /* no se expande más */
+        margin: 0 auto;             /* centrado dentro del slide */
+    }
+    .services-showcase {
+        display: flex;
+        justify-content: center;   /* centra la card en su slide */
+        align-items: center;
+        gap: 0;                    /* sin huecos extra */
+        padding: 0;
+        width: 100%;               /* usar todo el ancho del slide */
     }
     
     /* Ensure all inner elements don't cause overflow */
