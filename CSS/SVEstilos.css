@@ -448,18 +448,14 @@
 /* ===== SERVICE CARDS STYLES ===== */
 
 .services-showcase {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    padding: 20px;
-    /* overflow-x: auto;  <-- ❌ REMOVE or comment this */
-    scrollbar-width: none; /* hide scrollbar for Firefox */
-    -ms-overflow-style: none; /* hide scrollbar for IE/Edge */
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 20px;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: flex-start;
 }
 .services-showcase::-webkit-scrollbar {
     display: none;
@@ -467,13 +463,13 @@
 
 /* Rest of your CSS remains the same */
 .service-card {
-    background: white;
-    border-radius: 15px;    
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-width: 300px;
-    flex-shrink: 0;
+  background: white;
+  border-radius: 15px;    
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 calc(33.333% - 30px); /* 3 per row in desktop */
+  min-width: 280px;
 }
 
 .service-card:hover {
@@ -567,21 +563,17 @@
     }
     
     .service-card {
-        min-width: 85% !important; /* ocupa 100% del ancho */
-        max-width: 85% !important;
-        flex: 0 0 100%;             /* no se expande más */
-        margin: 0 auto;             /* centrado dentro del slide */
-    }
+    flex: 1 1 100%;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+  }
     .services-showcase {
-        display: flex;
-        justify-content: center;   /* centra la card en su slide */
-        align-items: center;
-        gap: 0 !important;                    /* sin huecos extra */
-        padding: 0 !important;
-        width: 100% !important;
-        scroll-snap-type: x mandatory;
-        overflow-x: auto;
-    }
+    flex-direction: column; /* stack vertically */
+    gap: 20px;
+    padding: 15px;
+    width: 95%;
+  }
     
     /* Ensure all inner elements don't cause overflow */
     .why-choose, .benefit {
