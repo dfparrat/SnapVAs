@@ -585,6 +585,13 @@
         word-wrap: break-word; /* Prevent long words from causing overflow */
         overflow-wrap: break-word;
     }
+     /* ✅ FIX: indicadores debajo del botón */
+    #servicesCarouselMobile .carousel-indicators {
+        bottom: -30px; /* mueve los dots hacia afuera */
+    }
+    #servicesCarouselMobile {
+        padding-bottom: 40px; /* espacio extra para no tapar el botón */
+    }
 }
 
 /* Create a container for the button to override Bootstrap spacing */
