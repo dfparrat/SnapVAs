@@ -215,16 +215,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //===BUILDING STRONG ANIMATION JS
-<!-- Inclúyelo al inicio de tu página -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-<script>
   document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
       duration: 800,
       once: true,
     });
   });
-</script>
+
+// ANIMACIONES GROWTH
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  const speed = 200; // velocidad de animación (más bajo = más rápido)
+
+  const animateCounters = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = parseFloat(counter.getAttribute("data-target"));
+        const prefix = counter.getAttribute("data-prefix") || "";
+        const suffix = counter.getAttribute("data-suffix") || "";
+        
+        let count = 0;
+        const updateCount = () => {
+          const increment = target / speed;
+          if (count < target) {
+            count += increment;
+            if (target < 1) {
+              counter.innerText = prefix + count.toFixed(1) + suffix;
+            } else if (target >= 1000) {
+              counter.innerText = prefix + Math.floor(count).toLocaleString() + suffix;
+            } else {
+              counter.innerText = prefix + Math.floor(count) + suffix;
+            }
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = prefix + target.toLocaleString() + suffix;
+          }
+        };
+        updateCount();
+        observer.unobserve(counter); // evitar que se repita la animación
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(animateCounters, { threshold: 0.6 });
+  counters.forEach(counter => observer.observe(counter));
+});
 
