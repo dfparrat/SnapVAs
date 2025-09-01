@@ -84,6 +84,69 @@
       </nav>
     </header>
 
+      <main class="job-offer-container">
+    <!-- Overview -->
+    <section class="job-overview">
+      <h1 class="job-title">Customer Support Specialist</h1>
+      <ul class="job-meta">
+        <li><strong>Location:</strong> Remote (LATAM)</li>
+        <li><strong>Job Type:</strong> Full-Time</li>
+        <li><strong>Department:</strong> Customer Service</li>
+      </ul>
+    </section>
+
+    <!-- Job Description -->
+    <section class="job-description">
+      <h2>About the Role</h2>
+      <p>
+        We are looking for a proactive and detail-oriented <b>Customer Support Specialist</b> 
+        to join our team at SNAPVAS. You will be responsible for assisting clients, solving issues, 
+        and providing a world-class support experience.
+      </p>
+
+      <h3>Responsibilities</h3>
+      <ul>
+        <li>Provide customer support via email, chat, and phone.</li>
+        <li>Escalate technical issues when necessary.</li>
+        <li>Maintain accurate records of interactions.</li>
+        <li>Collaborate with other departments to ensure client satisfaction.</li>
+      </ul>
+
+      <h3>Requirements</h3>
+      <ul>
+        <li>Fluent in English (C1+).</li>
+        <li>Previous experience in customer support roles.</li>
+        <li>Excellent communication and problem-solving skills.</li>
+        <li>Ability to work remotely and independently.</li>
+      </ul>
+    </section>
+
+    <!-- Application Form -->
+    <section class="job-application">
+      <h2>Apply Now</h2>
+      <form action="/apply.php" method="POST" enctype="multipart/form-data" class="application-form">
+        <input type="hidden" name="job_title" value="Customer Support Specialist">
+
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="linkedin">LinkedIn / Portfolio</label>
+        <input type="url" id="linkedin" name="linkedin">
+
+        <label for="resume">Upload CV *</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us why you’d be a great fit"></textarea>
+
+        <button type="submit" class="apply-btn">Submit Application</button>
+      </form>
+    </section>
+  </main>
+
 
 <footer class="footer-custom py-5">
   <div class="container">

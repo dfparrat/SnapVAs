@@ -826,7 +826,84 @@
 }
 
 
+/* ===== JOB OFFER STYLES ===== */
 
+.job-offer-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.job-overview {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.job-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #263159;
+}
+
+.job-meta {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: #555;
+}
+
+.job-description h2, .job-description h3 {
+  color: #263159;
+  margin-top: 20px;
+}
+
+.job-description ul {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+.job-application {
+  margin-top: 50px;
+  padding: 30px;
+  background: #f9f9fb;
+  border-radius: 12px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+}
+
+.application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.application-form input,
+.application-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.apply-btn {
+  background: #263159;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.apply-btn:hover {
+  background: #1a2245;
+}
 
 
 

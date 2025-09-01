@@ -83,7 +83,52 @@
         </div>
       </nav>
     </header>
+<!-- Logistics -->
+<main class="job-offer-container">
+  <section class="overview">
+    <h1>Logistics Coordinator</h1>
+    <p>SNAPVAS is hiring a Logistics Coordinator to manage supply chain processes and ensure timely deliveries for our clients worldwide.</p>
+    
+    <h2>Responsibilities</h2>
+    <ul>
+      <li>Coordinate shipments and transportation schedules.</li>
+      <li>Maintain inventory accuracy and documentation.</li>
+      <li>Ensure compliance with local and international regulations.</li>
+      <li>Work closely with suppliers, carriers, and customers.</li>
+    </ul>
 
+    <h2>Requirements</h2>
+    <ul>
+      <li>Experience in logistics, supply chain, or operations.</li>
+      <li>Problem-solving and organizational skills.</li>
+      <li>Ability to manage multiple tasks under pressure.</li>
+    </ul>
+  </section>
+
+    <section class="job-application">
+      <h2>Apply Now</h2>
+      <form action="/apply.php" method="POST" enctype="multipart/form-data" class="application-form">
+        <input type="hidden" name="job_title" value="Customer Support Specialist">
+
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="linkedin">LinkedIn / Portfolio</label>
+        <input type="url" id="linkedin" name="linkedin">
+
+        <label for="resume">Upload CV *</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us why you’d be a great fit"></textarea>
+
+        <button type="submit" class="apply-btn">Submit Application</button>
+      </form>
+    </section>
+</main>
 
 <footer class="footer-custom py-5">
   <div class="container">
