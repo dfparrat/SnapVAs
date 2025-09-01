@@ -388,7 +388,7 @@ body {
 }
 
 .steps-content h2 span {
-  color: #0a2540;
+  color: #4c438c;
   font-weight: 700;
 }
 
@@ -455,6 +455,195 @@ body {
   }
 }
 
+/* ===== SAMPLE STYLES ===== */
+
+.snapvas-careers {
+  padding: 80px 20px;
+  background: #f7fbfd;
+  color: #4c438c;
+}
+
+.snapvas-careers .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.careers-intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.careers-intro h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.careers-intro h2 span {
+  color: #4c438c;
+}
+
+.careers-intro p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  color: #555;
+}
+
+.careers-benefits h3,
+.careers-steps h3,
+.careers-cta h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.benefit-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-card h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.steps-list {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.steps-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #4c438c;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.careers-cta {
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #4c438c;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #4c438c;
+}
+
+@media (max-width: 768px) {
+  .careers-intro h2 {
+    font-size: 2rem;
+  }
+  .careers-benefits h3,
+  .careers-steps h3,
+  .careers-cta h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ===== JOB OFFER STYLES ===== */
+.snapvas-services {
+  padding: 60px 20px;
+  background: #f9f9fb;
+  text-align: center;
+}
+
+.services-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #263159;
+  margin-bottom: 40px;
+}
+
+.services-table {
+  display: grid;
+  gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.services-header, .service-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  align-items: center;
+  padding: 14px 20px;
+  border-radius: 12px;
+}
+
+.services-header {
+  font-weight: bold;
+  background: #e6e8f0;
+  color: #263159;
+}
+
+.service-row {
+  background: #fff;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.service-row:hover {
+  transform: translateY(-3px);
+}
+
+.service-link {
+  color: #d32f2f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.details-btn {
+  background: #263159;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.details-btn:hover {
+  background: #1a2245;
+}
 
 /* ===== FOOTER STYLES ===== */
 
