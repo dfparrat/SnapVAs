@@ -311,6 +311,151 @@ body {
   }
 }
 
+/* ===== WHAT WE LOOKFOR STYLES ===== */
+.snapvas-looking-for {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9fbfd; /* Fondo suave */
+}
+
+.snapvas-looking-for .section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.snapvas-looking-for .section-title span {
+  color: #0056ff; /* Azul corporativo SNAPVAS */
+}
+
+.looking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.looking-card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.looking-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.looking-card .icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.looking-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* ===== SNAPVAS STEPS STYLES ===== */
+.snapvas-steps {
+  padding: 80px 0;
+  background: #f7fbfd;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.steps-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.steps-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.steps-content h2 span {
+  color: #0a2540;
+  font-weight: 700;
+}
+
+.steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  position: relative;
+}
+
+.steps-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0a2540;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.steps-list li p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #0a2540;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #133c64;
+}
+
+@media (max-width: 768px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .steps-list li {
+    justify-content: center;
+  }
+  .steps-list li p {
+    text-align: left;
+  }
+}
+
+
 /* ===== FOOTER STYLES ===== */
 
 .footer-custom {
