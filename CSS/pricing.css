@@ -779,21 +779,29 @@
   height: auto;
 }
 
-.stats-section {
+
+/* ================================
+   SNAPVAS STATS BLOCK
+   ================================ */
+.snapvas-stats {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  padding: 60px 20px;
   background: #fff;
   font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap; /* responsive */
+  gap: 2rem;
+  text-align: center;
 }
 
-.stat {
+.snapvas-stat {
   text-align: center;
   padding: 20px;
+  flex: 1 1 200px;
 }
 
-.stat h3 {
+.snapvas-stat h3 {
   font-size: 2rem;
   font-weight: bold;
   color: #2c6ca6; /* Azul Snapvas */
@@ -801,14 +809,22 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.stat p {
+.snapvas-stat p {
   margin-top: 10px;
   font-size: 1rem;
   color: #333;
 }
 
-.stat:hover h3 {
+.snapvas-stat:hover h3 {
   transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .snapvas-stats {
+    flex-direction: column;
+    flex: 1 1 200px; 
+  }
 }
 
 
