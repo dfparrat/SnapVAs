@@ -476,14 +476,14 @@
   position: relative; /* referencia para el overlay */
 }
 
-.service-card .card-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: 1; /* overlay encima del contenido */
+.card-link {
+  color: inherit;              /* hereda el color definido en h3 y p */
+  text-decoration: none;       /* quita el subrayado */
+  display: block;              /* hace que se comporte como contenedor */
+}
+.card-link:hover {
+  text-decoration: none;       /* sigue sin subrayado */
+  color: inherit;              /* no cambia el color */
 }
 
 .service-card .hire-now-btn {
