@@ -476,19 +476,43 @@
   position: relative; /* referencia para el overlay */
 }
 
-.card-link {
-  color: inherit;              /* hereda el color definido en h3 y p */
-  text-decoration: none;       /* quita el subrayado */
-  display: block;              /* hace que se comporte como contenedor */
-}
-.card-link:hover {
-  text-decoration: none;       /* sigue sin subrayado */
-  color: inherit;              /* no cambia el color */
+/* --- Tus estilos base --- */
+.service-card h3 { 
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+  font-size: 1.5rem;
 }
 
 .service-card .hire-now-btn {
   position: relative;
   z-index: 2;  /* botón por encima del overlay */
+}
+
+/* --- Ajustes para el enlace envolvente --- */
+.card-link {
+  display: block;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Asegura que los textos dentro del card-link NO adopten azul/subrayado */
+.card-link h3,
+.card-link p {
+  color: inherit !important;        /* usa el color que ya tienes (#333 en el h3, gris en p, etc.) */
+  text-decoration: none !important; 
+}
+
+/* Evita morado en visited */
+.card-link:visited h3,
+.card-link:visited p {
+  color: inherit !important;
+}
+
+/* Hover opcional: sombra suave o zoom */
+.card-link:hover .service-card {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
 }
 
 
@@ -509,12 +533,12 @@
     object-fit: contain;
 }
 
-.service-card h3 {
+/*.service-card h3 {
     text-align: center;
     margin: 20px 0;
     color: #333;
     font-size: 1.5rem;
-}
+}*/
 
 .service-details {
     padding: 0 25px 25px;
