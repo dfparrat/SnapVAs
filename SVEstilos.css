@@ -510,12 +510,6 @@
 }
 
 
-/* Evita morado en visited */
-.card-link:visited h3,
-.card-link:visited p {
-  color: inherit !important;
-}
-
 /* Hover opcional: sombra suave o zoom */
 .card-link:hover .service-card {
   transform: translateY(-5px);
