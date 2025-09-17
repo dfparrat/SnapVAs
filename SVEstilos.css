@@ -522,13 +522,14 @@
   object-fit: contain;
 }
 
-/* --- Ajustes para el enlace general (card-link) --- */
+/* --- Estilos para el enlace que envuelve el service-card --- */
 .card-link {
   display: block;
   color: inherit !important;
   text-decoration: none !important;
 }
 
+/* Estados del enlace */
 .card-link:link,
 .card-link:visited,
 .card-link:hover,
@@ -537,25 +538,33 @@
   text-decoration: none !important;
 }
 
-/* Refuerza títulos y párrafos dentro del card-link */
-.card-link h3,
-.card-link p {
-  color: #333 !important;
-  text-decoration: none !important;
-  font-style: normal;
-  font-weight: normal;
-}
+/* Elimina estilos de navegador en TODOS los hijos del enlace */
 .card-link * {
   color: inherit !important;
   text-decoration: none !important;
 }
 
-/* --- Efectos hover --- */
+/* Corrección especial: títulos y párrafos dentro del enlace */
+a.card-link h3,
+a.card-link p {
+  all: unset;                 /* limpia estilos heredados de <a> */
+  display: block;             /* reestablece bloque */
+  color: #333 !important;     /* fuerza el color */
+  margin: inherit;            /* mantiene márgenes originales */
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  text-decoration: none !important;
+}
+
+/* Hover visual opcional */
 .card-link:hover .service-card,
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
+
 
 /* --- Carousel indicators --- */
 .carousel-indicators [data-bs-target] {
