@@ -461,7 +461,7 @@
     display: none;
 }
 
-/* Rest of your CSS remains the same */
+/* --- Estilos base del service card --- */
 .service-card {
   background: white;
   border-radius: 15px;    
@@ -473,84 +473,85 @@
   max-width: 100%;
   margin: 0 auto;
   cursor: pointer;
-  position: relative; /* referencia para el overlay */
+  position: relative; /* referencia para overlay o enlaces */
 }
 
-/* --- Tus estilos base --- */
+/* Título */
 .service-card h3 { 
   text-align: center;
   margin: 20px 0;
-  color: #333;
+  color: #333 !important;
   font-size: 1.5rem;
+  text-decoration: none !important;
 }
 
+/* Texto de detalles */
+.service-details {
+  padding: 0 25px 25px;
+  color: #555;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.service-details p {
+  color: #333 !important;
+  text-decoration: none !important;
+  margin: 0;
+}
+
+/* Botón */
 .service-card .hire-now-btn {
   position: relative;
-  z-index: 2;  /* botón por encima del overlay */
+  z-index: 2; /* botón por encima del overlay */
 }
 
-/* Elimina color azul y subrayado en TODO el card link */
-.card-link,
-.card-link * {
+/* Icono */
+.service-icon {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  padding: 30px;
+  text-align: center;
+}
+
+.service-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* --- Ajustes para el enlace general (card-link) --- */
+.card-link {
+  display: block;
   color: inherit !important;
   text-decoration: none !important;
 }
 
-/* Refuerza estilos de tus textos dentro del card */
-.service-card h3 {
-  text-align: center;
-  margin: 20px 0;
-  color: #333 !important;   /* fuerza el gris */
-  font-size: 1.5rem;
-}
-
-.service-details p {
-  color: #333 !important;   /* fuerza el negro/gris para el texto */
+.card-link:link,
+.card-link:visited,
+.card-link:hover,
+.card-link:active {
+  color: inherit !important;
   text-decoration: none !important;
 }
 
-
-/* Hover opcional: sombra suave o zoom */
-.card-link:hover .service-card {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+/* Refuerza títulos y párrafos dentro del card-link */
+.card-link h3,
+.card-link p {
+  color: #333 !important;
+  text-decoration: none !important;
 }
 
-
+/* --- Efectos hover --- */
+.card-link:hover .service-card,
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-.service-icon {
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
-    padding: 30px;
-    text-align: center;
-}
-
-.service-icon img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-}
-
-/*.service-card h3 {
-    text-align: center;
-    margin: 20px 0;
-    color: #333;
-    font-size: 1.5rem;
-}*/
-
-.service-details {
-    padding: 0 25px 25px;
-    color: #555;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box; /* Ensures padding is included in width calculation */
-    width: 100%; /* Makes it take full width of parent */
-}
+/* --- Carousel indicators --- */
 .carousel-indicators [data-bs-target] {
   width: 12px;
   height: 12px;
