@@ -504,7 +504,7 @@
   font-size: 1.5rem;
 }
 
-.service-card p {
+.service-details p {
   color: #333 !important;   /* fuerza el negro/gris para el texto */
   text-decoration: none !important;
 }
