@@ -489,19 +489,26 @@
   z-index: 2;  /* botón por encima del overlay */
 }
 
-/* --- Ajustes para el enlace envolvente --- */
-.card-link {
-  display: block;
+/* Elimina color azul y subrayado en TODO el card link */
+.card-link,
+.card-link * {
   color: inherit !important;
   text-decoration: none !important;
 }
 
-/* Asegura que los textos dentro del card-link NO adopten azul/subrayado */
-.card-link h3,
-.card-link p {
-  color: inherit !important;        /* usa el color que ya tienes (#333 en el h3, gris en p, etc.) */
-  text-decoration: none !important; 
+/* Refuerza estilos de tus textos dentro del card */
+.service-card h3 {
+  text-align: center;
+  margin: 20px 0;
+  color: #333 !important;   /* fuerza el gris */
+  font-size: 1.5rem;
 }
+
+.service-card p {
+  color: #333 !important;   /* fuerza el negro/gris para el texto */
+  text-decoration: none !important;
+}
+
 
 /* Evita morado en visited */
 .card-link:visited h3,
