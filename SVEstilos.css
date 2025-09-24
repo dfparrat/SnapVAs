@@ -243,6 +243,19 @@
     }
 }
 
+@media (min-width: 769px) {
+    #Mainintro {
+        align-items: stretch; /* Hace que ambas columnas tengan la misma altura */
+    }
+
+    #Mainintro-s2 img {
+        height: 500px;         /* La imagen ocupa toda la altura de su columna */
+        width: auto;          /* Mantiene la proporción */
+        max-height: 100%;     /* Evita desbordes */
+        object-fit: contain;  /* Ajusta sin recortar */
+    }
+}
+
 
 /*===== moresnap section styles =====*/
 #moresnap {
